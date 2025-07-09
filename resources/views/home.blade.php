@@ -125,7 +125,7 @@
       ✅ Dibuat setiap pagi dari bahan berkualitas <br>
       ✅ Tanpa pengawet & bahan kimia berbahaya <br>
       ✅ Rasa lembut dan nikmat untuk seluruh keluarga <br>
-      ✅ Gratis ongkir area Kota Bandung
+      ✅ Gratis ongkir area Kota Bandung!
     </p>
 
     <!-- Gambar Roti -->
