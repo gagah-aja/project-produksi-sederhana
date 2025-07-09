@@ -365,7 +365,6 @@
         </div>
       </div>
     </div>
-nifffaa
     <!-- CARD 3 -->
     <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
       <img src="{{ asset('picture/bakery bahagia.jpg') }}" alt="Bakery Bahagia" style="width: 100%; height: 180px; object-fit: cover;">
