@@ -111,65 +111,30 @@
 
   <header style="display: flex; align-items: center; justify-content: space-between; padding: 5px 40px; background: #fff3e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; box-shadow: 0 4px 12px rgba(141, 110, 99, 0.15); position: sticky; top: 0; z-index: 1000;">
     <div class="logo" style="flex-shrink: 0;">
-      <img src="{{ asset('logo roti update.png') }}" alt="logo" style="height: 50px; filter: drop-shadow(0 1px 1px rgba(141,110,99,0.4));">
+      <img src="{{ asset('logo roti.png') }}" alt="logo" style="height: 50px; filter: drop-shadow(0 1px 1px rgba(141,110,99,0.4));">
     </div>
-   <nav style="display: flex; gap: 30px; font-weight: 700; font-size: 1rem; margin-left: auto;">
-  <a href="#" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
-    BERANDA
-    <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
-  </a>
-  <a href="#input-bahanbaku" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
-    BAHAN BAKU
-    <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
-  </a>
-  <a href="#produksi" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
-    PRODUKSI
-    <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
-  </a>
-  <a href="#stokBahan" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
-    STOK
-    <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
-  </a>
-</nav>
-
-
-    <div class="auth-buttons">
-    @guest
-      <a href="{{ route('login') }}" class="login">Login</a>
-      <a href="{{ route('register') }}" class="register">Register</a>
-    @endguest
-
-    @auth
-    <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
-      @csrf
-      <button type="submit" class="logout-button">
-        Logout
-      </button>
-    </form>
-    
-    <style>
-      .logout-button {
-        background-color: #8d6e63;
-        color: white;
-        border: none;
-        padding: 12px 24px;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 4px 10px rgba(141, 110, 99, 0.25);
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      }
-    
-      .logout-button:hover {
-        background-color: #a67c52;
-        box-shadow: 0 6px 14px rgba(141, 110, 99, 0.35);
-      }
-    </style>
-    
-    @endauth
-  </div>
+    <nav style="display: flex; gap: 30px; font-weight: 700; font-size: 1rem;">
+      <a href="#hero" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
+        BERANDA
+        <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
+      </a>
+      <a href="#input-bahanbaku" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
+        BAHAN BAKU
+        <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
+      </a>
+      <a href="#produksi" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
+        PRODUKSI
+        <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
+      </a>
+      <a href="#stokBahan" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
+        STOK
+        <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
+      </a>
+      <a href="#galery" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
+        GALERY
+        <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
+      </a>
+    </nav>
   </header>
   
   <script>
@@ -259,68 +224,25 @@
     </div>
     
     <!-- Form Input -->
-    <form onsubmit="return  tambahBahanBaku(event)" style="flex: 1 1 350px; display: flex; flex-direction: column; gap: 18px; animation: fadeInRight 1s ease forwards;">
-      <select id="bahanNama" required
-    style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; background-color: white; transition: border-color 0.3s;">
-    <option value="">-- Pilih Bahan Baku --</option>
-    <option value="Tepung">Tepung</option>
-    <option value="Gula">Gula</option>
-    <option value="Ragi">Ragi</option>
-    <option value="Mentega">Mentega</option>
-      </select>
-      <input id="bahanJumlah" type="number" placeholder="Jumlah (misal: 2)" min="0" required
+    <form style="flex: 1 1 350px; display: flex; flex-direction: column; gap: 18px; animation: fadeInRight 1s ease forwards;">
+      <input type="text" placeholder="Nama Bahan Baku" required
         style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
-      <input id="bahanSatuan" type="text" placeholder="Satuan (misal: kg, liter, gram)" required
+      <input type="number" placeholder="Jumlah (misal: 2)" min="0" required
         style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
-
-      <input id="bahanTanggal" type="date" placeholder="Tanggal Pembelian" required
+      <input type="text" placeholder="Satuan (misal: kg, liter, gram)" required
+        style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
+      <input type="number" placeholder="Harga per Satuan (Rp)" min="0" required
+        style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
+      <input type="date" placeholder="Tanggal Pembelian" required
         style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
       <button type="submit" style="padding: 14px 0; background: #8d6e63; color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; cursor: pointer; box-shadow: 0 5px 12px rgba(141,110,99,0.35); transition: background-color 0.3s;">
         Simpan Bahan Baku
       </button>
-      <div id="notifikasiInput"></div>
     </form>
 
   </div>
 </section>
 
-<script>
-  function tambahBahanBaku(event) {
-    event.preventDefault(); // Mencegah reload
-
-    const nama = document.getElementById("bahanNama").value.trim().toLowerCase();
-    const jumlah = parseFloat(document.getElementById("bahanJumlah").value);
-    const notifikasi = document.getElementById("notifikasiInput");
-
-    const bahanMap = {
-      'tepung': 'stokTepung',
-      'gula': 'stokGula',
-      'ragi': 'stokRagi',
-      'mentega': 'stokMentega'
-    };
-
-    if (!bahanMap[nama]) {
-      notifikasi.innerHTML = `<div class="error">❌ Bahan "${nama}" tidak dikenali. Masukkan: tepung, gula, ragi, mentega.</div>`;
-      return false;
-    }
-
-    if (isNaN(jumlah) || jumlah <= 0) {
-      notifikasi.innerHTML = `<div class="error">❌ Jumlah tidak valid.</div>`;
-      return false;
-    }
-
-    const stokElement = document.getElementById(bahanMap[nama]);
-    const stokSekarang = parseFloat(stokElement.textContent);
-    const stokBaru = stokSekarang + jumlah;
-
-    stokElement.textContent = stokBaru.toFixed(2);
-    notifikasi.innerHTML = `<div class="success">✅ Stok ${nama} berhasil ditambahkan sebanyak ${jumlah}.</div>`;
-
-    // Reset form
-    event.target.reset();
-    return false;
-  }
-</script>
 <!-- Section: Proses Produksi dan Hasil Produksi -->
 <section id="produksi" style="padding: 80px 20px; background: linear-gradient(135deg, #fff3e0 0%, #fffaf2 100%); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center;">
@@ -384,81 +306,231 @@
   </h2>
   <div style="max-width: 600px; margin: 0 auto; background: #fff8f5; padding: 30px 40px; border-radius: 20px; box-shadow: 0 8px 20px rgba(141, 110, 99, 0.25);">
     <table style="width: 100%; border-collapse: collapse; font-size: 1rem; color: #5d4037;">
-    <thead>
-  <tr style="background-color: #8d6e63; color: white; font-weight: 700;">
-    <th style="padding: 14px; border: 1.5px solid #b89c81; text-align: left;">Bahan</th>
-    <th style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">Stok (kg)</th>
-    <th style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">Terakhir Update</th>
-  </tr>
-</thead>
-
-     <tbody>
-  <tr>
-    <td style="padding: 14px; border: 1.5px solid #b89c81;">Tepung</td>
-    <td id="stokTepung" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">100</td>
-    <td id="tanggalTepung" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">-</td>
-  </tr>
-  <tr>
-    <td style="padding: 14px; border: 1.5px solid #b89c81;">Gula</td>
-    <td id="stokGula" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">50</td>
-    <td id="tanggalGula" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">-</td>
-  </tr>
-  <tr>
-    <td style="padding: 14px; border: 1.5px solid #b89c81;">Ragi</td>
-    <td id="stokRagi" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">20</td>
-    <td id="tanggalRagi" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">-</td>
-  </tr>
-  <tr>
-    <td style="padding: 14px; border: 1.5px solid #b89c81;">Mentega</td>
-    <td id="stokMentega" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">30</td>
-    <td id="tanggalMentega" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">-</td>
-  </tr>
-</tbody>
-
+      <thead>
+        <tr style="background-color: #8d6e63; color: white; font-weight: 700;">
+          <th style="padding: 14px; border: 1.5px solid #b89c81; text-align: left;">Bahan</th>
+          <th style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">Stok (kg)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 14px; border: 1.5px solid #b89c81;">Tepung</td>
+          <td id="stokTepung" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">100</td>
+        </tr>
+        <tr>
+          <td style="padding: 14px; border: 1.5px solid #b89c81;">Gula</td>
+          <td id="stokGula" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">50</td>
+        </tr>
+        <tr>
+          <td style="padding: 14px; border: 1.5px solid #b89c81;">Ragi</td>
+          <td id="stokRagi" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">20</td>
+        </tr>
+        <tr>
+          <td style="padding: 14px; border: 1.5px solid #b89c81;">Mentega</td>
+          <td id="stokMentega" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">30</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </section>
 
-<script>
-  function tambahBahanBaku(event) {
-    event.preventDefault();
+<section id="galery" style="padding: 40px 20px; background: #fff3e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <h2 style="text-align: center; color: #8d6e63; font-size: 2rem; font-weight: 700; margin-bottom: 30px;">
+    Galeri Toko Roti Rekomendasi
+  </h2>
 
-    const nama = document.getElementById("bahanNama").value;
-    const jumlah = parseFloat(document.getElementById("bahanJumlah").value);
-    const tanggal = document.getElementById("bahanTanggal").value;
-    const notifikasi = document.getElementById("notifikasiInput");
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
+    
+    <!-- CARD 1 -->
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/surya.jpg') }}" alt="Toko Roti Surya" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Toko Roti Surya</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Melati No.10, Bandung</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281234567890" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:toko.surya@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
 
-    if (!nama || isNaN(jumlah) || jumlah <= 0 || !tanggal) {
-      notifikasi.style.color = "#c62828";
-      notifikasi.textContent = "⚠️ Harap lengkapi data dengan benar.";
-      return false;
-    }
+    <!-- CARD 2 -->
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/kenangan.jpg') }}" alt="Roti Kenanga" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Kenanga</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Anggrek No.5, Jakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281122334455" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:kenanga@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+nifffaa
+    <!-- CARD 3 -->
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/bakery bahagia.jpg') }}" alt="Bakery Bahagia" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Bakery Bahagia</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Cendana No.21, Surabaya</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281222233344" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:bahagia@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
 
-    const stokId = "stok" + nama;
-    const tanggalId = "tanggal" + nama;
+    <!-- CARD 4 -->
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/dapur roti.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Dapoer Roti</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Mawar No.8, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/aroma bakery.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Aroma Bakery</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. teratai No.9, jakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/holland bakery.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Hollad Bakery</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. sudirman No.1, Depok</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti o.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti O</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Bugenfil No.5, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti boy.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Boy</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Mawar No.4, Bandung</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/barokah bakery.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Barokah Bakery</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Talaga No.12, Majalengka</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti go.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Go</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Melati No.6, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/kenari bakery.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Kenary Bakery</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Mawar No.2, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti pelangi.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Pelangi</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Kartini No.3, Jakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/bakery harmoni.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Bakery Harmoni</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Jingga No.9, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti murni.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Murni</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Anggrek No.6, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti juara.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Juara</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Kamboja No.19, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti klasik.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Klasik</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Kirana No.5, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
 
-    const stokEl = document.getElementById(stokId);
-    const tanggalEl = document.getElementById(tanggalId);
+  </div>
+</section>
 
-    if (stokEl && tanggalEl) {
-      const stokSebelumnya = parseFloat(stokEl.textContent);
-      const stokBaru = stokSebelumnya + jumlah;
 
-      stokEl.textContent = stokBaru.toFixed(2);
-      tanggalEl.textContent = new Date(tanggal).toLocaleDateString("id-ID");
 
-      notifikasi.style.color = "#256029";
-      notifikasi.textContent = `✅ Bahan ${nama} berhasil ditambahkan sebanyak ${jumlah}`;
-    } else {
-      notifikasi.style.color = "#c62828";
-      notifikasi.textContent = "❌ Nama bahan tidak ditemukan di tabel stok.";
-    }
 
-    // Reset form (optional)
-    event.target.reset();
-    return false;
-  }
-</script>
 
 <script>
   const perRoti = {
