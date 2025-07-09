@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 
+
 Route::get('/', function () {
     return view('home');
 })->middleware('auth');
@@ -13,5 +14,7 @@ Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('regi
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
 
 
