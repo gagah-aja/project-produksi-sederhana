@@ -250,7 +250,6 @@
     <!-- Kiri: Teks & Ilustrasi -->
     <div style="flex: 1 1 400px; animation: fadeInLeft 1s ease forwards;">
       <h2 style="color: #8d6e63; font-size: 2.25rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
-        <img src="{{ asset('roti.png') }}" alt="Ikon Roti" style="width: 40px; height: 40px;">
         Proses Produksi
       </h2>
       <p style="color: #a5673d; font-size: 1.05rem; margin-top: 15px;">
