@@ -64,7 +64,7 @@ Route::post('/menubahan', [MenuBahanController::class, 'store'])->name('menubaha
 Route::get('/menubahan/{id}/edit', [MenuBahanController::class, 'edit'])->name('menubahan.edit');
 Route::put('/menubahan/{id}', [MenuBahanController::class, 'update'])->name('menubahan.update');
 Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name('menubahan.destroy');
-
+ 
     // Menu: Proses Produksi
     Route::get('/produksi', [ProsesProduksiController::class, 'index'])->name('produksi.index');
     Route::get('/produksi/create', [ProsesProduksiController::class, 'create'])->name('produksi.create');
