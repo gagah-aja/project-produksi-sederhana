@@ -8,11 +8,12 @@ class Menu extends Model {
     protected $fillable = ['nama'];
 
    public function bahanBaku()
-    {
+{
     return $this->belongsToMany(BahanBaku::class, 'menu_bahan_bakus')
                 ->withPivot('jumlah', 'satuan')
                 ->withTimestamps();
-    }
+}
+
 
 
     public function produksis() {

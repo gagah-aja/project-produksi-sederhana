@@ -28,8 +28,9 @@ class ReservationController extends Controller
     }
 
     public function index()
-    {
-        $data = Reservation::latest()->get();
-        return view('admin.reservasi.index', compact('data'));
-    }
+{
+    $data = \App\Models\Reservation::latest()->get();
+    return view('admin.reservasi.index', compact('data'));
+}
+
 }
