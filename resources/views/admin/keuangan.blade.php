@@ -7,118 +7,111 @@
         <p class="text-muted">Pantau pemasukan dan pengeluaran dengan mudah.</p>
     </div>
 
-    <!-- Ringkasan Keuangan -->
     <div class="row g-3 mb-4">
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm bg-light-success">
-            <div class="card-body text-success text-center">
-                <h5 class="card-title mb-2">Total Pemasukan</h5>
-                <p class="fs-5 fw-bold">Rp {{ number_format($totalPemasukan, 0, ',', '.') }}</p>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm bg-light-success">
+                <div class="card-body text-success text-center">
+                    <h5 class="card-title mb-2">Total Pemasukan</h5>
+                    <p class="fs-5 fw-bold">Rp {{ number_format($totalPemasukan, 0, ',', '.') }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm bg-light-danger">
+                <div class="card-body text-danger text-center">
+                    <h5 class="card-title mb-2">Total Pengeluaran</h5>
+                    <p class="fs-5 fw-bold">Rp {{ number_format($totalPengeluaran, 0, ',', '.') }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm bg-light-primary">
+                <div class="card-body text-primary text-center">
+                    <h5 class="card-title mb-2">Saldo Saat Ini</h5>
+                    <p class="fs-5 fw-bold">Rp {{ number_format($saldo, 0, ',', '.') }}</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm bg-light-danger">
-            <div class="card-body text-danger text-center">
-                <h5 class="card-title mb-2">Total Pengeluaran</h5>
-                <p class="fs-5 fw-bold">Rp {{ number_format($totalPengeluaran, 0, ',', '.') }}</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm bg-light-primary">
-            <div class="card-body text-primary text-center">
-                <h5 class="card-title mb-2">Saldo Saat Ini</h5>
-                <p class="fs-5 fw-bold">Rp {{ number_format($saldo, 0, ',', '.') }}</p>
-            </div>
-        </div>
-    </div>
-</div>
 
-
-    <!-- Tabel Pemasukan -->
     <div class="card border-0 shadow-sm mb-4">
         <div class="card-header bg-success text-white fw-semibold">
             Tabel Pemasukan
         </div>
         <div class="card-body p-0">
             <table class="table table-bordered mb-0">
-    <thead class="table-light">
-        <tr>
-            <th width="20%">Tanggal</th>
-            <th>Deskripsi</th>
-            <th width="20%">Jumlah (Rp)</th>
-            <th width="15%">Aksi</th>
-        </tr>
-    </thead>
-    <tbody>
-        @forelse ($pemasukan as $data)
-            <tr>
-                <td>{{ $data->tanggal }}</td>
-                <td>{{ $data->deskripsi }}</td>
-                <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
-                <td class="text-center">
-                    <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                    <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-sm btn-danger">Hapus</button>
-                    </form>
-                </td>
-            </tr>
-        @empty
-            <tr>
-                <td colspan="4" class="text-center text-muted">Belum ada data pemasukan.</td>
-            </tr>
-        @endforelse
-    </tbody>
-</table>
-
+                <thead class="table-light">
+                    <tr>
+                        <th width="20%">Tanggal</th>
+                        <th>Deskripsi</th>
+                        <th width="20%">Jumlah (Rp)</th>
+                        <th width="15%">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($pemasukan as $data)
+                        <tr>
+                            <td>{{ $data->tanggal }}</td>
+                            <td>{{ $data->deskripsi }}</td>
+                            <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
+                            <td class="action-buttons"> {{-- Added a class here --}}
+                                <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-danger">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">Belum ada data pemasukan.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <!-- Tabel Pengeluaran -->
     <div class="card border-0 shadow-sm mb-4">
         <div class="card-header bg-danger text-white fw-semibold">
             Tabel Pengeluaran
         </div>
         <div class="card-body p-0">
-           <table class="table table-bordered mb-0">
-    <thead class="table-light">
-        <tr>
-            <th width="20%">Tanggal</th>
-            <th>Deskripsi</th>
-            <th width="20%">Jumlah (Rp)</th>
-            <th width="15%">Aksi</th>
-        </tr>
-    </thead>
-    <tbody>
-        @forelse ($pengeluaran as $data)
-            <tr>
-                <td>{{ $data->tanggal }}</td>
-                <td>{{ $data->deskripsi }}</td>
-                <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
-                <td class="text-center">
-                    <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                    <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-sm btn-danger">Hapus</button>
-                    </form>
-                </td>
-            </tr>
-        @empty
-            <tr>
-                <td colspan="4" class="text-center text-muted">Belum ada data pengeluaran.</td>
-            </tr>
-        @endforelse
-    </tbody>
-</table>
-
+            <table class="table table-bordered mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th width="20%">Tanggal</th>
+                        <th>Deskripsi</th>
+                        <th width="20%">Jumlah (Rp)</th>
+                        <th width="15%">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($pengeluaran as $data)
+                        <tr>
+                            <td>{{ $data->tanggal }}</td>
+                            <td>{{ $data->deskripsi }}</td>
+                            <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
+                            <td class="action-buttons"> {{-- Added a class here --}}
+                                <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-danger">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">Belum ada data pengeluaran.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <!-- Form Tambah Data Keuangan -->
     <div class="card border-0 shadow-sm">
         <div class="card-header bg-secondary text-white fw-semibold">
             Tambah Pemasukan / Pengeluaran
@@ -174,6 +167,14 @@
 
     .table th, .table td {
         vertical-align: middle;
+    }
+
+    /* New CSS for button alignment */
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 8px; /* Adjust gap as needed */
+        align-items: center; /* Vertically align items in the center */
     }
 </style>
 @endsection

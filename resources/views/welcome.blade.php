@@ -188,9 +188,9 @@
     </div>
 
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
-      <img src="pizza.jpg" alt="Pizza" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
-      <h3>Pizza</h3>
-      <p>Rp 50.000</p>
+      <img src="rawon.jpg" alt="Rawon" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <h3>Rawon</h3>
+      <p>Rp 30.000</p>
       <p style="color: #888; font-size: 0.9rem;">Stok: 20 porsi</p>
       <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
         <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Pizza" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
