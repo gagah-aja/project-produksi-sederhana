@@ -259,25 +259,63 @@
     </div>
     
     <!-- Form Input -->
-    <form style="flex: 1 1 350px; display: flex; flex-direction: column; gap: 18px; animation: fadeInRight 1s ease forwards;">
-      <input type="text" placeholder="Nama Bahan Baku" required
+    <form onsubmit="return  tambahBahanBaku(event)" style="flex: 1 1 350px; display: flex; flex-direction: column; gap: 18px; animation: fadeInRight 1s ease forwards;">
+      <input id="bahanNama" type="text" placeholder="Nama Bahan Baku" required
         style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
-      <input type="number" placeholder="Jumlah (misal: 2)" min="0" required
+      <input id="bahanJumlah" type="number" placeholder="Jumlah (misal: 2)" min="0" required
         style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
-      <input type="text" placeholder="Satuan (misal: kg, liter, gram)" required
+      <input id="bahanSatuan" type="text" placeholder="Satuan (misal: kg, liter, gram)" required
         style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
-      <input type="number" placeholder="Harga per Satuan (Rp)" min="0" required
+      <input id="bahanHarga" type="number" placeholder="Harga per Satuan (Rp)" min="0" required
         style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
-      <input type="date" placeholder="Tanggal Pembelian" required
+      <input id="bahanTanggal" type="date" placeholder="Tanggal Pembelian" required
         style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
       <button type="submit" style="padding: 14px 0; background: #8d6e63; color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; cursor: pointer; box-shadow: 0 5px 12px rgba(141,110,99,0.35); transition: background-color 0.3s;">
         Simpan Bahan Baku
       </button>
+      <div id="notifikasiInput"></div>
     </form>
 
   </div>
 </section>
 
+<script>
+  function tambahBahanBaku(event) {
+    event.preventDefault(); // Mencegah reload
+
+    const nama = document.getElementById("bahanNama").value.trim().toLowerCase();
+    const jumlah = parseFloat(document.getElementById("bahanJumlah").value);
+    const notifikasi = document.getElementById("notifikasiInput");
+
+    const bahanMap = {
+      'tepung': 'stokTepung',
+      'gula': 'stokGula',
+      'ragi': 'stokRagi',
+      'mentega': 'stokMentega'
+    };
+
+    if (!bahanMap[nama]) {
+      notifikasi.innerHTML = `<div class="error">❌ Bahan "${nama}" tidak dikenali. Masukkan: tepung, gula, ragi, mentega.</div>`;
+      return false;
+    }
+
+    if (isNaN(jumlah) || jumlah <= 0) {
+      notifikasi.innerHTML = `<div class="error">❌ Jumlah tidak valid.</div>`;
+      return false;
+    }
+
+    const stokElement = document.getElementById(bahanMap[nama]);
+    const stokSekarang = parseFloat(stokElement.textContent);
+    const stokBaru = stokSekarang + jumlah;
+
+    stokElement.textContent = stokBaru.toFixed(2);
+    notifikasi.innerHTML = `<div class="success">✅ Stok ${nama} berhasil ditambahkan sebanyak ${jumlah}.</div>`;
+
+    // Reset form
+    event.target.reset();
+    return false;
+  }
+</script>
 <!-- Section: Proses Produksi dan Hasil Produksi -->
 <section id="produksi" style="padding: 80px 20px; background: linear-gradient(135deg, #fff3e0 0%, #fffaf2 100%); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center;">
