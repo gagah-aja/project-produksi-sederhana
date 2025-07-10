@@ -107,7 +107,7 @@
 
 <header>
   <div class="logo">
-    <img src="{{ asset('assets/img/logo-moobi.png') }}" alt="Moobi">
+    <img src="{{ asset(logo.png') }}" alt="logo">
   </div>
   <nav>
     <a href="#">BERANDA</a>
