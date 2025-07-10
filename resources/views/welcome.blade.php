@@ -220,22 +220,43 @@
 </section>
 
 <!-- Footer -->
-<footer style="background-color: #a1887f; padding: 30px 20px; color: white; text-align: center; display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
+<footer style="background-color: #a1887f; padding: 30px 20px; color: white; text-align: center; display: flex; justify-content: center; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
   <div style="text-align: left; max-width: 300px;">
+    <h3>Contact Us</h3>
     <p>Jl. Kuliner No. 88, Jakarta</p>
     <p>📞 (021) 1234 5678</p>
     <p style="margin: 5px 0;">
       📧 <a href="mailto:info@rasanusantara.id" style="color: white; text-decoration: underline;">info@rasanusantara.id</a>
     </p>
   </div>
-  <div>
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18..." 
-      width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+
+  <div style="text-align: left;">
+    <h3>Follow Us</h3>
+    <div style="display: flex; gap: 15px; margin-top: 10px;">
+      <a href="https://www.facebook.com/rasanusantara" target="_blank" style="color: white; text-decoration: none;">
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/3188300475944206305" alt="Facebook" style="vertical-align: middle; width: 24px; height: 24px;">
+      </a>
+      <a href="https://www.instagram.com/rasanusantara" target="_blank" style="color: white; text-decoration: none;">
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/8632109810963997992" alt="Instagram" style="vertical-align: middle; width: 24px; height: 24px;">
+      </a>
+      <a href="https://www.twitter.com/rasanusantara" target="_blank" style="color: white; text-decoration: none;">
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/7088785153312675864" alt="Twitter" style="vertical-align: middle; width: 24px; height: 24px;">
+      </a>
+    </div>
+    <div style="margin-top: 20px;">
+      <h3>Quick Links</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 5px;"><a href="/menu" style="color: white; text-decoration: underline;">Menu</a></li>
+        <li style="margin-bottom: 5px;"><a href="/reservasi" style="color: white; text-decoration: underline;">Reservasi</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.368728876495!2d106.8271317147699!3d-6.21609129549929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f430c5e7b579%3A0x6b7b7b7b7b7b7b7b!2sJakarta%2C%20Indonesia!5e0!3m2!1sen!2sid!4v1678888888888!5m2!1sen!2sid"
+      width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
     </iframe>
-    <p>&copy; 2025 Restoran Rasa Nusantara</p>
+    <p style="margin-top: 10px;">© 2025 Restoran Rasa Nusantara</p>
   </div>
 </footer>
-
-</body>
-</html>
