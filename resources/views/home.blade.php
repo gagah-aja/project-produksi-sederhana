@@ -114,7 +114,7 @@
       <img src="{{ asset('logo roti update.png') }}" alt="logo" style="height: 50px; filter: drop-shadow(0 1px 1px rgba(141,110,99,0.4));">
     </div>
    <nav style="display: flex; gap: 30px; font-weight: 700; font-size: 1rem; margin-left: auto;">
-  <a href="#hero" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
+  <a href="#" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
     BERANDA
     <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
   </a>
