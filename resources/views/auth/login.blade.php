@@ -111,7 +111,7 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card shadow">
-        <div class="card-header text-center">Login Admin</div>
+        <div class="card-header text-center">🔒 Login Admin</div>
         <div class="card-body">
           @if ($errors->any())
             <div class="alert alert-danger">{{ $errors->first() }}</div>
@@ -119,6 +119,7 @@
           @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
           @endif
+
           <form method="POST" action="{{ route('admin.login') }}">
             @csrf
             <div class="mb-3">
@@ -131,7 +132,6 @@
             </div>
             <button type="submit" class="btn btn-primary w-100">Login</button>
           </form>
-          <p class="mt-3 text-center">Belum punya akun? <a href="{{ route('admin.register.form') }}">Daftar</a></p>
         </div>
       </div>
     </div>
