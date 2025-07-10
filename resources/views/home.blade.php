@@ -2,144 +2,136 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RotiMulia - Roti Fresh Setiap Hari</title>
+  <title>Moobi Style Landing Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
+    * { box-sizing: border-box; }
     body {
-      background-color: #fff8e1;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
       color: #333;
     }
 
     header {
-      background-color: #ffb74d;
-      padding: 40px 20px;
-      text-align: center;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
 
-    header h1 {
-      font-size: 2.8rem;
-      color: #4e342e;
+    .logo img {
+      height: 40px;
     }
 
-    header p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-    }
-
-    .cta-button {
-      display: inline-block;
-      margin-top: 25px;
-      background-color: #d84315;
-      color: white;
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-
-    .cta-button:hover {
-      background-color: #bf360c;
-    }
-
-    .section {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    .section p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 0 auto 30px;
-    }
-
-    .gallery {
+    nav {
       display: flex;
       justify-content: center;
+      flex: 1;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #6b46c1;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #4c2ca0;
+    }
+
+    .hero {
+      display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 30px;
+      padding: 60px 40px;
+      align-items: center;
+      background: #f8f8ff;
     }
 
-    .gallery img {
-      width: 300px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
     }
 
-    .gallery img:hover {
-      transform: scale(1.05);
+    .hero-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-text span {
+      color: #9f7aea;
+    }
+
+    .hero-text p {
+      color: #666;
+      max-width: 600px;
+    }
+
+    .hero-img {
+      flex: 1;
+      text-align: center;
+      min-width: 300px;
+    }
+
+    .hero-img img {
+      max-width: 100%;
+      height: auto;
     }
 
     footer {
-      background-color: #ffe0b2;
       text-align: center;
       padding: 20px;
-      font-size: 0.9rem;
+      background: #f0f0f0;
+      margin-top: 40px;
+      font-size: 14px;
       color: #666;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      .cta-button {
-        padding: 12px 24px;
-        font-size: 1rem;
-      }
-
-      .gallery img {
-        width: 90%;
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 10px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header>
-    <h1>🍞 RotiMulia</h1>
-    <p>Roti lembut, fresh setiap hari, tanpa bahan pengawet.</p>
-    <a href="https://wa.me/6281234567890" class="cta-button">Pesan Sekarang via WhatsApp</a>
-  </header>
+<header>
+  <div class="logo">
+    <img src="{{ asset('assets/img/logo-moobi.png') }}" alt="Moobi">
+  </div>
+  <nav>
+    <a href="#">BERANDA</a>
+    <a href="#">FITUR</a>
+    <a href="#">PRODUK</a>
+    <a href="#">HARGA</a>
+    <a href="#">BLOG</a>
+    <a href="#">FAQ</a>
+  </nav>
+</header>
 
-  <!-- Why Section -->
-  <section class="section">
-    <h2>Kenapa Pilih RotiMulia?</h2>
-    <p>
-      ✅ Dibuat setiap pagi dari bahan berkualitas <br>
-      ✅ Tanpa pengawet & bahan kimia berbahaya <br>
-      ✅ Rasa lembut dan nikmat untuk seluruh keluarga <br>
-      ✅ Gratis ongkir area Kota Bandung!
-    </p>
+<section class="hero">
+  <div class="hero-text">
+    <h1>Menu <span>spesifik</span> dan adaptif <br> <span>sesuai</span> bidang bisnis</h1>
+    <p>Menu moobi dirancang dapat menyesuaikan secara spesifik untuk kategori bidang bisnis seperti Retail, Food, Salon, Service, Logistic, Hotel, Medis, Pendidikan, Sekolah, Travel, dan Kontraktor.</p>
+  </div>
+  <div class="hero-img">
+    <img src="{{ asset('roti.png') }}" alt="Ilustrasi Sistem" width="400">
+  </div>
+</section>
 
-    <!-- Gambar Roti -->
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484f5?auto=format&fit=crop&w=600&q=80" alt="Roti 1">
-      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=600&q=80" alt="Roti 2">
-      <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80" alt="Roti 3">
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 RotiMulia. Made with ❤️ untuk pecinta roti sehat.
-  </footer>
+<footer>
+  &copy; {{ date('Y') }} Moobi-style UMKM App. All rights reserved.
+</footer>
 
 </body>
 </html>
