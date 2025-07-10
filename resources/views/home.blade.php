@@ -388,7 +388,7 @@
       `;
 
       hasilSection.style.display = "block";
-
+ 
       notif.innerText = `✅ Berhasil memproduksi ${jumlah} roti.`;
       notif.style.backgroundColor = "#c8e6c9";
       notif.style.color = "#2e7d32";
