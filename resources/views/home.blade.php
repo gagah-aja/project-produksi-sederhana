@@ -2,10 +2,14 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Moobi Style Landing Page</title>
+  <title>RotiMulia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     * { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -36,14 +40,14 @@
 
     nav a {
       text-decoration: none;
-      color: #6b46c1;
+      color: #a5673d;
       font-weight: bold;
       font-size: 16px;
       transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #4c2ca0;
+      color: #a5673d;
     }
 
     .hero {
@@ -65,7 +69,7 @@
     }
 
     .hero-text span {
-      color: #9f7aea;
+      color: #a5673d;
     }
 
     .hero-text p {
@@ -110,8 +114,8 @@
     <img src="{{ asset('logo roti.png') }}" alt="logo">
   </div>
   <nav>
-    <a href="#">BERANDA</a>
-    <a href="#">FITUR</a>
+    <a href="#hero">BERANDA</a>
+    <a href="#input-bahanbaku">BAHAN BAKU</a>
     <a href="#">PRODUK</a>
     <a href="#">HARGA</a>
     <a href="#">BLOG</a>
@@ -121,16 +125,46 @@
 
 <section class="hero">
   <div class="hero-text">
-    <h1>Menu <span>spesifik</span> dan adaptif <br> <span>sesuai</span> bidang bisnis</h1>
-    <p>Menu moobi dirancang dapat menyesuaikan secara spesifik untuk kategori bidang bisnis seperti Retail, Food, Salon, Service, Logistic, Hotel, Medis, Pendidikan, Sekolah, Travel, dan Kontraktor.</p>
+    <h1><span>RotiMulia</span> – Rasa <br> yang <span>autentik</span> dan berkualitas</h1>
+    <p>RotiMulia menghadirkan berbagai pilihan roti dengan cita rasa khas dan bahan baku pilihan. Cocok untuk kebutuhan harian, acara keluarga, maupun pesanan dalam jumlah besar untuk bisnis Anda.</p>
   </div>
   <div class="hero-img">
-    <img src="{{ asset('roti.png') }}" alt="Ilustrasi Sistem" width="400">
+    <img src="{{ asset('roti.png') }}" alt="Ilustrasi RotiMulia" width="400">
   </div>
 </section>
 
+
+<section id="input-bahanbaku" style="padding: 60px 40px; background: #f8f8ff;">
+  <h2 style="text-align: center; color: #a5673d; font-size: 2rem;">
+    Input Bahan Baku Roti
+  </h2>
+
+  <div style="display: flex; flex-wrap: wrap; max-width: 1000px; margin: 40px auto; align-items: center; gap: 40px;">
+    
+    <!-- Gambar Roti -->
+    <div style="flex: 1; text-align: center; min-width: 300px;">
+      <img src="{{ asset('tiii.jpg') }}" alt="Ilustrasi Bahan Baku Roti" style="max-width: 100%; height: auto;">
+      <p style="color: #a5673d; font-style: italic; margin-top: 10px;">Gunakan bahan berkualitas untuk rasa terbaik</p>
+    </div>
+    
+    <!-- Form Input -->
+    <form style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 20px;">
+      <input type="text" placeholder="Nama Bahan Baku" style="padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+      <input type="number" placeholder="Jumlah (misal: 2)" style="padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+      <input type="text" placeholder="Satuan (misal: kg, liter, gram)" style="padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+      <input type="number" placeholder="Harga per Satuan (Rp)" style="padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+      <input type="date" placeholder="Tanggal Pembelian" style="padding: 12px; border: 1px solid #ccc; border-radius: 6px;">
+      <button type="submit" style="padding: 12px; background: #a5673d; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+        Simpan Bahan Baku
+      </button>
+    </form>
+
+  </div>
+</section>
+
+
 <footer>
-  &copy; {{ date('Y') }} Moobi-style UMKM App. All rights reserved.
+  &copy; {{ date('Y') }} Roti Mulia App. All rights reserved.
 </footer>
 
 </body>
