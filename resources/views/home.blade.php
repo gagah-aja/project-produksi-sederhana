@@ -107,7 +107,7 @@
 
 <header>
   <div class="logo">
-    <img src="{{ asset(logo.png') }}" alt="logo">
+    <img src="{{ asset('logo roti.png') }}" alt="logo">
   </div>
   <nav>
     <a href="#">BERANDA</a>
