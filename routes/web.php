@@ -45,6 +45,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     // Keuangan
     Route::get('/keuangan', [FinanceController::class, 'index'])->name('finances.index');
     Route::post('/keuangan', [FinanceController::class, 'store'])->name('finances.store');
+    Route::get('/keuangan/{id}', [FinanceController::class, 'show'])->name('finances.show');
     Route::get('/keuangan/{id}/edit', [FinanceController::class, 'edit'])->name('finances.edit');
     Route::put('/keuangan/{id}', [FinanceController::class, 'update'])->name('finances.update');
     Route::delete('/keuangan/{id}', [FinanceController::class, 'destroy'])->name('finances.destroy');

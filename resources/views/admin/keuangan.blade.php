@@ -7,7 +7,6 @@
         <p class="text-muted">Pantau pemasukan dan pengeluaran dengan mudah.</p>
     </div>
 
-    <!-- Ringkasan Keuangan -->
     <div class="row g-3 mb-4">
         <div class="col-md-4">
             <div class="card border-0 shadow-sm bg-light-success">
@@ -35,7 +34,6 @@
         </div>
     </div>
 
-    <!-- Tabel Pemasukan -->
     <div class="card border-0 shadow-sm mb-4">
         <div class="card-header bg-success text-white fw-semibold">
             Tabel Pemasukan
@@ -56,15 +54,17 @@
                         <td>{{ $data->tanggal }}</td>
                         <td>{{ $data->deskripsi }}</td>
                         <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
-                        <td class="text-center">
+                        {{-- START PERBAIKAN DI SINI --}}
+                        <td class="text-center d-flex justify-content-center align-items-center gap-2">
                             <a href="{{ route('finances.show', $data->id) }}" class="btn btn-sm btn-info">Detail</a>
                             <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                            <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                            <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline m-0" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-sm btn-danger">Hapus</button>
+                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                             </form>
                         </td>
+                        {{-- END PERBAIKAN DI SINI --}}
                     </tr>
                     @empty
                     <tr>
@@ -76,7 +76,6 @@
         </div>
     </div>
 
-    <!-- Tabel Pengeluaran -->
     <div class="card border-0 shadow-sm mb-4">
         <div class="card-header bg-danger text-white fw-semibold">
             Tabel Pengeluaran
@@ -95,17 +94,19 @@
                     @forelse ($pengeluaran as $data)
                     <tr>
                         <td>{{ $data->tanggal }}</td>
-                        <td>{{ $data->deskripsi }}</td>
+                        <td>{{ $data->tanggal }}</td>
                         <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
-                        <td class="text-center">
+                        {{-- START PERBAIKAN DI SINI --}}
+                        <td class="text-center d-flex justify-content-center align-items-center gap-2">
                             <a href="{{ route('finances.show', $data->id) }}" class="btn btn-sm btn-info">Detail</a>
                             <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                            <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                            <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline m-0" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-sm btn-danger">Hapus</button>
+                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                             </form>
                         </td>
+                        {{-- END PERBAIKAN DI SINI --}}
                     </tr>
                     @empty
                     <tr>
@@ -117,7 +118,6 @@
         </div>
     </div>
 
-    <!-- Form Tambah Data Keuangan -->
     <div class="card border-0 shadow-sm">
         <div class="card-header bg-secondary text-white fw-semibold">
             Tambah Pemasukan / Pengeluaran
@@ -173,6 +173,12 @@
 
     .table th, .table td {
         vertical-align: middle;
+    }
+
+    /* Tambahan untuk menyelaraskan tombol aksi */
+    .table .btn-sm {
+        padding: .25rem .5rem; /* Menyesuaikan padding agar tombol lebih kompak */
+        font-size: .8rem; /* Menyesuaikan ukuran font agar tombol lebih kecil */
     }
 </style>
 @endsection
