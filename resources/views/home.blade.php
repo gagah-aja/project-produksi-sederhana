@@ -109,28 +109,29 @@
 </head>
 <body>
 
-  <header style="display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: #fff3e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; box-shadow: 0 4px 12px rgba(141, 110, 99, 0.15); position: sticky; top: 0; z-index: 1000;">
+  <header style="display: flex; align-items: center; justify-content: space-between; padding: 5px 40px; background: #fff3e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; box-shadow: 0 4px 12px rgba(141, 110, 99, 0.15); position: sticky; top: 0; z-index: 1000;">
     <div class="logo" style="flex-shrink: 0;">
       <img src="{{ asset('logo roti.png') }}" alt="logo" style="height: 50px; filter: drop-shadow(0 1px 1px rgba(141,110,99,0.4));">
     </div>
-    <nav style="display: flex; gap: 30px; font-weight: 700; font-size: 1rem;">
-      <a href="#hero" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
-        BERANDA
-        <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
-      </a>
-      <a href="#input-bahanbaku" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
-        BAHAN BAKU
-        <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
-      </a>
-      <a href="#produksi" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
-        PRODUKSI
-        <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
-      </a>
-      <a href="#stokBahan" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
-        STOK
-        <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
-      </a>
-    </nav>
+   <nav style="display: flex; gap: 30px; font-weight: 700; font-size: 1rem; margin-left: auto;">
+  <a href="#hero" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
+    BERANDA
+    <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
+  </a>
+  <a href="#input-bahanbaku" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
+    BAHAN BAKU
+    <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
+  </a>
+  <a href="#produksi" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
+    PRODUKSI
+    <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
+  </a>
+  <a href="#stokBahan" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
+    STOK
+    <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
+  </a>
+</nav>
+
 
     <div class="auth-buttons">
     @guest
@@ -254,54 +255,65 @@
 </section>
 
 <!-- Section: Proses Produksi dan Hasil Produksi -->
-<section id="produksi" style="padding: 60px 20px; background: #fff3e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-  <h2 style="text-align: center; color: #8d6e63; font-size: 2.25rem; font-weight: 700; margin-bottom: 40px;">
-    🔧 Proses Produksi
-  </h2>
-  <p style="text-align: center; color: #a5673d; max-width: 600px; margin: 0 auto 40px; font-size: 1rem;">
-    Masukkan jumlah roti yang ingin diproduksi. Sistem akan otomatis mengurangi stok bahan baku dan mencatat hasil produksinya.
-  </p>
+<section id="produksi" style="padding: 80px 20px; background: linear-gradient(135deg, #fff3e0 0%, #fffaf2 100%); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center;">
+    
+    <!-- Kiri: Teks & Ilustrasi -->
+    <div style="flex: 1 1 400px; animation: fadeInLeft 1s ease forwards;">
+      <h2 style="color: #8d6e63; font-size: 2.25rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+        <img src="{{ asset('roti.png') }}" alt="Ikon Roti" style="width: 40px; height: 40px;">
+        Proses Produksi
+      </h2>
+      <p style="color: #a5673d; font-size: 1.05rem; margin-top: 15px;">
+        Masukkan jumlah roti yang ingin diproduksi. Sistem akan otomatis mengurangi stok bahan baku dan mencatat hasil produksinya.
+      </p>
+      <img src="{{ asset('picture/rti.jpg') }}" alt="Ilustrasi Proses" style="margin-top: 30px; width: 100%; max-width: 300px; border-radius: 16px; box-shadow: 0 5px 15px rgba(141, 110, 99, 0.2);">
+    </div>
 
-  <div style="max-width: 600px; margin: 0 auto; background: #fff8f5; padding: 30px 40px; border-radius: 20px; box-shadow: 0 8px 20px rgba(141, 110, 99, 0.25);">
-    <label for="jumlahProduksi" style="font-weight: 700; display: block; margin-bottom: 15px; font-size: 1.1rem; color: #5d4037;">
-      Jumlah Produksi Roti:
-    </label>
-    <input type="number" id="jumlahProduksi" placeholder="Contoh: 100" min="0" required
-      style="width: 100%; padding: 14px 16px; font-size: 1rem; border-radius: 8px; border: 1.5px solid #b89c81; color: #5d4037; box-sizing: border-box; transition: border-color 0.3s;">
+    <!-- Kanan: Form -->
+    <div style="flex: 1 1 400px; background: #fff8f5; padding: 30px 40px; border-radius: 20px; box-shadow: 0 8px 20px rgba(141, 110, 99, 0.25); animation: fadeInRight 1s ease forwards;">
+      <label for="jumlahProduksi" style="font-weight: 700; display: block; margin-bottom: 15px; font-size: 1.1rem; color: #5d4037;">
+        Jumlah Produksi Roti:
+      </label>
+      <input type="number" id="jumlahProduksi" placeholder="Contoh: 100" min="0" required
+        style="width: 100%; padding: 14px 16px; font-size: 1rem; border-radius: 8px; border: 1.5px solid #b89c81; color: #5d4037; transition: border-color 0.3s;">
 
-    <button onclick="prosesProduksi()"
-      style="margin-top: 30px; background: #8d6e63; color: white; padding: 14px 0; width: 100%; font-size: 1.1rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 5px 12px rgba(141, 110, 99, 0.35); transition: background-color 0.3s;">
-      Mulai Produksi
-    </button>
+      <button onclick="prosesProduksi()"
+        style="margin-top: 30px; background: #8d6e63; color: white; padding: 14px 0; width: 100%; font-size: 1.1rem; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 5px 12px rgba(141, 110, 99, 0.35); transition: background-color 0.3s;">
+        Mulai Produksi
+      </button>
 
-    <div id="notifikasiProduksi" style="display: none; margin-top: 25px; padding: 15px; border-radius: 8px; font-size: 1rem; color: #5d4037;"></div>
+      <div id="notifikasiProduksi" style="display: none; margin-top: 25px; padding: 15px; border-radius: 8px; font-size: 1rem; color: #5d4037;"></div>
+    </div>
+  </div>
 
-    <div id="hasilProduksiSection" style="margin-top: 50px; display: none;">
-      <h3 style="font-size: 1.5rem; margin-bottom: 25px; color: #8d6e63;">
-        📦 Hasil Produksi Hari Ini
-      </h3>
-      <div style="overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; font-size: 1rem; color: #5d4037;">
-          <thead>
-            <tr style="background-color: #8d6e63; color: white;">
-              <th style="padding: 14px; border: 1.5px solid #b89c81;">Tanggal</th>
-              <th style="padding: 14px; border: 1.5px solid #b89c81;">Jumlah Roti</th>
-              <th style="padding: 14px; border: 1.5px solid #b89c81;">Tepung (kg)</th>
-              <th style="padding: 14px; border: 1.5px solid #b89c81;">Gula (kg)</th>
-              <th style="padding: 14px; border: 1.5px solid #b89c81;">Ragi (kg)</th>
-              <th style="padding: 14px; border: 1.5px solid #b89c81;">Mentega (kg)</th>
-            </tr>
-          </thead>
-          <tbody id="tabelHasilProduksi"></tbody>
-        </table>
-      </div>
+  <!-- Hasil Produksi -->
+  <div id="hasilProduksiSection" style="margin-top: 60px; display: none;">
+    <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 30px; color: #8d6e63;">
+      Hasil Produksi Hari Ini
+    </h3>
+    <div style="overflow-x: auto; max-width: 1000px; margin: 0 auto;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 1rem; color: #5d4037;">
+        <thead>
+          <tr style="background-color: #8d6e63; color: white;">
+            <th style="padding: 14px; border: 1.5px solid #b89c81;">Tanggal</th>
+            <th style="padding: 14px; border: 1.5px solid #b89c81;">Jumlah Roti</th>
+            <th style="padding: 14px; border: 1.5px solid #b89c81;">Tepung (kg)</th>
+            <th style="padding: 14px; border: 1.5px solid #b89c81;">Gula (kg)</th>
+            <th style="padding: 14px; border: 1.5px solid #b89c81;">Ragi (kg)</th>
+            <th style="padding: 14px; border: 1.5px solid #b89c81;">Mentega (kg)</th>
+          </tr>
+        </thead>
+        <tbody id="tabelHasilProduksi"></tbody>
+      </table>
     </div>
   </div>
 </section>
 
+
 <section id="stokBahan" style="padding: 60px 20px; background: #fff3e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <h2 style="text-align: center; color: #8d6e63; font-size: 2.25rem; font-weight: 700; margin-bottom: 40px;">
-    📦 Stok Bahan Baku
+    Stok Bahan Baku
   </h2>
   <div style="max-width: 600px; margin: 0 auto; background: #fff8f5; padding: 30px 40px; border-radius: 20px; box-shadow: 0 8px 20px rgba(141, 110, 99, 0.25);">
     <table style="width: 100%; border-collapse: collapse; font-size: 1rem; color: #5d4037;">
@@ -335,14 +347,6 @@
 
 
 <script>
-  // Simulasi stok awal
-  let stok = {
-    tepung: 100, // kg
-    gula: 50,
-    ragi: 20,
-    mentega: 30
-  };
-
   const perRoti = {
     tepung: 0.05,
     gula: 0.02,
@@ -359,13 +363,19 @@
     notif.style.display = "none";
 
     if (isNaN(jumlah) || jumlah <= 0) {
-      notif.innerText = "⚠️ Masukkan jumlah produksi yang valid.";
-      notif.style.backgroundColor = "#ffcdd2";
-      notif.style.color = "#b71c1c";
-      notif.style.display = "block";
+      tampilkanNotifikasi("⚠️ Masukkan jumlah produksi yang valid.", "gagal");
       return;
     }
 
+    // Ambil stok saat ini dari elemen HTML
+    let stok = {
+      tepung: parseFloat(document.getElementById('stokTepung').textContent),
+      gula: parseFloat(document.getElementById('stokGula').textContent),
+      ragi: parseFloat(document.getElementById('stokRagi').textContent),
+      mentega: parseFloat(document.getElementById('stokMentega').textContent)
+    };
+
+    // Hitung kebutuhan
     const kebutuhan = {
       tepung: jumlah * perRoti.tepung,
       gula: jumlah * perRoti.gula,
@@ -373,78 +383,28 @@
       mentega: jumlah * perRoti.mentega
     };
 
-    // Cek stok
-    if (
-      stok.tepung >= kebutuhan.tepung &&
-      stok.gula >= kebutuhan.gula &&
-      stok.ragi >= kebutuhan.ragi &&
-      stok.mentega >= kebutuhan.mentega
-    ) {
-      // Kurangi stok
-      stok.tepung -= kebutuhan.tepung;
-      stok.gula -= kebutuhan.gula;
-      stok.ragi -= kebutuhan.ragi;
-      stok.mentega -= kebutuhan.mentega;
-
-      // Tanggal hari ini
-      const today = new Date().toLocaleDateString('id-ID');
-
-      // Tambahkan baris hasil produksi
-      tabel.innerHTML += `
-        <tr>
-          <td style="padding: 10px; border: 1px solid #ccc;">${today}</td>
-          <td style="padding: 10px; border: 1px solid #ccc;">${jumlah}</td>
-          <td style="padding: 10px; border: 1px solid #ccc;">${stok.tepung.toFixed(2)}</td>
-          <td style="padding: 10px; border: 1px solid #ccc;">${stok.gula.toFixed(2)}</td>
-          <td style="padding: 10px; border: 1px solid #ccc;">${stok.ragi.toFixed(2)}</td>
-          <td style="padding: 10px; border: 1px solid #ccc;">${stok.mentega.toFixed(2)}</td>
-        </tr>
-      `;
-
-      hasilSection.style.display = "block";
- 
-      notif.innerText = `✅ Berhasil memproduksi ${jumlah} roti.`;
-      notif.style.backgroundColor = "#c8e6c9";
-      notif.style.color = "#2e7d32";
-      notif.style.display = "block";
-
-    } else {
-      notif.innerText = "❌ Stok bahan tidak mencukupi untuk produksi.";
-      notif.style.backgroundColor = "#ffcdd2";
-      notif.style.color = "#b71c1c";
-      notif.style.display = "block";
-    }
-  }
-</script>
-
-<script>
-    // Ambil stok saat ini
-    const stok = {
-      tepung: parseFloat(document.getElementById('stokTepung').textContent),
-      gula: parseFloat(document.getElementById('stokGula').textContent),
-      ragi: parseFloat(document.getElementById('stokRagi').textContent),
-      mentega: parseFloat(document.getElementById('stokMentega').textContent)
-    };
-
-    // Cek apakah stok cukup
+    // Cek stok cukup
     for (let bahan in kebutuhan) {
       if (kebutuhan[bahan] > stok[bahan]) {
-        tampilkanNotifikasi(`Stok ${bahan} tidak cukup untuk produksi.`, "gagal");
+        tampilkanNotifikasi(`❌ Stok ${bahan} tidak cukup untuk ${jumlah} roti.`, "gagal");
         return;
       }
     }
 
-    // Kurangi stok
-    document.getElementById('stokTepung').textContent = (stok.tepung - kebutuhan.tepung).toFixed(2);
-    document.getElementById('stokGula').textContent = (stok.gula - kebutuhan.gula).toFixed(2);
-    document.getElementById('stokRagi').textContent = (stok.ragi - kebutuhan.ragi).toFixed(2);
-    document.getElementById('stokMentega').textContent = (stok.mentega - kebutuhan.mentega).toFixed(2);
+    // Kurangi stok dan tampilkan ke HTML
+    stok.tepung -= kebutuhan.tepung;
+    stok.gula -= kebutuhan.gula;
+    stok.ragi -= kebutuhan.ragi;
+    stok.mentega -= kebutuhan.mentega;
 
-    // Tambahkan data ke tabel hasil produksi
-    const tabel = document.getElementById('tabelHasilProduksi');
+    document.getElementById('stokTepung').textContent = stok.tepung.toFixed(2);
+    document.getElementById('stokGula').textContent = stok.gula.toFixed(2);
+    document.getElementById('stokRagi').textContent = stok.ragi.toFixed(2);
+    document.getElementById('stokMentega').textContent = stok.mentega.toFixed(2);
+
+    // Tambahkan ke tabel hasil produksi
+    const tanggal = new Date().toLocaleDateString("id-ID");
     const row = tabel.insertRow();
-    const tanggal = new Date().toLocaleDateString();
-
     row.innerHTML = `
       <td style="padding: 10px; border: 1px solid #ccc;">${tanggal}</td>
       <td style="padding: 10px; border: 1px solid #ccc;">${jumlah}</td>
@@ -454,13 +414,10 @@
       <td style="padding: 10px; border: 1px solid #ccc;">${kebutuhan.mentega.toFixed(2)}</td>
     `;
 
-    // Tampilkan hasil produksi
-    document.getElementById('hasilProduksiSection').style.display = 'block';
-
-    tampilkanNotifikasi(`Produksi ${jumlah} roti berhasil diproses.`, "sukses");
+    hasilSection.style.display = "block";
+    tampilkanNotifikasi(`✅ Produksi ${jumlah} roti berhasil diproses.`, "sukses");
   }
 
-  // Fungsi tampilkan notifikasi
   function tampilkanNotifikasi(pesan, tipe) {
     const notif = document.getElementById("notifikasiProduksi");
     notif.style.display = "block";
