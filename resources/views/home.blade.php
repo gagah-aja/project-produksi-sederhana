@@ -140,10 +140,34 @@
     @endguest
 
     @auth
-      <form action="{{ route('logout') }}" method="POST">
-        @csrf
-        <button type="submit" class="logout">Logout</button>
-      </form>
+    <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
+      @csrf
+      <button type="submit" class="logout-button">
+        Logout
+      </button>
+    </form>
+    
+    <style>
+      .logout-button {
+        background-color: #8d6e63;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 10px rgba(141, 110, 99, 0.25);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+    
+      .logout-button:hover {
+        background-color: #a67c52;
+        box-shadow: 0 6px 14px rgba(141, 110, 99, 0.35);
+      }
+    </style>
+    
     @endauth
   </div>
   </header>
