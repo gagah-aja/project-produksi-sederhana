@@ -161,7 +161,6 @@
   </header>
   
   <script>
-    // Tambahan efek underline animasi saat hover
     const navLinks = document.querySelectorAll('header nav a');
     navLinks.forEach(link => {
       link.addEventListener('mouseenter', () => {
