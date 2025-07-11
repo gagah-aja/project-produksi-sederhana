@@ -260,14 +260,19 @@
     
     <!-- Form Input -->
     <form onsubmit="return  tambahBahanBaku(event)" style="flex: 1 1 350px; display: flex; flex-direction: column; gap: 18px; animation: fadeInRight 1s ease forwards;">
-      <input id="bahanNama" type="text" placeholder="Nama Bahan Baku" required
-        style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
+      <select id="bahanNama" required
+    style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; background-color: white; transition: border-color 0.3s;">
+    <option value="">-- Pilih Bahan Baku --</option>
+    <option value="Tepung">Tepung</option>
+    <option value="Gula">Gula</option>
+    <option value="Ragi">Ragi</option>
+    <option value="Mentega">Mentega</option>
+      </select>
       <input id="bahanJumlah" type="number" placeholder="Jumlah (misal: 2)" min="0" required
         style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
       <input id="bahanSatuan" type="text" placeholder="Satuan (misal: kg, liter, gram)" required
         style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
-      <input id="bahanHarga" type="number" placeholder="Harga per Satuan (Rp)" min="0" required
-        style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
+
       <input id="bahanTanggal" type="date" placeholder="Tanggal Pembelian" required
         style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; transition: border-color 0.3s;">
       <button type="submit" style="padding: 14px 0; background: #8d6e63; color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; cursor: pointer; box-shadow: 0 5px 12px rgba(141,110,99,0.35); transition: background-color 0.3s;">
@@ -379,34 +384,81 @@
   </h2>
   <div style="max-width: 600px; margin: 0 auto; background: #fff8f5; padding: 30px 40px; border-radius: 20px; box-shadow: 0 8px 20px rgba(141, 110, 99, 0.25);">
     <table style="width: 100%; border-collapse: collapse; font-size: 1rem; color: #5d4037;">
-      <thead>
-        <tr style="background-color: #8d6e63; color: white; font-weight: 700;">
-          <th style="padding: 14px; border: 1.5px solid #b89c81; text-align: left;">Bahan</th>
-          <th style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">Stok (kg)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="padding: 14px; border: 1.5px solid #b89c81;">Tepung</td>
-          <td id="stokTepung" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">100</td>
-        </tr>
-        <tr>
-          <td style="padding: 14px; border: 1.5px solid #b89c81;">Gula</td>
-          <td id="stokGula" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">50</td>
-        </tr>
-        <tr>
-          <td style="padding: 14px; border: 1.5px solid #b89c81;">Ragi</td>
-          <td id="stokRagi" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">20</td>
-        </tr>
-        <tr>
-          <td style="padding: 14px; border: 1.5px solid #b89c81;">Mentega</td>
-          <td id="stokMentega" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">30</td>
-        </tr>
-      </tbody>
+    <thead>
+  <tr style="background-color: #8d6e63; color: white; font-weight: 700;">
+    <th style="padding: 14px; border: 1.5px solid #b89c81; text-align: left;">Bahan</th>
+    <th style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">Stok (kg)</th>
+    <th style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">Terakhir Update</th>
+  </tr>
+</thead>
+
+     <tbody>
+  <tr>
+    <td style="padding: 14px; border: 1.5px solid #b89c81;">Tepung</td>
+    <td id="stokTepung" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">100</td>
+    <td id="tanggalTepung" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">-</td>
+  </tr>
+  <tr>
+    <td style="padding: 14px; border: 1.5px solid #b89c81;">Gula</td>
+    <td id="stokGula" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">50</td>
+    <td id="tanggalGula" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">-</td>
+  </tr>
+  <tr>
+    <td style="padding: 14px; border: 1.5px solid #b89c81;">Ragi</td>
+    <td id="stokRagi" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">20</td>
+    <td id="tanggalRagi" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">-</td>
+  </tr>
+  <tr>
+    <td style="padding: 14px; border: 1.5px solid #b89c81;">Mentega</td>
+    <td id="stokMentega" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">30</td>
+    <td id="tanggalMentega" style="padding: 14px; border: 1.5px solid #b89c81; text-align: right;">-</td>
+  </tr>
+</tbody>
+
     </table>
   </div>
 </section>
 
+<script>
+  function tambahBahanBaku(event) {
+    event.preventDefault();
+
+    const nama = document.getElementById("bahanNama").value;
+    const jumlah = parseFloat(document.getElementById("bahanJumlah").value);
+    const tanggal = document.getElementById("bahanTanggal").value;
+    const notifikasi = document.getElementById("notifikasiInput");
+
+    if (!nama || isNaN(jumlah) || jumlah <= 0 || !tanggal) {
+      notifikasi.style.color = "#c62828";
+      notifikasi.textContent = "⚠️ Harap lengkapi data dengan benar.";
+      return false;
+    }
+
+    const stokId = "stok" + nama;
+    const tanggalId = "tanggal" + nama;
+
+    const stokEl = document.getElementById(stokId);
+    const tanggalEl = document.getElementById(tanggalId);
+
+    if (stokEl && tanggalEl) {
+      const stokSebelumnya = parseFloat(stokEl.textContent);
+      const stokBaru = stokSebelumnya + jumlah;
+
+      stokEl.textContent = stokBaru.toFixed(2);
+      tanggalEl.textContent = new Date(tanggal).toLocaleDateString("id-ID");
+
+      notifikasi.style.color = "#256029";
+      notifikasi.textContent = `✅ Bahan ${nama} berhasil ditambahkan sebanyak ${jumlah}`;
+    } else {
+      notifikasi.style.color = "#c62828";
+      notifikasi.textContent = "❌ Nama bahan tidak ditemukan di tabel stok.";
+    }
+
+    // Reset form (optional)
+    event.target.reset();
+    return false;
+  }
+</script>
 
 <script>
   const perRoti = {
