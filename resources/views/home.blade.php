@@ -111,10 +111,10 @@
 
   <header style="display: flex; align-items: center; justify-content: space-between; padding: 5px 40px; background: #fff3e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; box-shadow: 0 4px 12px rgba(141, 110, 99, 0.15); position: sticky; top: 0; z-index: 1000;">
     <div class="logo" style="flex-shrink: 0;">
-      <img src="{{ asset('logo roti.png') }}" alt="logo" style="height: 50px; filter: drop-shadow(0 1px 1px rgba(141,110,99,0.4));">
+      <img src="{{ asset('logo roti update.png') }}" alt="logo" style="height: 50px; filter: drop-shadow(0 1px 1px rgba(141,110,99,0.4));">
     </div>
    <nav style="display: flex; gap: 30px; font-weight: 700; font-size: 1rem; margin-left: auto;">
-  <a href="#hero" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
+  <a href="#" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
     BERANDA
     <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
   </a>
@@ -323,6 +323,7 @@
     <!-- Kiri: Teks & Ilustrasi -->
     <div style="flex: 1 1 400px; animation: fadeInLeft 1s ease forwards;">
       <h2 style="color: #8d6e63; font-size: 2.25rem; font-weight: 700; display: flex; align-items: center; gap: 10px;">
+        <img src="{{ asset('roti.png') }}" alt="Ikon Roti" style="width: 40px; height: 40px;">
         Proses Produksi
       </h2>
       <p style="color: #a5673d; font-size: 1.05rem; margin-top: 15px;">
