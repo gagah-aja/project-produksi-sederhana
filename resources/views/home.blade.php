@@ -135,21 +135,6 @@
     <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
   </a>
 </nav>
-
-
-    <div class="auth-buttons">
-    @guest
-      <a href="{{ route('login') }}" class="login">Login</a>
-      <a href="{{ route('register') }}" class="register">Register</a>
-    @endguest
-
-    @auth
-    <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
-      @csrf
-      <button type="submit" class="logout-button">
-        Logout
-      </button>
-    </form>
     
     <style>
       .logout-button {
@@ -172,7 +157,6 @@
       }
     </style>
     
-    @endauth
   </div>
   </header>
   
