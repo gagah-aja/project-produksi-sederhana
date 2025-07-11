@@ -114,7 +114,7 @@
       <img src="{{ asset('logo roti update.png') }}" alt="logo" style="height: 50px; filter: drop-shadow(0 1px 1px rgba(141,110,99,0.4));">
     </div>
    <nav style="display: flex; gap: 30px; font-weight: 700; font-size: 1rem; margin-left: auto;">
-  <a href="#" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
+  <a href="#hero" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
     BERANDA
     <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
   </a>
@@ -128,6 +128,10 @@
   </a>
   <a href="#stokBahan" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
     STOK
+    <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
+  </a>
+   <a href="#galery" style="color: #8d6e63; text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease;">
+    GALLERY
     <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #a5673d; transition: width 0.3s ease;"></span>
   </a>
 </nav>
@@ -227,7 +231,7 @@
   }
 </style>
 
-<section class="hero" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; padding: 80px 20px; background: #fff3e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; gap: 40px;">
+<section id="hero" class="hero" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; padding: 80px 20px; background: #fff3e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; gap: 40px;">
   <div class="hero-text" style="flex: 1 1 400px; max-width: 600px; animation: fadeInLeft 1s ease forwards; color: #4e342e;">
     <h1 style="font-size: 3rem; line-height: 1.2; margin-bottom: 25px; font-weight: 700;">
       <span style="color: #d2691e;">RotiMulia</span> – Rasa <br>
@@ -260,8 +264,7 @@
     
     <!-- Form Input -->
     <form onsubmit="return  tambahBahanBaku(event)" style="flex: 1 1 350px; display: flex; flex-direction: column; gap: 18px; animation: fadeInRight 1s ease forwards;">
-      <select id="bahanNama" required
-    style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; background-color: white; transition: border-color 0.3s;">
+    <select id="bahanNama" required style="padding: 14px 16px; border: 1.5px solid #b89c81; border-radius: 8px; font-size: 1rem; color: #5d4037; background-color: white; transition: border-color 0.3s;">
     <option value="">-- Pilih Bahan Baku --</option>
     <option value="Tepung">Tepung</option>
     <option value="Gula">Gula</option>
@@ -322,7 +325,7 @@
   }
 </script>
 <!-- Section: Proses Produksi dan Hasil Produksi -->
-<section id="produksi" style="padding: 80px 20px; background: linear-gradient(135deg, #fff3e0 0%, #fffaf2 100%); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+<section id="produksi" style="padding: 80px 20px; background: #fff3e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center;">
     
     <!-- Kiri: Teks & Ilustrasi -->
@@ -377,7 +380,7 @@
 </section>
 
 
-<section id="stokBahan" style="padding: 60px 20px; background: #fff3e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+<section id="stokBahan" style="padding: 60px 20px ; background: #fff3e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <h2 style="text-align: center; color: #8d6e63; font-size: 2.25rem; font-weight: 700; margin-bottom: 40px;">
     Stok Bahan Baku
   </h2>
@@ -415,6 +418,195 @@
 </tbody>
 
     </table>
+  </div>
+</section>
+
+<section id="galery" style="padding: 40px 20px; background: #fff3e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <h2 style="text-align: center; color: #8d6e63; font-size: 2rem; font-weight: 700; margin-bottom: 30px;">
+    Galeri Toko Roti Rekomendasi
+  </h2>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/surya.jpg') }}" alt="Toko Roti Surya" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Toko Roti Surya</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Melati No.10, Bandung</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281234567890" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:toko.surya@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/kenangan.jpg') }}" alt="Roti Kenanga" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Kenangan</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Anggrek No.5, Jakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281122334455" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:kenanga@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/bakery bahagia.jpg') }}" alt="Bakery Bahagia" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Bakery Bahagia</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Cendana No.21, Surabaya</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281222233344" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:bahagia@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/dapur roti.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Dapoer Roti</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Mawar No.8, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/aroma bakery.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Aroma Bakery</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. teratai No.9, jakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/holland bakery.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Hollad Bakery</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. sudirman No.1, Depok</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti o.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti O</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Bugenfil No.5, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti boy.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Boy</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Mawar No.4, Bandung</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/barokah bakery.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Barokah Bakery</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Talaga No.12, Majalengka</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti go.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Go</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Melati No.6, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/kenari bakery.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Kenary Bakery</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Mawar No.2, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti pelangi.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Pelangi</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Kartini No.3, Jakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/bakery harmoni.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Bakery Harmoni</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Jingga No.9, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti murni.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Murni</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Anggrek No.6, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti juara.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Juara</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Kamboja No.19, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(141,110,99,0.15); background: #fff;">
+      <img src="{{ asset('picture/roti klasik.jpg') }}" alt="Dapoer Roti" style="width: 100%; height: 180px; object-fit: cover;">
+      <div style="padding: 12px;">
+        <h3 style="margin: 0; color: #5d4037; font-size: 1rem;">Roti Klasik</h3>
+        <p style="color: #8d6e63; font-size: 0.85rem;">Jl. Kirana No.5, Yogyakarta</p>
+        <div style="margin-top: 10px; display: flex; gap: 6px;">
+          <a href="https://wa.me/6281999888777" target="_blank" style="flex: 1; background-color: #25D366; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">WhatsApp</a>
+          <a href="mailto:dapoer@email.com" style="flex: 1; background-color: #8d6e63; color: #fff; padding: 6px; border-radius: 5px; text-align: center; font-size: 0.8rem; text-decoration: none;">Email</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -542,8 +734,49 @@
 
 
 
-<footer>
-  &copy; {{ date('Y') }} Roti Mulia App. All rights reserved.
+<footer style="background-color: #4e342e; color: #fff; padding: 30px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+
+    <!-- Logo dan Deskripsi Singkat -->
+    <div style="flex: 1 1 220px;">
+      <h3 style="margin-bottom: 10px; color: #ffc107;">Roti Mulia</h3>
+      <p style="font-size: 0.9rem; line-height: 1.6;">
+        Roti Mulia adalah solusi terbaik untuk kebutuhan roti segar Anda. Dibuat dengan bahan berkualitas dan rasa yang tak terlupakan.
+      </p>
+    </div>
+
+    <!-- Navigasi -->
+    <div style="flex: 1 1 150px;">
+      <h4 style="margin-bottom: 10px;">Menu</h4>
+      <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem;">
+        <li><a href="#home" style="color: #fff; text-decoration: none;">Home</a></li>
+        <li><a href="#produk" style="color: #fff; text-decoration: none;">Produk</a></li>
+        <li><a href="#galery" style="color: #fff; text-decoration: none;">Galeri</a></li>
+        <li><a href="#kontak" style="color: #fff; text-decoration: none;">Kontak</a></li>
+      </ul>
+    </div>
+
+    <!-- Kontak -->
+    <div style="flex: 1 1 200px;">
+      <h4 style="margin-bottom: 10px;">Kontak Kami</h4>
+      <p style="margin: 6px 0; font-size: 0.9rem;">📍 Jl. Mawar No.123, Yogyakarta</p>
+      <p style="margin: 6px 0; font-size: 0.9rem;">📧 <a href="mailto:rotimulia@email.com" style="color: #ffc107; text-decoration: none;">rotimulia@email.com</a></p>
+      <p style="margin: 6px 0; font-size: 0.9rem;">📞 <a href="tel:+628123456789" style="color: #ffc107; text-decoration: none;">+62 812 3456 789</a></p>
+    </div>
+
+    <!-- Sosial Media -->
+    <div style="flex: 1 1 150px;">
+      <h4 style="margin-bottom: 10px;">Ikuti Kami</h4>
+      <div style="display: flex; gap: 10px;">
+        <a href="#" style="color: #ffc107; font-size: 1.2rem; text-decoration: none;">Instagram</a>
+        <a href="#" style="color: #ffc107; font-size: 1.2rem; text-decoration: none;">Facebook</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 25px; padding-top: 15px; border-top: 1px solid #6d4c41; font-size: 0.85rem; color: #d7ccc8;">
+    &copy; {{ date('Y') }} Roti Mulia App. All rights reserved.
+  </div>
 </footer>
 
 </body>
