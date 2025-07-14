@@ -30,7 +30,6 @@
             </div>
             <button type="submit" class="btn btn-primary w-100">Login</button>
           </form>
-          <p class="mt-3 text-center">Belum punya akun? <a href="{{ route('admin.register.form') }}">Daftar</a></p>
         </div>
       </div>
     </div>

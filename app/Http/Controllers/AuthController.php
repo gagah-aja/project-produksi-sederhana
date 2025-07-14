@@ -16,9 +16,19 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        if (!User::where('email', 'admin@gmail.com')->exists()) {
+    User::create([
+        'name' => 'Admin',
+        'email' => 'admin@gmail.com',
+        'password' => Hash::make('12345678'), // password 1-8
+    ]);
+}
+
+
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
+            $request->session()->regenerate(); // cegah session fixation
             return redirect()->route('admin.dashboard');
         }
 
@@ -27,32 +37,14 @@ class AuthController extends Controller
         ]);
     }
 
-    public function showRegisterForm()
-    {
-        return view('auth.register');
-    }
-
-    public function register(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed',
-        ]);
-
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ]);
-
-        return redirect()->route('admin.login.form')->with('success', 'Registrasi berhasil, silakan login.');
-    }
-
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
+
+        // ✅ Hapus session saat logout
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return redirect('/');
     }
 }
-
