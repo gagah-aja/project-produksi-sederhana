@@ -54,5 +54,31 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/');
     }
-}
 
+    // Tampilkan form reset password manual
+    public function showManualResetForm()
+    {
+        return view('auth.lupa-password');
+    }
+
+    // Proses reset password manual
+    public function manualReset(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return back()->withErrors(['email' => 'Email tidak ditemukan.']);
+        }
+
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('admin.login.form')->with('success', 'Password berhasil direset, silakan login.');
+    }
+}
