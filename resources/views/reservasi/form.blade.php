@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Form Reservasi</title>
+    <title>Reservasi</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -75,7 +75,7 @@
     </style>
 </head>
 <body>
-    <h1>Form Reservasi Makanan</h1>
+    <h1>Reservasi Makanan</h1>
 
     @if(session('success'))
         <p style="color: green">{{ session('success') }}</p>
