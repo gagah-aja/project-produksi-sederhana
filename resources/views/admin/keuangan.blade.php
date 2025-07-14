@@ -1,173 +1,180 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Halaman Admin Keuangan</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .summary-box {
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
-    h2 {
-      margin-top: 30px;
-    }
-  </style>
-</head>
-<body>
+@extends('layouts.admin')
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Admin Resto</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
-        <li class="nav-item"><a class="nav-link" href="/admin/reservasi">Reservasi</a></li>
-        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Keuangan</a></li>
-      </ul>
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link text-danger" href="#">Logout</a></li>
-      </ul>
+@section('content')
+<div class="container-fluid">
+    <div class="mb-4">
+        <h1 class="h3 fw-semibold">Laporan Keuangan</h1>
+        <p class="text-muted">Pantau pemasukan dan pengeluaran dengan mudah.</p>
     </div>
-  </div>
-</nav>
 
-<!-- KONTEN -->
-<div class="container mt-4">
-  <div class="text-center mb-4">
-    <h1>Dashboard Keuangan Admin</h1>
-    <p class="text-muted">Pantau pemasukan & pengeluaran Anda</p>
-  </div>
-
-  <!-- Ringkasan -->
-  <div class="row text-center mb-4">
-    <div class="col-md-4">
-      <div class="summary-box text-success">
-        <h4>Total Pemasukan</h4>
-        <p>Rp 10.000.000</p>
-      </div>
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm bg-light-success">
+                <div class="card-body text-success text-center">
+                    <h5 class="card-title mb-2">Total Pemasukan</h5>
+                    <p class="fs-5 fw-bold">Rp {{ number_format($totalPemasukan, 0, ',', '.') }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm bg-light-danger">
+                <div class="card-body text-danger text-center">
+                    <h5 class="card-title mb-2">Total Pengeluaran</h5>
+                    <p class="fs-5 fw-bold">Rp {{ number_format($totalPengeluaran, 0, ',', '.') }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm bg-light-primary">
+                <div class="card-body text-primary text-center">
+                    <h5 class="card-title mb-2">Saldo Saat Ini</h5>
+                    <p class="fs-5 fw-bold">Rp {{ number_format($saldo, 0, ',', '.') }}</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-      <div class="summary-box text-danger">
-        <h4>Total Pengeluaran</h4>
-        <p>Rp 3.000.000</p>
-      </div>
+
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-header bg-success text-white fw-semibold">
+            Tabel Pemasukan
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-bordered mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th width="20%">Tanggal</th>
+                        <th>Deskripsi</th>
+                        <th width="20%">Jumlah (Rp)</th>
+                        <th width="15%">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($pemasukan as $data)
+                        <tr>
+                            <td>{{ $data->tanggal }}</td>
+                            <td>{{ $data->deskripsi }}</td>
+                            <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
+                            <td class="action-buttons"> {{-- Added a class here --}}
+                                <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-danger">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">Belum ada data pemasukan.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="col-md-4">
-      <div class="summary-box text-primary">
-        <h4>Saldo Saat Ini</h4>
-        <p>Rp 7.000.000</p>
-      </div>
+
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-header bg-danger text-white fw-semibold">
+            Tabel Pengeluaran
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-bordered mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th width="20%">Tanggal</th>
+                        <th>Deskripsi</th>
+                        <th width="20%">Jumlah (Rp)</th>
+                        <th width="15%">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($pengeluaran as $data)
+                        <tr>
+                            <td>{{ $data->tanggal }}</td>
+                            <td>{{ $data->deskripsi }}</td>
+                            <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
+                            <td class="action-buttons"> {{-- Added a class here --}}
+                                <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-danger">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">Belum ada data pengeluaran.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 
-  <!-- Tabel Pemasukan -->
-  <h2>Pemasukan</h2>
-  <table class="table table-bordered table-striped">
-    <thead class="table-success">
-      <tr>
-        <th>Tanggal</th>
-        <th>Deskripsi</th>
-        <th>Jumlah (Rp)</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>2025-07-01</td>
-        <td>Penjualan Produk A</td>
-        <td>2.000.000</td>
-        <td>
-          <button class="btn btn-sm btn-danger">Hapus</button>
-        </td>
-      </tr>
-      <tr>
-        <td>2025-07-03</td>
-        <td>Penjualan Produk B</td>
-        <td>8.000.000</td>
-        <td>
-          <button class="btn btn-sm btn-danger">Hapus</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- Tabel Pengeluaran -->
-  <h2>Pengeluaran</h2>
-  <table class="table table-bordered table-striped">
-    <thead class="table-danger">
-      <tr>
-        <th>Tanggal</th>
-        <th>Deskripsi</th>
-        <th>Jumlah (Rp)</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>2025-07-02</td>
-        <td>Biaya Bahan Baku</td>
-        <td>2.000.000</td>
-        <td>
-          <button class="btn btn-sm btn-danger">Hapus</button>
-        </td>
-      </tr>
-      <tr>
-        <td>2025-07-05</td>
-        <td>Biaya Listrik</td>
-        <td>1.000.000</td>
-        <td>
-          <button class="btn btn-sm btn-danger">Hapus</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- Form Tambah Data -->
-  <h2>Tambah Data</h2>
-  <form>
-    <div class="row">
-      <div class="col-md-3 mb-3">
-        <label for="tanggal" class="form-label">Tanggal</label>
-        <input type="date" class="form-control" id="tanggal" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="deskripsi" class="form-label">Deskripsi</label>
-        <input type="text" class="form-control" id="deskripsi" placeholder="Contoh: Penjualan" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="jumlah" class="form-label">Jumlah (Rp)</label>
-        <input type="number" class="form-control" id="jumlah" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="tipe" class="form-label">Tipe</label>
-        <select class="form-select" id="tipe" required>
-          <option value="pemasukan">Pemasukan</option>
-          <option value="pengeluaran">Pengeluaran</option>
-        </select>
-      </div>
+    <div class="card border-0 shadow-sm">
+        <div class="card-header bg-secondary text-white fw-semibold">
+            Tambah Pemasukan / Pengeluaran
+        </div>
+        <div class="card-body">
+            <form action="{{ route('finances.store') }}" method="POST">
+                @csrf
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label for="tanggal" class="form-label">Tanggal</label>
+                        <input type="date" name="tanggal" class="form-control" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                        <input type="text" name="deskripsi" class="form-control" placeholder="Contoh: Penjualan A" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="jumlah" class="form-label">Jumlah (Rp)</label>
+                        <input type="number" name="jumlah" class="form-control" placeholder="Contoh: 2000000" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tipe" class="form-label">Tipe</label>
+                        <select name="tipe" class="form-select" required>
+                            <option value="pemasukan">Pemasukan</option>
+                            <option value="pengeluaran">Pengeluaran</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-4 text-end">
+                    <button type="submit" class="btn btn-primary">Simpan Data</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Tambah Data</button>
-  </form>
-
-  <footer class="text-center mt-5 text-muted">
-    &copy; 2025 Aplikasi Keuangan UMKM
-  </footer>
 </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<style>
+    .bg-light-success {
+        background-color: #e6f4ea !important;
+    }
+
+    .bg-light-danger {
+        background-color: #fce8e6 !important;
+    }
+
+    .bg-light-primary {
+        background-color: #e7f0fd !important;
+    }
+
+    .card {
+        border-radius: 10px;
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
+    }
+
+    /* New CSS for button alignment */
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 8px; /* Adjust gap as needed */
+        align-items: center; /* Vertically align items in the center */
+    }
+</style>
+@endsection

@@ -45,9 +45,6 @@
 
   <!-- Navigasi -->
   <nav>
-    <span style="margin-right: 25px; color: #fff; font-weight: 600; font-size: 1rem;">
-      <i class="fas fa-user" style="margin-right: 5px;"></i> Halo, <strong>User</strong>
-    </span>
     <a href="#menu" class="nav-link" style="color: #fff; margin-right: 25px; text-decoration: none; font-weight: 600; font-size: 1rem; position: relative; padding-bottom: 3px;">
       <i class="fas fa-utensils" style="margin-right: 6px;"></i>Menu
     </a>
@@ -88,28 +85,105 @@
 </script>
 
 <!-- Hero Section -->
-<section style="display: flex; flex-wrap: wrap; align-items: center; padding: 60px 20px; background-color: #fff8f1;">
-  <div style="flex: 1 1 400px; padding: 20px;">
+<section id="hero" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; padding: 60px 20px; background: linear-gradient(135deg, #fff4e6, #ffe8d1); font-family: 'Segoe UI', sans-serif; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); margin: 40px 20px;">
+  
+  <!-- Teks Kiri -->
+  <div style="flex: 1 1 400px; padding: 20px; max-width: 600px;">
     <h2 style="font-size: 2.8rem; color: #4e342e; font-family: 'Merriweather', serif; margin-bottom: 20px; line-height: 1.3;">
-      Nikmati Hidangan Terbaik Hari Ini
+      Nikmati Hidangan Terbaik <br>Hari Ini
     </h2>
     <p style="font-size: 1.1rem; margin-bottom: 30px; line-height: 1.7; color: #5d4037;">
       Kami menyajikan makanan segar, lezat, dan dibuat dengan cinta dari resep-resep otentik Nusantara. Yuk, pesan sekarang dan rasakan cita rasa Indonesia sesungguhnya!
     </p>
   </div>
 
-  <div style="flex: 1 1 400px; text-align: center; padding: 20px;">
-    <img 
-      src="makanan nusantara.jpg" 
-      alt="Makanan Nusantara" 
-      style="width: 100%; max-width: 600px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); transition: transform 0.3s ease;"
-      onmouseover="this.style.transform='scale(1.03)'"
-      onmouseout="this.style.transform='scale(1)'"
-    >
+  <!-- Carousel Kanan -->
+  <div style="max-width: 600px; position: relative; overflow: hidden; padding: 20px; border-radius: 12px;">
+    <div id="carousel-wrapper" style="width: 100%; overflow: hidden;">
+      <div id="carousel" style="display: flex; transition: transform 0.6s ease-in-out;">
+        <!-- Slides -->
+        <div class="slide"><img src="makanan-nusantara1.jpg" alt="Makanan Nusantara 1"></div>
+        <div class="slide"><img src="makanan-nusantara2.jpg" alt="Makanan Nusantara 2"></div>
+        <div class="slide"><img src="makanan-nusantara3.jpg" alt="Makanan Nusantara 3"></div>
+        <div class="slide"><img src="makanan-nusantara4.jpg" alt="Makanan Nusantara 4"></div>
+      </div>
+    </div>
+  
+    <!-- Tombol Navigasi -->
+    <button onclick="prevSlide()" class="nav-button left">‹</button>
+    <button onclick="nextSlide()" class="nav-button right">›</button>
   </div>
   
+  <style>
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 0 5px;
+    }
+  
+    .slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+  
+    .slide img:hover {
+      transform: scale(1.02);
+    }
+  
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.4);
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+    }
+  
+    .nav-button.left {
+      left: 10px;
+    }
+  
+    .nav-button.right {
+      right: 10px;
+    }
+  
+    .nav-button:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  </style>
+  
+  <script>
+    const carousel = document.getElementById("carousel");
+    let currentIndex = 0;
+    const totalSlides = carousel.children.length;
+  
+    function updateSlide() {
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  
+    function nextSlide() {
+      if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+        updateSlide();
+      }
+    }
+  
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlide();
+      }
+    }
+  </script>
+  
 </section>
-
 
 <!-- Menu Hari Ini -->
 <section id="menu" style="padding: 80px 20px; background: linear-gradient(135deg, #fff4e6, #ffe8d1); font-family: 'Segoe UI', sans-serif; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); margin: 40px 20px;">
@@ -249,11 +323,6 @@
         <a href="mailto:resto@example.com?subject=Pesan%20Pizza&body=Halo%2C%20saya%20ingin%20memesan%20Pizza" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
       </div>
     </div>
-
-    <!-- Tempel kembali semua card lainnya di bawah ini dengan struktur yang sama -->
-
-    <!-- Paste semua card berikutnya di sini -->
-    <!-- ... (Sate Ayam, Bakso Malang, Empal Gentong, dst.) -->
   </div>
 </section>
 
@@ -312,7 +381,7 @@
 <footer style="background-color: #a1887f; padding: 30px 20px; color: white;">
   <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; gap: 20px;">
     
-    <!-- Kolom Kontak di Kiri (diturunkan) -->
+    <!-- Kolom Kontak di Kiri -->
     <div style="text-align: left; max-width: 300px; flex: 1; margin-top: 60px; padding: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 8px;">
       <h3 style="margin-bottom: 15px; font-size: 20px; color: #fff;">Hubungi Kami</h3>
       
@@ -330,7 +399,26 @@
       </p>
     </div>    
 
-    <!-- Kolom Peta + Copyright di Kanan -->
+    <!-- Sosial Media -->
+    <div style="text-align: left; max-width: 300px; flex: 1; margin-top: 60px; padding: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 8px;">
+      <h4 style="margin-bottom: 10px; font-size: 18px; color: #fff;">Ikuti Kami:</h4>
+      <div style="display: flex; flex-direction: column; gap: 10px; font-size: 16px;">
+        
+        <a href="https://instagram.com/rasanusantara" target="_blank" style="color: #fce4ec; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+          📸 Instagram
+        </a>
+        
+        <a href="https://facebook.com/rasanusantara" target="_blank" style="color: #e3f2fd; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+          📘 Facebook
+        </a>
+        
+        <a href="https://www.tiktok.com/@rasanusantara" target="_blank" style="color: #e1bee7; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+          🎵 TikTok
+        </a>        
+      </div>
+    </div>    
+
+    <!-- Kolom Peta dan Copyright -->
     <div style="text-align: center; flex: 2;">
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d507172.04253533715!2d107.89996127343751!3d-6.735462399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f1f386029826f%3A0x7cc773d692e955d3!2sPasta%20Nusantara!5e0!3m2!1sid!2sid!4v1752459800446!5m2!1sid!2sid"
@@ -346,6 +434,7 @@
     </div>
   </div>
 </footer>
+
 
 
 </body>
