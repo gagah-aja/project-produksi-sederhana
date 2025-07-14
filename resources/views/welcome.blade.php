@@ -5,45 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Selamat Datang di Restoran Kami</title>
 </head>
-
 <body style="margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fff8f1; color: #4e342e;">
 <style>
   html {
     scroll-behavior: smooth;
   }
-</style>
-
-<!-- Header -->
-<header style="background-color: #a1887f; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;">
-  <h1 style="margin: 0; color: white;">Restoran Nusantara</h1>
-  <nav>
-    <span style="margin-right: 20px; color: #fff;">👤 Halo, <strong>User</strong></span>
-    <a href="#menu" style="color: #fff; margin-right: 15px; text-decoration: none;">Menu</a>
-    <a href="#reservasi" style="color: #fff; text-decoration: none;">Reservasi</a>
-  </nav>
-</header>
-
-<!-- Hero Section -->
-<section style="display: flex; flex-wrap: wrap; align-items: center; padding: 60px 20px; background-color: #fff8f1; font-family: 'Open Sans', sans-serif;">
-  <div style="flex: 1 1 400px; padding: 20px;">
-    <h2 style="font-size: 2.8rem; color: #4e342e; font-family: 'Merriweather', serif; margin-bottom: 20px; line-height: 1.3;">
-      Nikmati Hidangan Terbaik Hari Ini
-    </h2>
-    <p style="font-size: 1.1rem; margin-bottom: 30px; line-height: 1.7; color: #5d4037;">
-      Kami menyajikan makanan segar, lezat, dan dibuat dengan cinta dari resep-resep otentik Nusantara. Yuk, pesan sekarang dan rasakan cita rasa Indonesia sesungguhnya!
-    </p>
-    <a href="#menu" style="padding: 14px 28px; background-color: #8d6e63; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1rem; transition: background 0.3s;">
-      🍽️ Lihat Menu
-    </a>
-  </div>
-
-  <div style="flex: 1 1 400px; text-align: center; padding: 20px;">
-    <img src="makanan nusantara.jpg" alt="Makanan Nusantara" class="fancy-image">
-  </div>
-</section>
-
-<!-- Gaya CSS Tambahan -->
-<style>
   .fancy-image {
     max-width: 100%;
     max-height: 400px;
@@ -53,33 +19,55 @@
     transition: transform 0.4s ease;
     clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
   }
-
   .fancy-image:hover {
     transform: scale(1.05);
   }
-
   @media (max-width: 768px) {
     .fancy-image {
       clip-path: none;
       border-radius: 15px;
     }
   }
-</style>
-
-
-<!-- Tambahkan ini di bawah untuk efek hover gambar -->
-<style>
   section img:hover {
     transform: scale(1.03);
   }
 </style>
 
+<!-- Header -->
+<header style="background-color: #a1887f; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;">
+  <div style="display: flex; align-items: center;">
+    <img src="logo.jpg" alt="Logo Restoran" style="height: 60px; margin-right: 15px;">
+    <h1 style="margin: 0; color: white;">Restoran Nusantara</h1>
+  </div>
+  <nav>
+    <span style="margin-right: 20px; color: #fff;">👤 Halo, <strong>User</strong></span>
+    <a href="#menu" style="color: #fff; margin-right: 15px; text-decoration: none;">Menu</a>
+    <a href="#reservasi" style="color: #fff; text-decoration: none;">Reservasi</a>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section style="display: flex; flex-wrap: wrap; align-items: center; padding: 60px 20px; background-color: #fff8f1;">
+  <div style="flex: 1 1 400px; padding: 20px;">
+    <h2 style="font-size: 2.8rem; color: #4e342e; font-family: 'Merriweather', serif; margin-bottom: 20px; line-height: 1.3;">
+      Nikmati Hidangan Terbaik Hari Ini
+    </h2>
+    <p style="font-size: 1.1rem; margin-bottom: 30px; line-height: 1.7; color: #5d4037;">
+      Kami menyajikan makanan segar, lezat, dan dibuat dengan cinta dari resep-resep otentik Nusantara. Yuk, pesan sekarang dan rasakan cita rasa Indonesia sesungguhnya!
+    </p>
+    <a href="#menu" style="padding: 14px 28px; background-color: #8d6e63; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1rem;">
+      🍽️ Lihat Menu
+    </a>
+  </div>
+  <div style="flex: 1 1 400px; text-align: center; padding: 20px;">
+    <img src="makanan nusantara.jpg" alt="Makanan Nusantara" class="fancy-image">
+  </div>
+</section>
 
 <!-- Menu Hari Ini -->
 <section id="menu" style="padding: 60px 20px; background-color: #fff8f1;">
   <h2 style="text-align: center; font-size: 2rem; color: #6d4c41;">Rekomendasi Hari Ini</h2>
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;">
-
     <!-- Card 1 -->
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
       <img src="nasgor.jpg" alt="Nasi Goreng" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
@@ -91,7 +79,6 @@
         <a href="mailto:resto@example.com?subject=Pesan%20Nasi%20Goreng%20Spesial&body=Halo%2C%20saya%20ingin%20memesan%20Nasi%20Goreng%20Spesial" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
       </div>
     </div>
-
     <!-- Card 2 -->
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
       <img src="sate.jpg" alt="Sate Ayam" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
@@ -103,10 +90,9 @@
         <a href="mailto:resto@example.com?subject=Pesan%20Sate%20Ayam%20Madura&body=Halo%2C%20saya%20ingin%20memesan%20Sate%20Ayam%20Madura" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
       </div>
     </div>
-
     <!-- Card 3 -->
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
-      <img src="basmal.jpg" alt="Bakso" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <img src="basmal.jpg" alt="Bakso Malang" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
       <h3>Bakso Malang</h3>
       <p>Rp 22.000</p>
       <p style="color: #888; font-size: 0.9rem;">Stok: 20 mangkuk</p>
@@ -115,7 +101,6 @@
         <a href="mailto:resto@example.com?subject=Pesan%20Bakso%20Malang&body=Halo%2C%20saya%20ingin%20memesan%20Bakso%20Malang" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -126,18 +111,12 @@
   <a href="/reservasi" style="margin-top: 20px; display: inline-block; padding: 14px 28px; background-color: #6d4c41; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">Reservasi Sekarang</a>
 </section>
 
-<!-- Latar Belakang Restoran -->
+<!-- Latar Belakang -->
 <section id="latar-belakang" style="padding: 60px 20px; background-color: #fff8f1;">
   <div style="max-width: 800px; margin: 0 auto;">
     <h2 style="text-align: center; font-size: 2rem; color: #6d4c41;">Latar Belakang Restoran Nusantara</h2>
     <p style="margin-top: 30px; font-size: 1rem; line-height: 1.8; text-align: justify; color: #5d4037;">
-      Restoran Nusantara hadir sebagai bentuk kecintaan terhadap kekayaan kuliner tradisional Indonesia yang begitu beragam dan mendalam. Terinspirasi dari cita rasa khas dari Sabang hingga Merauke, Restoran Nusantara berkomitmen menyajikan hidangan otentik yang menggugah selera, sekaligus memperkenalkan kembali warisan kuliner bangsa kepada masyarakat luas.
-    </p>
-    <p style="margin-top: 20px; font-size: 1rem; line-height: 1.8; text-align: justify; color: #5d4037;">
-      Didirikan pada tahun 2025, Restoran Nusantara bermula dari keinginan sederhana untuk menyediakan makanan Indonesia yang tidak hanya lezat, tetapi juga dibuat dengan bahan-bahan segar dan resep asli daerah. Kami percaya bahwa makanan adalah bagian penting dari budaya, dan melalui setiap sajian, kami ingin menyampaikan cerita dari setiap sudut nusantara.
-    </p>
-    <p style="margin-top: 20px; font-size: 1rem; line-height: 1.8; text-align: justify; color: #5d4037;">
-      Dengan suasana yang hangat dan pelayanan yang ramah, Restoran Nusantara menjadi tempat yang ideal bagi keluarga, sahabat, dan pecinta kuliner untuk berkumpul dan menikmati rasa khas Indonesia dalam satu meja.
+      Restoran Nusantara hadir sebagai bentuk kecintaan terhadap kekayaan kuliner tradisional Indonesia...
     </p>
   </div>
 </section>
@@ -153,20 +132,12 @@
   </div>
   <div>
     <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d507172.04253533715!2d107.89996127343751!3d-6.735462399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f1f386029826f%3A0x7cc773d692e955d3!2sPasta%20Nusantara!5e0!3m2!1sid!2sid!4v1752459800446!5m2!1sid!2sid"
-      width="300" 
-      height="200" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Peta Restoran Rasa Nusantara"
-    >
-  </iframe>
-  <p>&copy; 2025 Restoran Rasa Nusantara</p>
+      src="https://www.google.com/maps/embed?pb=!1m18..." 
+      width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+    <p>&copy; 2025 Restoran Rasa Nusantara</p>
   </div>
 </footer>
-
 
 </body>
 </html>
