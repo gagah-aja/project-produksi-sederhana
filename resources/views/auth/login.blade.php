@@ -5,134 +5,182 @@
   <title>Login Admin - Restoran Rasa Nusantara</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Mengubah tema menjadi lebih soft dan nuansa Nusantara */
+    /* Global Styling & Nusantara Theme Base */
     body {
-      background-image: url('https://images.unsplash.com/photo-1627308593360-149258282e70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'); /* Contoh foto makanan Indonesia */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed; /* Membuat gambar latar belakang tetap saat di-scroll */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font yang lebih lembut */
-      position: relative;
+      background-color: #f8f9fa; /* Latar belakang putih lembut */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       min-height: 100vh;
-      display: flex; /* Untuk memposisikan konten di tengah secara vertikal */
-      align-items: center; /* Untuk memposisikan konten di tengah secara vertikal */
-      justify-content: center; /* Untuk memposisikan konten di tengah secara horizontal */
+      display: flex; /* Menggunakan Flexbox */
+      align-items: center; /* Pusat vertikal */
+      justify-content: center; /* Pusat horizontal */
       padding: 20px; /* Padding agar tidak terlalu mepet tepi */
+      overflow: auto; /* Scroll jika konten lebih besar dari viewport */
+      margin: 0; /* Pastikan tidak ada margin default pada body */
     }
 
-    /* Overlay untuk membuat teks lebih mudah dibaca di atas gambar */
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(121, 85, 72, 0.7); /* Warna cokelat lembut dari tema footer, dengan transparansi */
-      z-index: 1;
+    /* --- */
+    /* Container untuk Login Card */
+    .login-wrapper {
+      background-color: white; /* Card wrapper berwarna putih penuh */
+      border-radius: 20px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15); /* Bayangan halus dan elegan */
+      overflow: hidden; /* Memastikan sudut melengkung pada semua sisi */
+      width: 100%; /* Memastikan lebar responsif */
+      max-width: 450px; /* Lebar maksimal wrapper disesuaikan agar kompak */
+      animation: fadeInScale 0.8s ease-out forwards; /* Animasi muncul saat dimuat */
+      flex-shrink: 0; /* Memastikan flex item ini tidak terlalu menyusut */
+      margin: auto; /* Membantu centering lebih kuat */
     }
 
-    .container {
-      position: relative;
-      z-index: 2; /* Memastikan konten container berada di atas overlay */
-      max-width: 450px; /* Lebar container disesuaikan */
-    }
-
-    /* Styling untuk Card Login */
-    .card {
-      background-color: rgba(255, 255, 255, 0.95); /* Sedikit transparan agar nuansa background terlihat */
-      border-radius: 15px; /* Sudut lebih membulat */
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Bayangan lebih lembut */
-      border: none; /* Hilangkan border default Bootstrap */
+    /* --- */
+    /* Styling for the Login Form Card itself */
+    .card-login-form {
+      background-color: transparent; /* Transparan agar latar belakang putih wrapper terlihat */
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
     }
 
     .card-header {
-      background-color: #795548; /* Warna cokelat tua yang hangat */
+      background-color: #795548; /* Cokelat tua yang hangat */
       color: white;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      font-weight: bold;
-      padding: 18px;
-      font-size: 1.25rem; /* Ukuran teks header lebih besar */
+      font-weight: 600;
+      padding: 30px; /* Padding lebih besar untuk kesan premium */
+      font-size: 1.55rem; /* Ukuran teks header lebih besar */
+      letter-spacing: 0.8px; /* Sedikit lebih banyak jarak antar huruf */
+      border-radius: 20px 20px 0 0; /* Radius hanya di sudut atas, mengikuti login-wrapper */
+      text-align: center; /* Pastikan teks header terpusat */
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1); /* Garis bawah halus */
     }
 
     .card-body {
-      padding: 35px;
+      padding: 40px;
     }
 
-    /* Styling untuk Form Control */
+    /* --- */
+    /* Form Control Styling */
+    .form-label {
+        font-weight: 500;
+        color: #5d4037;
+        margin-bottom: 10px; /* Jarak antara label dan input lebih besar */
+    }
+
     .form-control {
-      border-radius: 8px; /* Sudut input field lebih lembut */
-      border: 1px solid #a1887f; /* Border sesuai tema */
-      padding: 10px 15px;
+      border-radius: 15px; /* Sudut input field lebih lembut dan besar */
+      border: 1px solid #bcaaa4; /* Border warna abu-abu cokelat lembut */
+      padding: 16px 20px; /* Padding lebih nyaman */
+      font-size: 1.05rem; /* Ukuran font sedikit lebih besar */
+      transition: all 0.3s ease;
     }
 
     .form-control:focus {
-      border-color: #a1887f; /* Border saat fokus sesuai tema */
-      box-shadow: 0 0 0 0.25rem rgba(161, 136, 127, 0.3); /* Glow saat fokus lebih lembut */
+      border-color: #8d6e63;
+      box-shadow: 0 0 0 0.35rem rgba(141, 110, 99, 0.2); /* Glow saat fokus lebih lembut */
+      background-color: #fffdfa; /* Sedikit off-white saat fokus */
     }
 
-    /* Styling untuk Tombol */
+    /* --- */
+    /* Button Styling */
     .btn-primary {
-      background-color: #795548; /* Warna tombol sesuai tema cokelat tua */
-      border-color: #795548;
-      border-radius: 8px;
-      padding: 10px 15px;
-      font-size: 1.1rem;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
+      background-color: #8d6e63;
+      border-color: #8d6e63;
+      border-radius: 15px; /* Sudut tombol lebih lembut dan besar */
+      padding: 16px 28px; /* Padding tombol lebih besar */
+      font-size: 1.25rem; /* Ukuran font tombol lebih besar */
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .btn-primary:hover {
-      background-color: #5d4037; /* Warna lebih gelap saat hover */
-      border-color: #5d4037;
+      background-color: #795548;
+      border-color: #795548;
+      transform: translateY(-4px); /* Efek angkat lebih jauh saat hover */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Bayangan lebih jelas saat hover */
     }
 
-    /* Styling untuk Alert */
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    /* --- */
+    /* Alert Styling */
     .alert {
-      border-radius: 8px;
-      font-size: 0.95rem;
+      border-radius: 12px; /* Sudut alert lebih lembut */
+      font-size: 1rem; /* Ukuran font alert sedikit lebih besar */
+      padding: 15px 25px;
+      margin-bottom: 30px; /* Jarak bawah alert lebih besar */
+    }
+    .alert-danger {
+        background-color: #f8d7da;
+        color: #721c24;
+        border-color: #f5c6cb;
+    }
+    .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+        border-color: #c3e6cb;
     }
 
-    /* Styling untuk Link */
+    /* --- */
+    /* Link Styling */
     a {
-      color: #795548; /* Warna link sesuai tema */
+      color: #795548;
       text-decoration: none;
+      font-weight: 500; /* Link sedikit lebih tebal */
       transition: color 0.3s ease;
     }
 
     a:hover {
       text-decoration: underline;
-      color: #5d4037; /* Warna link lebih gelap saat hover */
+      color: #5d4037;
+    }
+
+    /* --- */
+    /* Animations */
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
   </style>
 </head>
 <body>
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-12">
-      <div class="card shadow">
-        <div class="card-header text-center">🔒 Login Admin</div>
-        <div class="card-body">
-          @if ($errors->any())
-            <div class="alert alert-danger">{{ $errors->first() }}</div>
-          @endif
-          @if (session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-          @endif
+  <div class="login-wrapper">
+    <div class="card card-login-form">
+      <div class="card-header">
+        🔒 Login Admin
+        <br>
+        <small style="font-size: 0.8em; opacity: 0.8;">Restoran Rasa Nusantara</small>
+      </div>
+      <div class="card-body">
+        @if ($errors->any())
+          <div class="alert alert-danger">{{ $errors->first() }}</div>
+        @endif
+        @if (session('success'))
+          <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
 
-          <form method="POST" action="{{ route('admin.login') }}">
-            @csrf
-            <div class="mb-3">
-              <label class="form-label">Email</label>
-              <input type="email" name="email" class="form-control" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Password</label>
-              <input type="password" name="password" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Login</button>
-          </form>
-        </div>
+        <form method="POST" action="{{ route('admin.login') }}">
+          @csrf
+          <div class="mb-4">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" placeholder="admin@example.com" required>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="********" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 mt-3">Login</button>
+        </form>
       </div>
     </div>
   </div>
