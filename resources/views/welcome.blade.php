@@ -6,10 +6,14 @@
   <title>Selamat Datang di Restoran Kami</title>
 </head>
 <body style="margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fff8f1; color: #4e342e;">
-
+<style>
+    html {
+    scroll-behavior: smooth;
+  }
+  </style>
   <!-- Header -->
   <header style="background-color: #a1887f; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;">
-    <h1 style="margin: 0; color: white;">Restoran Rasa Nusantara</h1>
+    <h1 style="margin: 0; color: white;">Restoran Nusantara</h1>
     <nav>
       <span style="margin-right: 20px; color: #fff;">👤 Halo, <strong>User</strong></span>
       <a href="#menu" style="color: #fff; margin-right: 15px; text-decoration: none;">Menu</a>

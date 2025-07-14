@@ -5,8 +5,8 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\Admin\FinanceController;
 
 
-Route::get('/home', function () {
-    return view('home');
+Route::get('/', function () {
+    return view('welcome');
 });
 Route::get('/reservasi', [ReservationController::class, 'create']);
 Route::post('/reservasi', [ReservationController::class, 'store']);
