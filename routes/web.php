@@ -54,6 +54,14 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     // Menu: Input Bahan Baku
     
+    // Menu Bahan: Hubungan antara Menu dan Bahan Baku
+    Route::get('/menubahan', [MenuBahanController::class, 'index'])->name('menubahan.index');
+    Route::get('/menubahan/create', [MenuBahanController::class, 'create'])->name('menubahan.create');
+    Route::post('/menubahan', [MenuBahanController::class, 'store'])->name('menubahan.store');
+    Route::get('/menubahan/{id}/edit', [MenuBahanController::class, 'edit'])->name('menubahan.edit');
+    Route::put('/menubahan/{id}', [MenuBahanController::class, 'update'])->name('menubahan.update');
+    Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name('menubahan.destroy');
+
     // Menu: Proses Produksi
     Route::get('/produksi', [ProsesProduksiController::class, 'index'])->name('produksi.index');
     Route::get('/produksi/create', [ProsesProduksiController::class, 'create'])->name('produksi.create');
