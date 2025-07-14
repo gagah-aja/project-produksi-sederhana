@@ -1,116 +1,179 @@
-<!-- resources/views/admin/keuangan.blade.php -->
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>Dashboard Keuangan Admin</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<div class="container mt-4">
-  <div class="text-center mb-4">
-    <h1>Dashboard Keuangan Admin</h1>
-    <p class="text-muted">Pantau pemasukan & pengeluaran Anda</p>
-    @if(session('success'))
-      <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-  </div>
+@extends('layouts.admin')
 
-  <!-- Ringkasan -->
-  <div class="row text-center mb-4">
+@section('content')
+<div class="container-fluid">
+    <div class="mb-4">
+        <h1 class="h3 fw-semibold">Laporan Keuangan</h1>
+        <p class="text-muted">Pantau pemasukan dan pengeluaran dengan mudah.</p>
+    </div>
+
+    <!-- Ringkasan Keuangan -->
+    <div class="row g-3 mb-4">
     <div class="col-md-4">
-      <div class="p-3 bg-success text-white rounded shadow">
-        <h5>Total Pemasukan</h5>
-        <h4>Rp {{ number_format($totalPemasukan, 0, ',', '.') }}</h4>
-      </div>
+        <div class="card border-0 shadow-sm bg-light-success">
+            <div class="card-body text-success text-center">
+                <h5 class="card-title mb-2">Total Pemasukan</h5>
+                <p class="fs-5 fw-bold">Rp {{ number_format($totalPemasukan, 0, ',', '.') }}</p>
+            </div>
+        </div>
     </div>
     <div class="col-md-4">
-      <div class="p-3 bg-danger text-white rounded shadow">
-        <h5>Total Pengeluaran</h5>
-        <h4>Rp {{ number_format($totalPengeluaran, 0, ',', '.') }}</h4>
-      </div>
+        <div class="card border-0 shadow-sm bg-light-danger">
+            <div class="card-body text-danger text-center">
+                <h5 class="card-title mb-2">Total Pengeluaran</h5>
+                <p class="fs-5 fw-bold">Rp {{ number_format($totalPengeluaran, 0, ',', '.') }}</p>
+            </div>
+        </div>
     </div>
     <div class="col-md-4">
-      <div class="p-3 bg-primary text-white rounded shadow">
-        <h5>Saldo Saat Ini</h5>
-        <h4>Rp {{ number_format($saldo, 0, ',', '.') }}</h4>
-      </div>
+        <div class="card border-0 shadow-sm bg-light-primary">
+            <div class="card-body text-primary text-center">
+                <h5 class="card-title mb-2">Saldo Saat Ini</h5>
+                <p class="fs-5 fw-bold">Rp {{ number_format($saldo, 0, ',', '.') }}</p>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <!-- Tabel Pemasukan -->
-  <h2>Pemasukan</h2>
-  <table class="table table-bordered table-striped">
-    <thead class="table-success">
-      <tr>
-        <th>Tanggal</th>
-        <th>Deskripsi</th>
-        <th>Jumlah (Rp)</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach ($pemasukan as $row)
-        <tr>
-          <td>{{ $row->tanggal }}</td>
-          <td>{{ $row->deskripsi }}</td>
-          <td>{{ number_format($row->jumlah, 0, ',', '.') }}</td>
-        </tr>
-      @endforeach
-    </tbody>
-  </table>
-
-  <!-- Tabel Pengeluaran -->
-  <h2>Pengeluaran</h2>
-  <table class="table table-bordered table-striped">
-    <thead class="table-danger">
-      <tr>
-        <th>Tanggal</th>
-        <th>Deskripsi</th>
-        <th>Jumlah (Rp)</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach ($pengeluaran as $row)
-        <tr>
-          <td>{{ $row->tanggal }}</td>
-          <td>{{ $row->deskripsi }}</td>
-          <td>{{ number_format($row->jumlah, 0, ',', '.') }}</td>
-        </tr>
-      @endforeach
-    </tbody>
-  </table>
-
-  <!-- Form Tambah Data -->
-  <h2>Tambah Data</h2>
-  <form method="POST" action="{{ route('finances.store') }}">
-    @csrf
-    <div class="row">
-      <div class="col-md-3 mb-3">
-        <label for="tanggal">Tanggal</label>
-        <input type="date" class="form-control" name="tanggal" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="deskripsi">Deskripsi</label>
-        <input type="text" class="form-control" name="deskripsi" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="jumlah">Jumlah (Rp)</label>
-        <input type="number" class="form-control" name="jumlah" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="tipe">Tipe</label>
-        <select name="tipe" class="form-select" required>
-          <option value="pemasukan">Pemasukan</option>
-          <option value="pengeluaran">Pengeluaran</option>
-        </select>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Tambah Data</button>
-  </form>
-
-  <footer class="text-center mt-5 text-muted">
-    &copy; 2025 Aplikasi Keuangan UMKM
-  </footer>
 </div>
-</body>
-</html>
+
+
+    <!-- Tabel Pemasukan -->
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-header bg-success text-white fw-semibold">
+            Tabel Pemasukan
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-bordered mb-0">
+    <thead class="table-light">
+        <tr>
+            <th width="20%">Tanggal</th>
+            <th>Deskripsi</th>
+            <th width="20%">Jumlah (Rp)</th>
+            <th width="15%">Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @forelse ($pemasukan as $data)
+            <tr>
+                <td>{{ $data->tanggal }}</td>
+                <td>{{ $data->deskripsi }}</td>
+                <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
+                <td class="text-center">
+                    <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-sm btn-danger">Hapus</button>
+                    </form>
+                </td>
+            </tr>
+        @empty
+            <tr>
+                <td colspan="4" class="text-center text-muted">Belum ada data pemasukan.</td>
+            </tr>
+        @endforelse
+    </tbody>
+</table>
+
+        </div>
+    </div>
+
+    <!-- Tabel Pengeluaran -->
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-header bg-danger text-white fw-semibold">
+            Tabel Pengeluaran
+        </div>
+        <div class="card-body p-0">
+           <table class="table table-bordered mb-0">
+    <thead class="table-light">
+        <tr>
+            <th width="20%">Tanggal</th>
+            <th>Deskripsi</th>
+            <th width="20%">Jumlah (Rp)</th>
+            <th width="15%">Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @forelse ($pengeluaran as $data)
+            <tr>
+                <td>{{ $data->tanggal }}</td>
+                <td>{{ $data->deskripsi }}</td>
+                <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
+                <td class="text-center">
+                    <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-sm btn-danger">Hapus</button>
+                    </form>
+                </td>
+            </tr>
+        @empty
+            <tr>
+                <td colspan="4" class="text-center text-muted">Belum ada data pengeluaran.</td>
+            </tr>
+        @endforelse
+    </tbody>
+</table>
+
+        </div>
+    </div>
+
+    <!-- Form Tambah Data Keuangan -->
+    <div class="card border-0 shadow-sm">
+        <div class="card-header bg-secondary text-white fw-semibold">
+            Tambah Pemasukan / Pengeluaran
+        </div>
+        <div class="card-body">
+            <form action="{{ route('finances.store') }}" method="POST">
+                @csrf
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label for="tanggal" class="form-label">Tanggal</label>
+                        <input type="date" name="tanggal" class="form-control" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                        <input type="text" name="deskripsi" class="form-control" placeholder="Contoh: Penjualan A" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="jumlah" class="form-label">Jumlah (Rp)</label>
+                        <input type="number" name="jumlah" class="form-control" placeholder="Contoh: 2000000" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="tipe" class="form-label">Tipe</label>
+                        <select name="tipe" class="form-select" required>
+                            <option value="pemasukan">Pemasukan</option>
+                            <option value="pengeluaran">Pengeluaran</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-4 text-end">
+                    <button type="submit" class="btn btn-primary">Simpan Data</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-light-success {
+        background-color: #e6f4ea !important;
+    }
+
+    .bg-light-danger {
+        background-color: #fce8e6 !important;
+    }
+
+    .bg-light-primary {
+        background-color: #e7f0fd !important;
+    }
+
+    .card {
+        border-radius: 10px;
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
+    }
+</style>
+@endsection
