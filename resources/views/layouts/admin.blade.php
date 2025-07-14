@@ -39,15 +39,50 @@
             margin-left: 220px;
             padding: 30px;
         }
+         .sidebar a {
+        padding-left: 30px;
+    }
+
+    .sidebar .collapse a {
+        font-size: 0.9rem;
+        padding-left: 40px;
+        color: #ccc;
+    }
+
+    .sidebar .collapse a:hover {
+        color: #fff;
+    }
+
+    .dropdown-toggle {
+        display: block;
+        color: #ccc;
+        text-decoration: none;
+    }
+
+    .dropdown-toggle:hover {
+        color: #fff;
+    }
     </style>
 </head>
 <body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <div class="sidebar">
     <h4>🧑‍💼 Admin Panel</h4>
-    <a href="{{ route('admin.dashboard') }}">🏠 Dashboard</a>
+
     <a href="{{ route('finances.index') }}">📊 Keuangan</a>
     <a href="/admin/reservasi">📋 Reservasi</a>
+
+    <!-- Collapse Menu -->
+    <a class="dropdown-toggle" data-bs-toggle="collapse" href="#menuCollapse" role="button" aria-expanded="false" aria-controls="menuCollapse">
+        🍞 Menu
+    </a>
+    <div class="collapse ps-2" id="menuCollapse">
+        <a href="{{ route('menubahan.index') }}" class="d-block text-decoration-none text-light">📥 Input Bahan Baku</a>
+        <a href="{{ route('produksi.index') }}" class="d-block text-decoration-none text-light">⚙️ Proses Produksi</a>
+        <a href="{{ route('stok.index') }}" class="d-block text-decoration-none text-light">📦 Stok Bahan Baku</a>
+    </div>
+
     <form action="{{ route('logout') }}" method="POST" class="d-grid mt-3 px-3">
         @csrf
         <button type="submit" class="btn btn-danger btn-sm">Logout</button>

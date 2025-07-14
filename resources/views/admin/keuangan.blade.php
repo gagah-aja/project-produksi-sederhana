@@ -45,28 +45,31 @@
                         <th width="20%">Tanggal</th>
                         <th>Deskripsi</th>
                         <th width="20%">Jumlah (Rp)</th>
-                        <th width="15%">Aksi</th>
+                        <th width="20%">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($pemasukan as $data)
-                        <tr>
-                            <td>{{ $data->tanggal }}</td>
-                            <td>{{ $data->deskripsi }}</td>
-                            <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
-                            <td class="action-buttons"> {{-- Added a class here --}}
-                                <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-danger">Hapus</button>
-                                </form>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>{{ $data->tanggal }}</td>
+                        <td>{{ $data->deskripsi }}</td>
+                        <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
+                        {{-- START PERBAIKAN DI SINI --}}
+                        <td class="text-center d-flex justify-content-center align-items-center gap-2">
+                            <a href="{{ route('finances.show', $data->id) }}" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline m-0" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                            </form>
+                        </td>
+                        {{-- END PERBAIKAN DI SINI --}}
+                    </tr>
                     @empty
-                        <tr>
-                            <td colspan="4" class="text-center text-muted">Belum ada data pemasukan.</td>
-                        </tr>
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">Belum ada data pemasukan.</td>
+                    </tr>
                     @endforelse
                 </tbody>
             </table>
@@ -84,28 +87,31 @@
                         <th width="20%">Tanggal</th>
                         <th>Deskripsi</th>
                         <th width="20%">Jumlah (Rp)</th>
-                        <th width="15%">Aksi</th>
+                        <th width="20%">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($pengeluaran as $data)
-                        <tr>
-                            <td>{{ $data->tanggal }}</td>
-                            <td>{{ $data->deskripsi }}</td>
-                            <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
-                            <td class="action-buttons"> {{-- Added a class here --}}
-                                <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-danger">Hapus</button>
-                                </form>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>{{ $data->tanggal }}</td>
+                        <td>{{ $data->tanggal }}</td>
+                        <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
+                        {{-- START PERBAIKAN DI SINI --}}
+                        <td class="text-center d-flex justify-content-center align-items-center gap-2">
+                            <a href="{{ route('finances.show', $data->id) }}" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ route('finances.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            <form action="{{ route('finances.destroy', $data->id) }}" method="POST" class="d-inline m-0" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                            </form>
+                        </td>
+                        {{-- END PERBAIKAN DI SINI --}}
+                    </tr>
                     @empty
-                        <tr>
-                            <td colspan="4" class="text-center text-muted">Belum ada data pengeluaran.</td>
-                        </tr>
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">Belum ada data pengeluaran.</td>
+                    </tr>
                     @endforelse
                 </tbody>
             </table>
@@ -169,12 +175,10 @@
         vertical-align: middle;
     }
 
-    /* New CSS for button alignment */
-    .action-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 8px; /* Adjust gap as needed */
-        align-items: center; /* Vertically align items in the center */
+    /* Tambahan untuk menyelaraskan tombol aksi */
+    .table .btn-sm {
+        padding: .25rem .5rem; /* Menyesuaikan padding agar tombol lebih kompak */
+        font-size: .8rem; /* Menyesuaikan ukuran font agar tombol lebih kecil */
     }
 </style>
 @endsection
