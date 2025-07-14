@@ -40,7 +40,7 @@
 
                 <div class="mt-5 d-flex justify-content-end gap-2">
                     <a href="{{ route('finances.index') }}" class="btn btn-outline-secondary rounded-pill px-4">← Batal</a>
-                    <button type="submit" class="btn btn-warning text-white rounded-pill px-4">💾 Simpan Perubahan</button>
+                    <button type="submit" class="btn btn-warning text-white rounded-pill px-4">Simpan Perubahan</button>
                 </div>
             </form>
         </div>
