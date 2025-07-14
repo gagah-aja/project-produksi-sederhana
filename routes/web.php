@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\MenuBahanController;
+use App\Http\Controllers\BahanBakuController;
 use App\Http\Controllers\ProsesProduksiController;
 use App\Http\Controllers\StokController;
 use App\Http\Controllers\Admin\FinanceController;
@@ -53,14 +54,15 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/reservasi', [ReservationController::class, 'index']);
 
     // Menu: Input Bahan Baku
-    
+    Route::get('/bahanbaku', [BahanBakuController::class, 'index'])->name('bahanbaku.index');
     // Menu Bahan: Hubungan antara Menu dan Bahan Baku
-    Route::get('/menubahan', [MenuBahanController::class, 'index'])->name('menubahan.index');
-    Route::get('/menubahan/create', [MenuBahanController::class, 'create'])->name('menubahan.create');
-    Route::post('/menubahan', [MenuBahanController::class, 'store'])->name('menubahan.store');
-    Route::get('/menubahan/{id}/edit', [MenuBahanController::class, 'edit'])->name('menubahan.edit');
-    Route::put('/menubahan/{id}', [MenuBahanController::class, 'update'])->name('menubahan.update');
-    Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name('menubahan.destroy');
+    // BENAR
+Route::get('/menubahan', [MenuBahanController::class, 'index'])->name('menubahan.index');
+Route::get('/menubahan/create', [MenuBahanController::class, 'create'])->name('menubahan.create');
+Route::post('/menubahan', [MenuBahanController::class, 'store'])->name('menubahan.store');
+Route::get('/menubahan/{id}/edit', [MenuBahanController::class, 'edit'])->name('menubahan.edit');
+Route::put('/menubahan/{id}', [MenuBahanController::class, 'update'])->name('menubahan.update');
+Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name('menubahan.destroy');
 
     // Menu: Proses Produksi
     Route::get('/produksi', [ProsesProduksiController::class, 'index'])->name('produksi.index');
