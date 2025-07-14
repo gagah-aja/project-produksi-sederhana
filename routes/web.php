@@ -25,6 +25,7 @@ Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboa
 Route::get('/admin/keuangan', [FinanceController::class, 'index'])->name('finances.index');
 Route::post('/admin/keuangan', [FinanceController::class, 'store'])->name('finances.store');
 
+Route::get('/admin/keuangan/{id}', [FinanceController::class, 'show'])->name('finances.show');
 Route::get('/admin/keuangan/{id}/edit', [FinanceController::class, 'edit'])->name('finances.edit');
 Route::put('/admin/keuangan/{id}', [FinanceController::class, 'update'])->name('finances.update');
 Route::delete('/admin/keuangan/{id}', [FinanceController::class, 'destroy'])->name('finances.destroy');
