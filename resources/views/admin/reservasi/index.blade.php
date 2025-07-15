@@ -14,6 +14,7 @@
                         <th>Jumlah</th>
                         <th>Tanggal</th>
                         <th>Dibuat</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
