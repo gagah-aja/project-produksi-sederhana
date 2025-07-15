@@ -23,7 +23,7 @@
                             <td>{{ $r->makanan }}</td>
                             <td>{{ $r->jumlah }}</td>
                             <td>{{ $r->tanggal }}</td>
-                            <td>{{ $r->created_at->format('d-m-Y H:i') }}</td>
+                            <td>{{ $r->created_at->timezone('Asia/Jakarta')->translatedFormat('l, d F Y H:i') }} WIB</td>
                         </tr>
                     @endforeach
                 </tbody>

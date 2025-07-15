@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservation;
+use Carbon\Carbon;
 
 class ReservationController extends Controller
 {
     public function create()
     {
-        return view('reservasi.form');
+        return view('admin.reservasi.form');
     }
 
     public function store(Request $request)
@@ -29,6 +30,8 @@ class ReservationController extends Controller
 
     public function index()
 {
+    Carbon::setLocale('id');
+
     $data = \App\Models\Reservation::latest()->get();
     return view('admin.reservasi.index', compact('data'));
 }
