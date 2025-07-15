@@ -36,6 +36,7 @@ Route::get('/admin', function () {
 })->name('admin.redirect');
 
 Route::prefix('admin')->middleware('auth')->group(function () {
+
     // Dashboard admin redirect ke halaman utama
     Route::get('/dashboard', function () {
         return redirect()->route('finances.index');
@@ -45,13 +46,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/keuangan', [FinanceController::class, 'index'])->name('finances.index');
     Route::post('/keuangan', [FinanceController::class, 'store'])->name('finances.store');
     Route::get('/keuangan/{id}', [FinanceController::class, 'show'])->name('finances.show');
-    Route::get('/keuangan/{id}', [FinanceController::class, 'show'])->name('finances.show');
     Route::get('/keuangan/{id}/edit', [FinanceController::class, 'edit'])->name('finances.edit');
     Route::put('/keuangan/{id}', [FinanceController::class, 'update'])->name('finances.update');
     Route::delete('/keuangan/{id}', [FinanceController::class, 'destroy'])->name('finances.destroy');
 
-    // ✅ Daftar Reservasi Admin
-    Route::get('/reservasi', [ReservationController::class, 'index'])->name('admin.reservasi.index');
+    // ✅ Modul Reservasi (Admin)
+    Route::resource('reservasi', ReservationController::class);
 
     // ✅ Menu Bahan Baku
     Route::get('/menubahan', [MenuBahanController::class, 'index'])->name('menubahan.index');
@@ -60,16 +60,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/menubahan/{id}/edit', [MenuBahanController::class, 'edit'])->name('menubahan.edit');
     Route::put('/menubahan/{id}', [MenuBahanController::class, 'update'])->name('menubahan.update');
     Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name('menubahan.destroy');
-    // Menu: Input Bahan Baku
+
+    // ✅ Input Bahan Baku
     Route::get('/bahanbaku', [BahanBakuController::class, 'index'])->name('bahanbaku.index');
-    // Menu Bahan: Hubungan antara Menu dan Bahan Baku
-    // BENAR
-Route::get('/menubahan', [MenuBahanController::class, 'index'])->name('menubahan.index');
-Route::get('/menubahan/create', [MenuBahanController::class, 'create'])->name('menubahan.create');
-Route::post('/menubahan', [MenuBahanController::class, 'store'])->name('menubahan.store');
-Route::get('/menubahan/{id}/edit', [MenuBahanController::class, 'edit'])->name('menubahan.edit');
-Route::put('/menubahan/{id}', [MenuBahanController::class, 'update'])->name('menubahan.update');
-Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name('menubahan.destroy');
 
     // ✅ Proses Produksi
     Route::get('/produksi', [ProsesProduksiController::class, 'index'])->name('produksi.index');
