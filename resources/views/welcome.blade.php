@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Selamat Datang di Restoran Kami</title>
+
+  <!-- Font Awesome untuk logo sosial media -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body style="margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fff8f1; color: #4e342e;">
 <style>
   html {
@@ -400,23 +404,28 @@
     </div>    
 
     <!-- Sosial Media -->
-    <div style="text-align: left; max-width: 300px; flex: 1; margin-top: 60px; padding: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 8px;">
-      <h4 style="margin-bottom: 10px; font-size: 18px; color: #fff;">Ikuti Kami:</h4>
-      <div style="display: flex; flex-direction: column; gap: 10px; font-size: 16px;">
-        
-        <a href="https://instagram.com/rasanusantara" target="_blank" style="color: #fce4ec; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-          📸 Instagram
-        </a>
-        
-        <a href="https://facebook.com/rasanusantara" target="_blank" style="color: #e3f2fd; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-          📘 Facebook
-        </a>
-        
-        <a href="https://www.tiktok.com/@rasanusantara" target="_blank" style="color: #e1bee7; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-          🎵 TikTok
-        </a>        
-      </div>
-    </div>    
+<div style="text-align: left; max-width: 300px; flex: 1; margin-top: 60px; padding: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 8px;">
+  <h4 style="margin-bottom: 10px; font-size: 18px; color: #fff;">Ikuti Kami:</h4>
+  <div style="display: flex; flex-direction: column; gap: 10px; font-size: 16px;">
+    
+    <a href="https://instagram.com/rasanusantara" target="_blank"
+       style="color: #fce4ec; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    
+    <a href="https://facebook.com/rasanusantara" target="_blank"
+       style="color: #e3f2fd; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
+    
+    <a href="https://www.tiktok.com/@rasanusantara" target="_blank"
+       style="color: #e1bee7; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+      <i class="fab fa-tiktok"></i> TikTok
+    </a>
+
+  </div>
+</div>
+    
 
     <!-- Kolom Peta dan Copyright -->
     <div style="text-align: center; flex: 2;">

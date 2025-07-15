@@ -27,7 +27,6 @@
 
     <div class="mt-4">
         <a href="{{ route('finances.index') }}" class="btn btn-secondary">← Kembali</a>
-        <a href="{{ route('finances.edit', $finance->id) }}" class="btn btn-warning text-white">✏️ Edit</a>
     </div>
 </div>
 @endsection
