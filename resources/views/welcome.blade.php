@@ -173,19 +173,21 @@
     }
   
     function nextSlide() {
-      if (currentIndex < totalSlides - 1) {
-        currentIndex++;
-        updateSlide();
-      }
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlide();
     }
   
     function prevSlide() {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateSlide();
-      }
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlide();
     }
+  
+    // Auto slide setiap 3 detik
+    setInterval(() => {
+      nextSlide();
+    }, 3000);
   </script>
+  
   
 </section>
 
