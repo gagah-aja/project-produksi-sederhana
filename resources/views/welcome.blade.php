@@ -418,9 +418,8 @@
       <i class="fab fa-facebook"></i> Facebook
     </a>
     
-    <a href="https://www.tiktok.com/@rasanusantara" target="_blank"
-       style="color: #e1bee7; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-      <i class="fab fa-tiktok"></i> TikTok
+    <a href="https://twitter.com/rasanusantara" target="_blank" style="color: #bbdefb; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+      <i class="fab fa-twitter"></i> Twitter
     </a>
 
   </div>
