@@ -64,12 +64,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/bahanbaku', [BahanBakuController::class, 'index'])->name('bahanbaku.index');
     // Menu Bahan: Hubungan antara Menu dan Bahan Baku
     // BENAR
-Route::get('/menubahan', [MenuBahanController::class, 'index'])->name('menubahan.index');
-Route::get('/menubahan/create', [MenuBahanController::class, 'create'])->name('menubahan.create');
-Route::post('/menubahan', [MenuBahanController::class, 'store'])->name('menubahan.store');
-Route::get('/menubahan/{id}/edit', [MenuBahanController::class, 'edit'])->name('menubahan.edit');
-Route::put('/menubahan/{id}', [MenuBahanController::class, 'update'])->name('menubahan.update');
-Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name('menubahan.destroy');
+    Route::get('/menubahan', [MenuBahanController::class, 'index'])->name('menubahan.index');
+    Route::get('/menubahan/create', [MenuBahanController::class, 'create'])->name('menubahan.create');
+    Route::post('/menubahan', [MenuBahanController::class, 'store'])->name('menubahan.store');
+    Route::get('/menubahan/{id}/edit', [MenuBahanController::class, 'edit'])->name('menubahan.edit');
+    Route::put('/menubahan/{id}', [MenuBahanController::class, 'update'])->name('menubahan.update');
+    Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name('menubahan.destroy');
 
     // ✅ Proses Produksi
     Route::get('/produksi', [ProsesProduksiController::class, 'index'])->name('produksi.index');
@@ -77,5 +77,5 @@ Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name(
     Route::post('/produksi', [ProsesProduksiController::class, 'store'])->name('produksi.store');
 
     // ✅ Stok Bahan Baku
-    Route::get('/stok', [StokController::class, 'index'])->name('stok.index');
+    Route::get('/admin/stok', [StokController::class, 'index'])->name('stok.index');
 });
