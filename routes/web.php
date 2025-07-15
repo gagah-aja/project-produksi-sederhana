@@ -78,4 +78,6 @@ Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name(
 
     // ✅ Stok Bahan Baku
     Route::get('/stok', [StokController::class, 'index'])->name('stok.index');
+    Route::get('/stok/create', [StokController::class, 'create'])->name('stok.create');
+    Route::post('/stok', [StokController::class, 'store'])->name('stok.store');
 });

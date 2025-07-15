@@ -23,11 +23,12 @@
 
         <div class="mb-3">
             <label for="menu_id" class="form-label">Pilih Menu</label>
-            <input type="text" name="menu_id" id="menu_id" class="form-control" required>
+            <select name="menu_id" id="menu_id" class="form-select" required>
+                <option value="" disabled selected>Pilih Menu</option>
                 @foreach ($menus as $menu)
                     <option value="{{ $menu->id }}">{{ $menu->nama }}</option>
                 @endforeach
-            </select>
+            </select>            
         </div>
 
         <hr>
@@ -37,7 +38,8 @@
             <div class="row g-2 align-items-end mb-2 bahan-item">
                 <div class="col-md-4">
                     <label>Bahan Baku</label>
-                    <input type="text" name="bahan_baku_id[]" class="form-control" required>
+                    <select name="bahan_baku_id[]" class="form-select" required>
+                        <option value="" disabled selected>Pilih Bahan</option>
                         @foreach ($bahanBaku as $bahan)
                             <option value="{{ $bahan->id }}">{{ $bahan->nama }}</option>
                         @endforeach
@@ -69,12 +71,16 @@
 <script>
 document.getElementById('tambah-bahan').addEventListener('click', function () {
     const wrapper = document.getElementById('bahan-wrapper');
-    const item = wrapper.querySelector('.bahan-item');
-    const clone = item.cloneNode(true);
+    const firstItem = wrapper.querySelector('.bahan-item');
+    const clone = firstItem.cloneNode(true);
 
     // Reset nilai input
-    clone.querySelectorAll('input, select').forEach(el => el.value = '');
+    clone.querySelectorAll('input').forEach(input => input.value = '');
+    clone.querySelectorAll('select').forEach(select => select.selectedIndex = 0);
+
+    // Tampilkan tombol hapus
     clone.querySelector('.remove-btn').classList.remove('d-none');
+    
     wrapper.appendChild(clone);
 });
 

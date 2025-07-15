@@ -94,7 +94,7 @@
                     @forelse ($pengeluaran as $data)
                     <tr>
                         <td>{{ $data->tanggal }}</td>
-                        <td>{{ $data->tanggal }}</td>
+                        <td>{{ $data->deskripsi }}</td>
                         <td>{{ number_format($data->jumlah, 0, ',', '.') }}</td>
                         {{-- START PERBAIKAN DI SINI --}}
                         <td class="text-center d-flex justify-content-center align-items-center gap-2">

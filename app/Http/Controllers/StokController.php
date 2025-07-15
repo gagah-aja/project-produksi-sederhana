@@ -1,18 +1,21 @@
 <?php
 
+// app/Http/Controllers/StokController.php
 namespace App\Http\Controllers;
 
+use App\Models\Stok;
 use Illuminate\Http\Request;
 
 class StokController extends Controller
 {
     public function index()
     {
-        // Contoh tanpa data
-        return view('admin.stok.index');
+        $data = Stok::all(); // Ambil semua data dari database stok
+        return view('admin.stok.index', compact('data'));
+    } 
 
-        // Contoh dengan data
-        // $stok = Stok::all();
-        // return view('admin.stok.index', compact('stok'));
+    public function create()
+    {
+        return view('admin.stok.create');
     }
 }
