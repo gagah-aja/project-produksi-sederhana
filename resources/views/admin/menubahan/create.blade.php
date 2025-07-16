@@ -23,8 +23,7 @@
 
         <div class="mb-3">
             <label for="menu_id" class="form-label">Pilih Menu</label>
-            <select name="menu_id" id="menu_id" class="form-select" required>
-                <option value="">-- Pilih Menu --</option>
+            <input type="text" name="menu_id" id="menu_id" class="form-control" required>
                 @foreach ($menus as $menu)
                     <option value="{{ $menu->id }}">{{ $menu->nama }}</option>
                 @endforeach
@@ -38,8 +37,7 @@
             <div class="row g-2 align-items-end mb-2 bahan-item">
                 <div class="col-md-4">
                     <label>Bahan Baku</label>
-                    <select name="bahan_baku_id[]" class="form-select" required>
-                        <option value="">-- Pilih Bahan --</option>
+                    <input type="text" name="bahan_baku_id[]" class="form-control" required>
                         @foreach ($bahanBaku as $bahan)
                             <option value="{{ $bahan->id }}">{{ $bahan->nama }}</option>
                         @endforeach

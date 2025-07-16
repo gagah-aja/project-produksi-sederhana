@@ -70,5 +70,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/produksi', [ProsesProduksiController::class, 'store'])->name('produksi.store');
 
     // ✅ Stok Bahan Baku
-    Route::get('/stok', [StokController::class, 'index'])->name('stok.index');
+    Route::get('/admin/stok', [StokController::class, 'index'])->name('stok.index');
 });
