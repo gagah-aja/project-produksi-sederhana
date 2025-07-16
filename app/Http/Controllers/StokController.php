@@ -22,8 +22,22 @@ class StokController extends Controller
     }
 
 
-    // Contoh dengan data
-    // $stok = Stok::all();
-    // return view('admin.stok.index', compact('stok'));
+   public function store(Request $request)
+{
+    $request->validate([
+        'nama_barang' => 'required|string|max:255',
+        'jumlah' => 'required|numeric',
+        'satuan' => 'required|string|max:50',
+    ]);
+
+    \App\Models\Stok::create([
+        'nama_barang' => $request->nama_barang,
+        'jumlah' => $request->jumlah,
+        'satuan' => $request->satuan,
+    ]);
+
+    return redirect()->route('stok.index')->with('success', 'Data stok berhasil ditambahkan.');
+}
+
 }
 
