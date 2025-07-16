@@ -21,43 +21,34 @@
     <form action="{{ route('menubahan.store') }}" method="POST">
         @csrf
 
-        <div class="mb-3">
-            <label for="menu_id" class="form-label">Pilih Menu</label>
-            <select name="menu_id" id="menu_id" class="form-select" required>
-                <option value="">-- Pilih Menu --</option>
-                @foreach ($menus as $menu)
-                    <option value="{{ $menu->id }}">{{ $menu->nama }}</option>
-                @endforeach
-            </select>
-        </div>
+       <div class="mb-3">
+    <label for="menu_id" class="form-label">ID Menu</label>
+    <input type="text" name="menu_id" id="menu_id" class="form-control" required>
+</div>
 
-        <hr>
-        <h5>Bahan Baku yang Dibutuhkan</h5>
+<hr>
+<h5>Bahan Baku yang Dibutuhkan</h5>
 
-        <div id="bahan-wrapper">
-            <div class="row g-2 align-items-end mb-2 bahan-item">
-                <div class="col-md-4">
-                    <label>Bahan Baku</label>
-                    <select name="bahan_baku_id[]" class="form-select" required>
-                        <option value="">-- Pilih Bahan --</option>
-                        @foreach ($bahanBaku as $bahan)
-                            <option value="{{ $bahan->id }}">{{ $bahan->nama }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label>Jumlah</label>
-                    <input type="number" step="any" name="jumlah[]" class="form-control" required>
-                </div>
-                <div class="col-md-3">
-                    <label>Satuan</label>
-                    <input type="text" name="satuan[]" class="form-control" placeholder="kg / butir / gram" required>
-                </div>
-                <div class="col-md-2">
-                    <button type="button" class="btn btn-danger btn-sm remove-btn d-none">Hapus</button>
-                </div>
-            </div>
+<div id="bahan-wrapper">
+    <div class="row g-2 align-items-end mb-2 bahan-item">
+        <div class="col-md-4">
+            <label>ID Bahan Baku</label>
+            <input type="text" name="bahan_baku_id[]" class="form-control" required>
         </div>
+        <div class="col-md-3">
+            <label>Jumlah</label>
+            <input type="number" step="any" name="jumlah[]" class="form-control" required>
+        </div>
+        <div class="col-md-3">
+            <label>Satuan</label>
+            <input type="text" name="satuan[]" class="form-control" placeholder="kg / butir / gram" required>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-danger btn-sm remove-btn d-none">Hapus</button>
+        </div>
+    </div>
+</div>
+
 
         <button type="button" class="btn btn-secondary btn-sm mb-3" id="tambah-bahan">+ Tambah Bahan</button>
 

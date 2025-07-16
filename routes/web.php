@@ -70,6 +70,8 @@ Route::post('/menubahan', [MenuBahanController::class, 'store'])->name('menubaha
 Route::get('/menubahan/{id}/edit', [MenuBahanController::class, 'edit'])->name('menubahan.edit');
 Route::put('/menubahan/{id}', [MenuBahanController::class, 'update'])->name('menubahan.update');
 Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name('menubahan.destroy');
+Route::resource('/admin/menu', \App\Http\Controllers\MenuBahanController::class)->middleware('auth');
+Route::resource('/admin/bahanbaku', \App\Http\Controllers\BahanBakuController::class)->middleware('auth');
 
     // ✅ Proses Produksi
     Route::get('/produksi', [ProsesProduksiController::class, 'index'])->name('produksi.index');

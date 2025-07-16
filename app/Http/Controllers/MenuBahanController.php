@@ -31,30 +31,30 @@ class MenuBahanController extends Controller
     return view('admin.menubahan.create', compact('menus', 'bahanBaku'));
 }
 
+public function store(Request $request)
+{
+    $request->validate([
+        'menu_id' => 'required|numeric', // hilangkan "exists"
+        'bahan_baku_id' => 'required|array',
+        'jumlah' => 'required|array',
+        'satuan' => 'required|array',
+    ]);
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'menu_id' => 'required|exists:menus,id',
-            'bahan_baku_id' => 'required|array',
-            'jumlah' => 'required|array',
-            'satuan' => 'required|array',
+    // Hapus relasi lama jika ada
+    DB::table('menu_bahan_bakus')->where('menu_id', $request->menu_id)->delete();
+
+    foreach ($request->bahan_baku_id as $index => $bahanId) {
+        DB::table('menu_bahan_bakus')->insert([
+            'menu_id' => $request->menu_id,
+            'bahan_baku_id' => $bahanId,
+            'jumlah' => $request->jumlah[$index],
+            'satuan' => $request->satuan[$index],
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
-
-        // Hapus relasi lama jika ada
-        DB::table('menu_bahan_bakus')->where('menu_id', $request->menu_id)->delete();
-
-        foreach ($request->bahan_baku_id as $i => $bahanId) {
-            DB::table('menu_bahan_bakus')->insert([
-                'menu_id' => $request->menu_id,
-                'bahan_baku_id' => $bahanId,
-                'jumlah' => $request->jumlah[$i],
-                'satuan' => $request->satuan[$i],
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-        }
-
-        return redirect()->route('menubahan.index')->with('success', 'Relasi berhasil disimpan.');
     }
+
+    return redirect()->route('menubahan.index')->with('success', 'Relasi berhasil disimpan.');
+}
+
 }

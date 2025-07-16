@@ -5,185 +5,158 @@
   <title>Login Admin - Restoran Rasa Nusantara</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Global Styling & Nusantara Theme Base */
+    /* Background motif gelombang */
     body {
-      background-color: #f8f9fa; /* Latar belakang putih lembut */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
       min-height: 100vh;
-      display: flex; /* Menggunakan Flexbox */
-      align-items: center; /* Pusat vertikal */
-      justify-content: center; /* Pusat horizontal */
-      padding: 20px; /* Padding agar tidak terlalu mepet tepi */
-      overflow: auto; /* Scroll jika konten lebih besar dari viewport */
-      margin: 0; /* Pastikan tidak ada margin default pada body */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fcefdc 40%, #fff8f1 100%);
+      position: relative;
+      overflow: hidden;
     }
 
-    /* --- */
-    /* Container untuk Login Card */
-    .login-wrapper {
-      background-color: white; /* Card wrapper berwarna putih penuh */
+    body::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      left: -50px;
+      width: 140%;
+      height: 300px;
+      background: radial-gradient(circle at left, #e6cfc3 20%, transparent 70%);
+      opacity: 0.3;
+      transform: rotate(-5deg);
+    }
+
+    body::after {
+      content: "";
+      position: absolute;
+      bottom: -100px;
+      right: -80px;
+      width: 160%;
+      height: 300px;
+      background: radial-gradient(circle at right, #d7ccc8 20%, transparent 70%);
+      opacity: 0.25;
+      transform: rotate(10deg);
+    }
+
+    .login-container {
+      display: flex;
+      flex-wrap: wrap;
+      background: white;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.1);
       border-radius: 20px;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15); /* Bayangan halus dan elegan */
-      overflow: hidden; /* Memastikan sudut melengkung pada semua sisi */
-      width: 100%; /* Memastikan lebar responsif */
-      max-width: 450px; /* Lebar maksimal wrapper disesuaikan agar kompak */
-      animation: fadeInScale 0.8s ease-out forwards; /* Animasi muncul saat dimuat */
-      flex-shrink: 0; /* Memastikan flex item ini tidak terlalu menyusut */
-      margin: auto; /* Membantu centering lebih kuat */
+      overflow: hidden;
+      max-width: 1000px;
+      width: 100%;
     }
 
-    /* --- */
-    /* Styling for the Login Form Card itself */
-    .card-login-form {
-      background-color: transparent; /* Transparan agar latar belakang putih wrapper terlihat */
-      border: none;
-      box-shadow: none;
-      border-radius: 0;
+    .image-side {
+      flex: 1;
+      background-image: url('https://images.unsplash.com/photo-1609334762589-c5f2f96a3d89'); /* Ganti dengan gambar makanan Nusantara */
+      background-size: cover;
+      background-position: center;
+      min-height: 450px;
+    }
+
+    .form-side {
+      flex: 1;
+      padding: 50px 40px;
     }
 
     .card-header {
-      background-color: #795548; /* Cokelat tua yang hangat */
+      background-color: #795548;
       color: white;
-      font-weight: 600;
-      padding: 30px; /* Padding lebih besar untuk kesan premium */
-      font-size: 1.55rem; /* Ukuran teks header lebih besar */
-      letter-spacing: 0.8px; /* Sedikit lebih banyak jarak antar huruf */
-      border-radius: 20px 20px 0 0; /* Radius hanya di sudut atas, mengikuti login-wrapper */
-      text-align: center; /* Pastikan teks header terpusat */
-      border-bottom: 2px solid rgba(255, 255, 255, 0.1); /* Garis bawah halus */
+      font-weight: bold;
+      padding: 25px;
+      font-size: 1.5rem;
+      text-align: center;
+      border-radius: 15px;
+      margin-bottom: 30px;
     }
 
-    .card-body {
-      padding: 40px;
-    }
-
-    /* --- */
-    /* Form Control Styling */
     .form-label {
-        font-weight: 500;
-        color: #5d4037;
-        margin-bottom: 10px; /* Jarak antara label dan input lebih besar */
+      font-weight: 600;
+      color: #5d4037;
     }
 
     .form-control {
-      border-radius: 15px; /* Sudut input field lebih lembut dan besar */
-      border: 1px solid #bcaaa4; /* Border warna abu-abu cokelat lembut */
-      padding: 16px 20px; /* Padding lebih nyaman */
-      font-size: 1.05rem; /* Ukuran font sedikit lebih besar */
-      transition: all 0.3s ease;
+      border-radius: 15px;
+      padding: 15px;
+      border: 1px solid #bcaaa4;
     }
 
     .form-control:focus {
       border-color: #8d6e63;
-      box-shadow: 0 0 0 0.35rem rgba(141, 110, 99, 0.2); /* Glow saat fokus lebih lembut */
-      background-color: #fffdfa; /* Sedikit off-white saat fokus */
+      box-shadow: 0 0 0 0.25rem rgba(141, 110, 99, 0.2);
     }
 
-    /* --- */
-    /* Button Styling */
     .btn-primary {
       background-color: #8d6e63;
       border-color: #8d6e63;
-      border-radius: 15px; /* Sudut tombol lebih lembut dan besar */
-      padding: 16px 28px; /* Padding tombol lebih besar */
-      font-size: 1.25rem; /* Ukuran font tombol lebih besar */
-      font-weight: 600;
-      letter-spacing: 0.8px;
-      transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      border-radius: 15px;
+      font-size: 1.2rem;
+      padding: 14px;
+      width: 100%;
+      font-weight: bold;
     }
 
     .btn-primary:hover {
-      background-color: #795548;
-      border-color: #795548;
-      transform: translateY(-4px); /* Efek angkat lebih jauh saat hover */
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); /* Bayangan lebih jelas saat hover */
+      background-color: #6d4c41;
+      border-color: #6d4c41;
     }
 
-    .btn-primary:active {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-
-    /* --- */
-    /* Alert Styling */
     .alert {
-      border-radius: 12px; /* Sudut alert lebih lembut */
-      font-size: 1rem; /* Ukuran font alert sedikit lebih besar */
-      padding: 15px 25px;
-      margin-bottom: 30px; /* Jarak bawah alert lebih besar */
-    }
-    .alert-danger {
-        background-color: #f8d7da;
-        color: #721c24;
-        border-color: #f5c6cb;
-    }
-    .alert-success {
-        background-color: #d4edda;
-        color: #155724;
-        border-color: #c3e6cb;
+      border-radius: 10px;
+      font-size: 0.95rem;
     }
 
-    /* --- */
-    /* Link Styling */
-    a {
-      color: #795548;
-      text-decoration: none;
-      font-weight: 500; /* Link sedikit lebih tebal */
-      transition: color 0.3s ease;
-    }
-
-    a:hover {
-      text-decoration: underline;
-      color: #5d4037;
-    }
-
-    /* --- */
-    /* Animations */
-    @keyframes fadeInScale {
-      from {
-        opacity: 0;
-        transform: scale(0.97);
+    @media (max-width: 768px) {
+      .image-side {
+        display: none;
       }
-      to {
-        opacity: 1;
-        transform: scale(1);
+
+      .form-side {
+        width: 100%;
+        padding: 40px 25px;
       }
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <div class="login-wrapper">
-    <div class="card card-login-form">
+  <div class="login-container">
+    <div class="image-side"></div>
+    <div class="form-side">
       <div class="card-header">
-        🔒 Login Admin
-        <br>
-        <small style="font-size: 0.8em; opacity: 0.8;">Restoran Rasa Nusantara</small>
+        Login Admin
+        <div style="font-size: 0.85rem; opacity: 0.85;">Restoran Rasa Nusantara</div>
       </div>
-      <div class="card-body">
-        @if ($errors->any())
-          <div class="alert alert-danger">{{ $errors->first() }}</div>
-        @endif
-        @if (session('success'))
-          <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
 
-        <form method="POST" action="{{ route('admin.login') }}">
-          @csrf
-          <div class="mb-4">
-            <label class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" placeholder="admin@example.com" required>
-          </div>
+      @if ($errors->any())
+        <div class="alert alert-danger">{{ $errors->first() }}</div>
+      @endif
+      @if (session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+      @endif
 
-          <div class="mb-4">
-            <label class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" placeholder="********" required>
-          </div>
-          <button type="submit" class="btn btn-primary w-100 mt-3">Login</button>
-        </form>
-      </div>
+      <form method="POST" action="{{ route('admin.login') }}">
+        @csrf
+        <div class="mb-4">
+          <label class="form-label">Email</label>
+          <input type="email" name="email" class="form-control" placeholder="admin@example.com" required>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" placeholder="********" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Login</button>
+      </form>
     </div>
   </div>
-</div>
 </body>
 </html>
