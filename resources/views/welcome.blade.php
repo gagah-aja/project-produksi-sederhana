@@ -91,105 +91,109 @@
 <!-- Hero Section -->
 <section id="hero" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; padding: 60px 20px; background: linear-gradient(135deg, #fff4e6, #ffe8d1); font-family: 'Segoe UI', sans-serif; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); margin: 40px 20px;">
   
-  <!-- Teks Kiri -->
-  <div style="flex: 1 1 400px; padding: 20px; max-width: 600px;">
-    <h2 style="font-size: 2.8rem; color: #4e342e; font-family: 'Merriweather', serif; margin-bottom: 20px; line-height: 1.3;">
-      Nikmati Hidangan Terbaik <br>Hari Ini
-    </h2>
-    <p style="font-size: 1.1rem; margin-bottom: 30px; line-height: 1.7; color: #5d4037;">
-      Kami menyajikan makanan segar, lezat, dan dibuat dengan cinta dari resep-resep otentik Nusantara. Yuk, pesan sekarang dan rasakan cita rasa Indonesia sesungguhnya!
-    </p>
-  </div>
+  <!-- Konten Kiri -->
+<div style="flex: 1 1 400px; padding: 20px; max-width: 600px;">
+  <h2 style="font-size: 2.8rem; color: #4e342e; font-family: 'Merriweather', serif; margin-bottom: 20px; line-height: 1.3;">
+    Nikmati Hidangan Terbaik <br>Hari Ini
+  </h2>
+  <p style="font-size: 1.1rem; margin-bottom: 30px; line-height: 1.7; color: #5d4037;">
+    Kami menyajikan makanan segar, lezat, dan dibuat dengan cinta dari resep-resep otentik Nusantara. Yuk, pesan sekarang dan rasakan cita rasa Indonesia sesungguhnya!
+  </p>
+</div>
 
-  <!-- Carousel Kanan -->
-  <div style="max-width: 600px; position: relative; overflow: hidden; padding: 20px; border-radius: 12px;">
-    <div id="carousel-wrapper" style="width: 100%; overflow: hidden;">
-      <div id="carousel" style="display: flex; transition: transform 0.6s ease-in-out;">
-        <!-- Slides -->
-        <div class="slide"><img src="makanan-nusantara1.jpg" alt="Makanan Nusantara 1"></div>
-        <div class="slide"><img src="makanan-nusantara2.jpg" alt="Makanan Nusantara 2"></div>
-        <div class="slide"><img src="makanan-nusantara3.jpg" alt="Makanan Nusantara 3"></div>
-        <div class="slide"><img src="makanan-nusantara4.jpg" alt="Makanan Nusantara 4"></div>
-      </div>
+<!-- Carousel Kanan (tanpa tombol panah) -->
+<div style="max-width: 600px; position: relative; overflow: hidden; padding: 20px; border-radius: 12px;">
+  <div id="carousel-wrapper" style="width: 100%; overflow: hidden;">
+    <div id="carousel" style="display: flex; transition: transform 0.6s ease-in-out;">
+      <!-- Slides -->
+      <div class="slide"><img src="makanan-nusantara1.jpg" alt="Makanan Nusantara 1"></div>
+      <div class="slide"><img src="makanan-nusantara2.jpg" alt="Makanan Nusantara 2"></div>
+      <div class="slide"><img src="makanan-nusantara3.jpg" alt="Makanan Nusantara 3"></div>
+      <div class="slide"><img src="makanan-nusantara4.jpg" alt="Makanan Nusantara 4"></div>
     </div>
-  
-    <!-- Tombol Navigasi -->
-    <button onclick="prevSlide()" class="nav-button left">‹</button>
-    <button onclick="nextSlide()" class="nav-button right">›</button>
   </div>
+</div>
+
+    
+    <style>
+      .slide {
+        min-width: 100%;
+        box-sizing: border-box;
+        padding: 0 5px;
+      }
+    
+      .slide img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        transition: transform 0.3s ease;
+      }
+    
+      .slide img:hover {
+        transform: scale(1.02);
+      }
+    
+      .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.4);
+        color: white;
+        border: none;
+        padding: 10px 14px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+      }
+    
+      .nav-button.left {
+        left: 10px;
+      }
+    
+      .nav-button.right {
+        right: 10px;
+      }
+    
+      .nav-button:hover {
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+    </style> 
   
-  <style>
-    .slide {
-      min-width: 100%;
-      box-sizing: border-box;
-      padding: 0 5px;
-    }
-  
-    .slide img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
-    }
-  
-    .slide img:hover {
-      transform: scale(1.02);
-    }
-  
-    .nav-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.4);
-      color: white;
-      border: none;
-      padding: 10px 14px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 10;
-    }
-  
-    .nav-button.left {
-      left: 10px;
-    }
-  
-    .nav-button.right {
-      right: 10px;
-    }
-  
-    .nav-button:hover {
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-  </style>
-  
-  <script>
-    const carousel = document.getElementById("carousel");
+   <script>
     let currentIndex = 0;
-    const totalSlides = carousel.children.length;
+    const carousel = document.getElementById("carousel");
+    const totalSlides = document.querySelectorAll(".slide").length;
   
-    function updateSlide() {
-      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    function updateCarousel() {
+      const offset = -currentIndex * 100;
+      carousel.style.transform = `translateX(${offset}%)`;
     }
   
     function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlide();
+      if (currentIndex < totalSlides - 1) {
+        currentIndex++;
+        updateCarousel();
+      }
     }
   
     function prevSlide() {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      updateSlide();
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
     }
   
-    // Auto slide setiap 3 detik
-    setInterval(() => {
-      nextSlide();
-    }, 3000);
+    // Auto Slide
+    const autoSlide = setInterval(() => {
+      if (currentIndex < totalSlides - 1) {
+        nextSlide();
+      } else {
+        clearInterval(autoSlide); // Stop sliding when reaching the last slide
+      }
+    }, 3000); // 3000ms = 3 detik
   </script>
-  
-  
-</section>
+  </section>
 
 <!-- Menu Hari Ini -->
 <section id="menu" style="padding: 80px 20px; background: linear-gradient(135deg, #fff4e6, #ffe8d1); font-family: 'Segoe UI', sans-serif; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); margin: 40px 20px;">
