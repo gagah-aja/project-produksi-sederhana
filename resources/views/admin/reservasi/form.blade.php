@@ -51,7 +51,7 @@
         button {
             width: 100%;
             padding: 12px;
-            background-color: #007BFF;
+            background-color: #25D366;
             color: white;
             font-size: 16px;
             border: none;
@@ -61,41 +61,54 @@
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #1ebe5d;
         }
 
         p {
             text-align: center;
             font-weight: bold;
         }
-
-        p[style*="color: green"] {
-            color: green;
-        }
     </style>
 </head>
 <body>
     <h1>Reservasi Makanan</h1>
 
-    @if(session('success'))
-        <p style="color: green">{{ session('success') }}</p>
-    @endif
-
-    <form method="POST" action="/reservasi">
-        @csrf
+    <form onsubmit="kirimWhatsApp(event)">
         <label>Nama:</label>
-        <input type="text" name="nama" required>
+        <input type="text" id="nama" required>
 
         <label>Jenis Makanan:</label>
-        <input type="text" name="makanan" required>
+        <input type="text" id="makanan" required>
 
         <label>Jumlah:</label>
-        <input type="number" name="jumlah" min="1" required>
+        <input type="number" id="jumlah" min="1" required>
 
         <label>Tanggal Reservasi:</label>
-        <input type="date" name="tanggal" required>
+        <input type="date" id="tanggal" required>
 
-        <button type="submit">Kirim Reservasi</button>
+        <button type="submit">Kirim via WhatsApp</button>
     </form>
+
+    <script>
+        function kirimWhatsApp(event) {
+            event.preventDefault();
+
+            const nama = document.getElementById("nama").value;
+            const makanan = document.getElementById("makanan").value;
+            const jumlah = document.getElementById("jumlah").value;
+            const tanggal = document.getElementById("tanggal").value;
+
+            const nomorWA = "6285624039964"; // Ganti dengan nomor admin tanpa tanda +, misal: 62812xxxxxxx
+
+            const pesan = `Halo, saya ingin reservasi makanan:\n\n` +
+                          `Nama: ${nama}\n` +
+                          `Makanan: ${makanan}\n` +
+                          `Jumlah: ${jumlah}\n` +
+                          `Tanggal: ${tanggal}\n`;
+
+            const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+            window.open(url, "_blank");
+        }
+    </script>
 </body>
 </html>
