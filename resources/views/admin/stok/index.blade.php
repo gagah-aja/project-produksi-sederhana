@@ -10,9 +10,9 @@
                 <table class="table table-bordered mb-0">
                     <thead class="table-primary">
                         <tr>
-                            <td>{{ $item->nama_barang }}</td>
-                            <td>{{ $item->jumlah }}</td>
-                            <td>{{ $item->satuan }}</td>
+                            <td>Nama Barang</td>
+                            <td>Jumlah</td>
+                            <td>Satuan</td>
                         </tr>
                     </thead>
                     <tbody>

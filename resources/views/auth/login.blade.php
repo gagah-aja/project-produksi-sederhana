@@ -7,264 +7,158 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* Global Styling & Nusantara Theme Base */
-    :root {
-      --primary-brown: #8D6E63; /* Light Brown */
-      --dark-brown: #795548;    /* Medium Brown */
-      --accent-brown: #5D4037;  /* Dark Brown */
-      --light-bg: #FDF7F3;      /* Off-white/Creamy background */
-      --card-bg: #FFFFFF;
-      --text-color: #333333;
-      --label-color: #5D4037;
-      --border-color: #BCAAA4;
-      --focus-glow: rgba(141, 110, 99, 0.25);
-    }
-
+    /* Background motif gelombang */
     body {
-      background-color: var(--light-bg);
-      font-family: 'Poppins', sans-serif; /* More modern, readable font */
+      margin: 0;
+      padding: 0;
       min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      margin: 0;
-      overflow: auto;
-      color: var(--text-color);
-    }
-
-    /* --- */
-    /* Container for Login Card */
-    .login-wrapper {
-      background-color: var(--card-bg);
-      border-radius: 25px; /* Slightly more rounded */
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18); /* Stronger, more refined shadow */
+      background: linear-gradient(135deg, #fcefdc 40%, #fff8f1 100%);
+      position: relative;
       overflow: hidden;
-      width: 100%;
-      max-width: 480px; /* Slightly wider for better balance */
-      animation: fadeInScale 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Smoother animation curve */
-      flex-shrink: 0;
-      margin: auto;
-      border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle border for definition */
     }
 
-    /* --- */
-    /* Styling for the Login Form Card itself */
-    .card-login-form {
-      background-color: transparent;
-      border: none;
-      box-shadow: none;
-      border-radius: 0;
+    body::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      left: -50px;
+      width: 140%;
+      height: 300px;
+      background: radial-gradient(circle at left, #e6cfc3 20%, transparent 70%);
+      opacity: 0.3;
+      transform: rotate(-5deg);
+    }
+
+    body::after {
+      content: "";
+      position: absolute;
+      bottom: -100px;
+      right: -80px;
+      width: 160%;
+      height: 300px;
+      background: radial-gradient(circle at right, #d7ccc8 20%, transparent 70%);
+      opacity: 0.25;
+      transform: rotate(10deg);
+    }
+
+    .login-container {
+      display: flex;
+      flex-wrap: wrap;
+      background: white;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .image-side {
+      flex: 1;
+      background-image: url('https://images.unsplash.com/photo-1609334762589-c5f2f96a3d89'); /* Ganti dengan gambar makanan Nusantara */
+      background-size: cover;
+      background-position: center;
+      min-height: 450px;
+    }
+
+    .form-side {
+      flex: 1;
+      padding: 50px 40px;
     }
 
     .card-header {
-      background-color: var(--dark-brown);
+      background-color: #795548;
       color: white;
-      font-family: 'Playfair Display', serif; /* Elegant font for header */
-      font-weight: 700;
-      padding: 35px; /* More padding for grandeur */
-      font-size: 2rem; /* Larger header text */
-      letter-spacing: 1px;
-      border-radius: 25px 25px 0 0; /* Match wrapper radius */
+      font-weight: bold;
+      padding: 25px;
+      font-size: 1.5rem;
       text-align: center;
-      position: relative; /* For subtle overlay */
-      overflow: hidden; /* Ensure rounded corners */
+      border-radius: 15px;
+      margin-bottom: 30px;
     }
 
-    .card-header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 50%); /* Subtle gradient overlay */
-      pointer-events: none;
-    }
-
-    .card-header .lock-icon {
-        font-size: 2.2rem; /* Make the icon larger */
-        margin-bottom: 8px; /* Space between icon and text */
-        display: block; /* Ensure it takes its own line */
-    }
-
-    .card-header small {
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.85em;
-      opacity: 0.9;
-      display: block; /* Ensure it takes its own line */
-      margin-top: 5px;
-    }
-
-    .card-body {
-      padding: 45px; /* More generous padding */
-    }
-
-    /* --- */
-    /* Form Control Styling */
     .form-label {
-      font-weight: 600; /* Slightly bolder labels */
-      color: var(--label-color);
-      margin-bottom: 12px; /* More space */
-      font-size: 1.05rem;
+      font-weight: 600;
+      color: #5d4037;
     }
 
     .form-control {
-      border-radius: 18px; /* Even softer and larger radius */
-      border: 1px solid var(--border-color);
-      padding: 18px 22px; /* More comfortable padding */
-      font-size: 1.1rem; /* Slightly larger font */
-      transition: all 0.3s ease;
-      background-color: #FCFCFC; /* Very light background for inputs */
+      border-radius: 15px;
+      padding: 15px;
+      border: 1px solid #bcaaa4;
     }
 
     .form-control:focus {
-      border-color: var(--primary-brown);
-      box-shadow: 0 0 0 0.4rem var(--focus-glow); /* More pronounced, yet soft glow */
-      background-color: var(--card-bg); /* White on focus */
-      outline: none; /* Remove default outline */
+      border-color: #8d6e63;
+      box-shadow: 0 0 0 0.25rem rgba(141, 110, 99, 0.2);
     }
 
-    /* --- */
-    /* Button Styling */
     .btn-primary {
-      background-color: var(--primary-brown);
-      border-color: var(--primary-brown);
-      border-radius: 18px; /* Match input radius */
-      padding: 18px 30px; /* More padding for a bolder button */
-      font-size: 1.35rem; /* Larger, more impactful font */
-      font-weight: 600;
-      letter-spacing: 1px;
-      transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
-      box-shadow: 0 8px 15px rgba(141, 110, 99, 0.2); /* Initial subtle shadow */
+      background-color: #8d6e63;
+      border-color: #8d6e63;
+      border-radius: 15px;
+      font-size: 1.2rem;
+      padding: 14px;
+      width: 100%;
+      font-weight: bold;
     }
 
     .btn-primary:hover {
-      background-color: var(--dark-brown);
-      border-color: var(--dark-brown);
-      transform: translateY(-5px); /* More pronounced lift */
-      box-shadow: 0 15px 25px rgba(141, 110, 99, 0.35); /* Deeper shadow on hover */
+      background-color: #6d4c41;
+      border-color: #6d4c41;
     }
 
-    .btn-primary:active {
-      transform: translateY(-1px); /* Slight sink on click */
-      box-shadow: 0 5px 10px rgba(141, 110, 99, 0.2);
-    }
-
-    /* --- */
-    /* Alert Styling */
     .alert {
-      border-radius: 15px; /* Slightly more rounded alerts */
-      font-size: 1.05rem;
-      padding: 18px 28px;
-      margin-bottom: 35px; /* More space below alerts */
-      display: flex; /* For better icon alignment */
-      align-items: center;
-    }
-    .alert-danger {
-        background-color: #fce8e8; /* Lighter red tint */
-        color: #b00020; /* Deeper red for text */
-        border: 1px solid #fbc9c9;
-    }
-    .alert-success {
-        background-color: #e6f7ea; /* Lighter green tint */
-        color: #1a7d35; /* Deeper green for text */
-        border: 1px solid #c7ecd2;
-    }
-    .alert .alert-icon {
-        margin-right: 15px;
-        font-size: 1.4rem;
-        line-height: 1;
+      border-radius: 10px;
+      font-size: 0.95rem;
     }
 
-    /* --- */
-    /* Link Styling */
-    a {
-      color: var(--dark-brown);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease, text-decoration 0.3s ease;
-    }
+    @media (max-width: 768px) {
+      .image-side {
+        display: none;
+      }
 
-    a:hover {
-      text-decoration: underline;
-      color: var(--accent-brown);
-    }
-
-    /* --- */
-    /* Animations */
-    @keyframes fadeInScale {
-      from {
-        opacity: 0;
-        transform: scale(0.95) translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 576px) {
-      .login-wrapper {
-        margin: 20px; /* Add margin on small screens */
-        border-radius: 15px;
-      }
-      .card-header {
-        font-size: 1.8rem;
-        padding: 30px;
-        border-radius: 15px 15px 0 0;
-      }
-      .card-body {
-        padding: 30px;
-      }
-      .form-control {
-        padding: 15px 20px;
-      }
-      .btn-primary {
-        padding: 15px 25px;
-        font-size: 1.2rem;
+      .form-side {
+        width: 100%;
+        padding: 40px 25px;
       }
     }
   </style>
 </head>
 <body>
-<div class="container">
-  <div class="login-wrapper">
-    <div class="card card-login-form">
+  <div class="login-container">
+    <div class="image-side"></div>
+    <div class="form-side">
       <div class="card-header">
-        <span class="lock-icon">🔒</span> Login Admin
-        <small>Restoran Rasa Nusantara</small>
+        Login Admin
+        <div style="font-size: 0.85rem; opacity: 0.85;">Restoran Rasa Nusantara</div>
       </div>
-      <div class="card-body">
-        @if ($errors->any())
-          <div class="alert alert-danger" role="alert">
-            <span class="alert-icon">⚠️</span> {{ $errors->first() }}
-          </div>
-        @endif
-        @if (session('success'))
-          <div class="alert alert-success" role="alert">
-            <span class="alert-icon">✅</span> {{ session('success') }}
-          </div>
-        @endif
 
-        <form method="POST" action="{{ route('admin.login') }}">
-          @csrf
-          <div class="mb-4">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" name="email" id="email" class="form-control" placeholder="admin@example.com" required autocomplete="email">
-          </div>
+      @if ($errors->any())
+        <div class="alert alert-danger">{{ $errors->first() }}</div>
+      @endif
+      @if (session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+      @endif
 
-          <div class="mb-4">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" id="password" class="form-control" placeholder="********" required autocomplete="current-password">
-          </div>
-          <button type="submit" class="btn btn-primary w-100 mt-3">Login</button>
-        </form>
-      </div>
+      <form method="POST" action="{{ route('admin.login') }}">
+        @csrf
+        <div class="mb-4">
+          <label class="form-label">Email</label>
+          <input type="email" name="email" class="form-control" placeholder="admin@example.com" required>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" placeholder="********" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Login</button>
+      </form>
     </div>
   </div>
-</div>
 </body>
 </html>
-

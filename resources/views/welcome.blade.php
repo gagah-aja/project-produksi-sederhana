@@ -198,11 +198,7 @@
 <!-- Menu Hari Ini -->
 <section id="menu" style="padding: 80px 20px; background: linear-gradient(135deg, #fff4e6, #ffe8d1); font-family: 'Segoe UI', sans-serif; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); margin: 40px 20px;">
   <h2 style="text-align: center; font-size: 2.4rem; color: #4e342e; margin-bottom: 40px;">Menu Restoran Nusantara</h2>
-  
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-    <!-- Semua menu card tetap sama, hanya ditempatkan dalam section dengan background yang sama -->
-
-    <!-- Contoh 1 Menu Card (Nasi Goreng) -->
     <div style="background: white; padding: 20px; border-radius: 12px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s;">
       <img src="nasgor.jpg" alt="Nasi Goreng" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
       <h3 style="margin: 15px 0 5px;">Nasi Goreng Spesial</h3>
@@ -213,7 +209,6 @@
         <a href="mailto:resto@example.com?subject=Pesan%20Nasi%20Goreng%20Spesial&body=Halo%2C%20saya%20ingin%20memesan%20Nasi%20Goreng%20Spesial" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">Email</a>
       </div>
     </div>
-
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
       <img src="sate.jpg" alt="Sate Ayam" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
       <h3>Sate Ayam Madura</h3>
@@ -225,17 +220,6 @@
       </div>
     </div>
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
-      <img src="basmal.jpg" alt="Bakso Malang" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
-      <h3>Bakso Malang</h3>
-      <p>Rp 22.000</p>
-      <p style="color: #888; font-size: 0.9rem;">Stok: 20 mangkuk</p>
-      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
-        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Bakso%20Malang" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
-        <a href="mailto:resto@example.com?subject=Pesan%20Bakso%20Malang&body=Halo%2C%20saya%20ingin%20memesan%20Bakso%20Malang" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
-      </div>
-    </div>
-    
-    <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
       <img src="empal gentong.jpg" alt="Empal Gentong" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
       <h3>Empal Gentong</h3>
       <p>Rp 30.000</p>
@@ -245,7 +229,6 @@
         <a href="mailto:resto@example.com?subject=Pesan%20Empal%20Gentong&body=Halo%2C%20saya%20ingin%20memesan%20Empal%20Gentong" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
       </div>
     </div>
-
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
       <img src="nasi jamblang.jpg" alt="Nasi Jamblang" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
       <h3>Nasi Jamblang</h3>
@@ -256,7 +239,6 @@
         <a href="mailto:resto@example.com?subject=Pesan%20Nasi%20Jamblang&body=Halo%2C%20saya%20ingin%20memesan%20Nasi%20Jamblang" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
       </div>
     </div>
-
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
       <img src="bebek goreng.jpg" alt="Bebek Goreng Kremes" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
       <h3>Bebek Goreng Kremes</h3>
@@ -267,7 +249,6 @@
         <a href="mailto:resto@example.com?subject=Pesan%20Bebek%20Goreng%20Kremes&body=Halo%2C%20saya%20ingin%20memesan%20Bebek%20Goreng%20Kremes" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
       </div>
     </div>
-
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
       <img src="soto ayam.jpg" alt="Soto Ayam" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
       <h3>Soto Ayam</h3>
@@ -278,7 +259,6 @@
         <a href="mailto:resto@example.com?subject=Pesan%20Soto%20Ayam&body=Halo%2C%20saya%20ingin%20memesan%20Soto%20Ayam" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
       </div>
     </div>
-
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
       <img src="mie ayam ceker.jpg" alt="Mie Ayam Ceker" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
       <h3>Mie Ayam Ceker</h3>
@@ -289,29 +269,6 @@
         <a href="mailto:resto@example.com?subject=Pesan%20Mie%20Ayam%20Ceker&body=Halo%2C%20saya%20ingin%20memesan%20Mie%20Ayam%20Ceker" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
       </div>
     </div>
-
-    <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
-      <img src="kwetiau goreng.jpg" alt="Kwetiau Goreng" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
-      <h3>Kwetiau Goreng</h3>
-      <p>Rp 25.000</p>
-      <p style="color: #888; font-size: 0.9rem;">Stok: 29 porsi</p>
-      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
-        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Kwetiau%20Goreng" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
-        <a href="mailto:resto@example.com?subject=Pesan%20Kwetiau%20Goreng&body=Halo%2C%20saya%20ingin%20memesan%20Kwetiau%20Goreng" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
-      </div>
-    </div>
-
-    <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
-      <img src="ayam geprek.jpg" alt="Ayam Geprek" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
-      <h3>Ayam Geprek</h3>
-      <p>Rp 18.000</p>
-      <p style="color: #888; font-size: 0.9rem;">Stok: 9 porsi</p>
-      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
-        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Ayam%20Geprek" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
-        <a href="mailto:resto@example.com?subject=Pesan%20Ayam%20Geprek&body=Halo%2C%20saya%20ingin%20memesan%20Ayam%20Geprek" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
-      </div>
-    </div>
-
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
       <img src="ikan bakar.jpg" alt="Ikan Bakar" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
       <h3>Ikan Bakar</h3>
@@ -322,7 +279,6 @@
         <a href="mailto:resto@example.com?subject=Pesan%20Ikan%20Bakar&body=Halo%2C%20saya%20ingin%20memesan%20Ikan%20Bakar" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
       </div>
     </div>
-
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
       <img src="rawon.jpg" alt="Rawon" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
       <h3>Rawon</h3>

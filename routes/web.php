@@ -63,6 +63,16 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     // ✅ Input Bahan Baku
     Route::get('/bahanbaku', [BahanBakuController::class, 'index'])->name('bahanbaku.index');
+    // Menu Bahan: Hubungan antara Menu dan Bahan Baku
+    // BENAR
+Route::get('/menubahan', [MenuBahanController::class, 'index'])->name('menubahan.index');
+Route::get('/menubahan/create', [MenuBahanController::class, 'create'])->name('menubahan.create');
+Route::post('/menubahan', [MenuBahanController::class, 'store'])->name('menubahan.store');
+Route::get('/menubahan/{id}/edit', [MenuBahanController::class, 'edit'])->name('menubahan.edit');
+Route::put('/menubahan/{id}', [MenuBahanController::class, 'update'])->name('menubahan.update');
+Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name('menubahan.destroy');
+Route::resource('/admin/menu', \App\Http\Controllers\MenuBahanController::class)->middleware('auth');
+Route::resource('/admin/bahanbaku', \App\Http\Controllers\BahanBakuController::class)->middleware('auth');
 
     // ✅ Proses Produksi
     Route::get('/produksi', [ProsesProduksiController::class, 'index'])->name('produksi.index');
