@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Selamat Datang di Restoran Kami</title>
+
+  <!-- Font Awesome untuk logo sosial media -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body style="margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fff8f1; color: #4e342e;">
 <style>
   html {
@@ -169,19 +173,21 @@
     }
   
     function nextSlide() {
-      if (currentIndex < totalSlides - 1) {
-        currentIndex++;
-        updateSlide();
-      }
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlide();
     }
   
     function prevSlide() {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateSlide();
-      }
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlide();
     }
+  
+    // Auto slide setiap 3 detik
+    setInterval(() => {
+      nextSlide();
+    }, 3000);
   </script>
+  
   
 </section>
 
@@ -314,10 +320,10 @@
     </div>
 
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
-      <img src="pizza.jpg" alt="Pizza" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
-      <h3>Pizza</h3>
-      <p>Rp 50.000</p>
-      <p style="color: #888; font-size: 0.9rem;">Stok: 4 loyang</p>
+      <img src="rawon.jpg" alt="Rawon" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <h3>Rawon</h3>
+      <p>Rp 30.000</p>
+      <p style="color: #888; font-size: 0.9rem;">Stok: 20 porsi</p>
       <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
         <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Pizza" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
         <a href="mailto:resto@example.com?subject=Pesan%20Pizza&body=Halo%2C%20saya%20ingin%20memesan%20Pizza" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
@@ -400,23 +406,27 @@
     </div>    
 
     <!-- Sosial Media -->
-    <div style="text-align: left; max-width: 300px; flex: 1; margin-top: 60px; padding: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 8px;">
-      <h4 style="margin-bottom: 10px; font-size: 18px; color: #fff;">Ikuti Kami:</h4>
-      <div style="display: flex; flex-direction: column; gap: 10px; font-size: 16px;">
-        
-        <a href="https://instagram.com/rasanusantara" target="_blank" style="color: #fce4ec; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-          📸 Instagram
-        </a>
-        
-        <a href="https://facebook.com/rasanusantara" target="_blank" style="color: #e3f2fd; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-          📘 Facebook
-        </a>
-        
-        <a href="https://www.tiktok.com/@rasanusantara" target="_blank" style="color: #e1bee7; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-          🎵 TikTok
-        </a>        
-      </div>
-    </div>    
+<div style="text-align: left; max-width: 300px; flex: 1; margin-top: 60px; padding: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 8px;">
+  <h4 style="margin-bottom: 10px; font-size: 18px; color: #fff;">Ikuti Kami:</h4>
+  <div style="display: flex; flex-direction: column; gap: 10px; font-size: 16px;">
+    
+    <a href="https://instagram.com/rasanusantara" target="_blank"
+       style="color: #fce4ec; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    
+    <a href="https://facebook.com/rasanusantara" target="_blank"
+       style="color: #e3f2fd; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
+    
+    <a href="https://twitter.com/rasanusantara" target="_blank" style="color: #bbdefb; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+      <i class="fab fa-twitter"></i> Twitter
+    </a>
+
+  </div>
+</div>
+    
 
     <!-- Kolom Peta dan Copyright -->
     <div style="text-align: center; flex: 2;">

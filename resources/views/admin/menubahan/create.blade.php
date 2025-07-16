@@ -62,12 +62,16 @@
 <script>
 document.getElementById('tambah-bahan').addEventListener('click', function () {
     const wrapper = document.getElementById('bahan-wrapper');
-    const item = wrapper.querySelector('.bahan-item');
-    const clone = item.cloneNode(true);
+    const firstItem = wrapper.querySelector('.bahan-item');
+    const clone = firstItem.cloneNode(true);
 
     // Reset nilai input
-    clone.querySelectorAll('input, select').forEach(el => el.value = '');
+    clone.querySelectorAll('input').forEach(input => input.value = '');
+    clone.querySelectorAll('select').forEach(select => select.selectedIndex = 0);
+
+    // Tampilkan tombol hapus
     clone.querySelector('.remove-btn').classList.remove('d-none');
+    
     wrapper.appendChild(clone);
 });
 
