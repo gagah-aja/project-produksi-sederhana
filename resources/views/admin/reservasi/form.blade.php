@@ -98,7 +98,7 @@
             const jumlah = document.getElementById("jumlah").value;
             const tanggal = document.getElementById("tanggal").value;
 
-            const nomorWA = "6285624039964"; // Ganti dengan nomor admin tanpa tanda +, misal: 62812xxxxxxx
+            const nomorWA = "6283172177445"; // Ganti dengan nomor admin tanpa tanda +, misal: 62812xxxxxxx
 
             const pesan = `Halo, saya ingin reservasi makanan:\n\n` +
                           `Nama: ${nama}\n` +

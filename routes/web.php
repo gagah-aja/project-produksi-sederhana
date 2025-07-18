@@ -8,6 +8,7 @@ use App\Http\Controllers\BahanBakuController;
 use App\Http\Controllers\ProsesProduksiController;
 use App\Http\Controllers\StokController;
 use App\Http\Controllers\Admin\FinanceController;
+use App\Http\Controllers\Admin\PengaturanController;
 
 // ========================
 // 🔓 ROUTE PUBLIK (tanpa login)
@@ -27,7 +28,7 @@ Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // ========================
-// 🔐 ADMIN AREA (semua wajib login)
+// 🔐 ADMIN AREA (wajib login)
 // ========================
 Route::get('/admin', function () {
     return auth()->check()
@@ -37,7 +38,7 @@ Route::get('/admin', function () {
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
-    // Dashboard admin redirect ke halaman utama
+    // ✅ Dashboard Admin
     Route::get('/dashboard', function () {
         return redirect()->route('finances.index');
     })->name('admin.dashboard');
@@ -50,29 +51,18 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::put('/keuangan/{id}', [FinanceController::class, 'update'])->name('finances.update');
     Route::delete('/keuangan/{id}', [FinanceController::class, 'destroy'])->name('finances.destroy');
 
+    // ✅ Modul Pengaturan Web (Index & Update)
+    Route::get('/pengaturan', [PengaturanController::class, 'index'])->name('pengaturan.index');
+    Route::post('/pengaturan', [PengaturanController::class, 'update'])->name('pengaturan.update');
+
     // ✅ Modul Reservasi (Admin)
     Route::resource('reservasi', ReservationController::class);
 
     // ✅ Menu Bahan Baku
-    Route::get('/menubahan', [MenuBahanController::class, 'index'])->name('menubahan.index');
-    Route::get('/menubahan/create', [MenuBahanController::class, 'create'])->name('menubahan.create');
-    Route::post('/menubahan', [MenuBahanController::class, 'store'])->name('menubahan.store');
-    Route::get('/menubahan/{id}/edit', [MenuBahanController::class, 'edit'])->name('menubahan.edit');
-    Route::put('/menubahan/{id}', [MenuBahanController::class, 'update'])->name('menubahan.update');
-    Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name('menubahan.destroy');
+    Route::resource('menu', MenuBahanController::class);
 
     // ✅ Input Bahan Baku
-    Route::get('/bahanbaku', [BahanBakuController::class, 'index'])->name('bahanbaku.index');
-    // Menu Bahan: Hubungan antara Menu dan Bahan Baku
-    // BENAR
-Route::get('/menubahan', [MenuBahanController::class, 'index'])->name('menubahan.index');
-Route::get('/menubahan/create', [MenuBahanController::class, 'create'])->name('menubahan.create');
-Route::post('/menubahan', [MenuBahanController::class, 'store'])->name('menubahan.store');
-Route::get('/menubahan/{id}/edit', [MenuBahanController::class, 'edit'])->name('menubahan.edit');
-Route::put('/menubahan/{id}', [MenuBahanController::class, 'update'])->name('menubahan.update');
-Route::delete('/menubahan/{id}', [MenuBahanController::class, 'destroy'])->name('menubahan.destroy');
-Route::resource('/admin/menu', \App\Http\Controllers\MenuBahanController::class)->middleware('auth');
-Route::resource('/admin/bahanbaku', \App\Http\Controllers\BahanBakuController::class)->middleware('auth');
+    Route::resource('bahanbaku', BahanBakuController::class);
 
     // ✅ Proses Produksi
     Route::get('/produksi', [ProsesProduksiController::class, 'index'])->name('produksi.index');
