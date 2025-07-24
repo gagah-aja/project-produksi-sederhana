@@ -9,8 +9,8 @@ class BahanBakuController extends Controller
 {
     public function index()
     {
-        $data = BahanBaku::all();
-        return view('admin.bahanbaku.index', compact('data'));
+        $bahanbaku = BahanBaku::all();
+        return view('admin.bahanbaku.index', compact('bahanbaku'));
     }
 
     public function create()

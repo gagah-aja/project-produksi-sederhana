@@ -1,72 +1,52 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login Admin - Restoran Rasa Nusantara</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* Background motif gelombang */
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
       margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
       display: flex;
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, #fcefdc 40%, #fff8f1 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: absolute;
-      top: -100px;
-      left: -50px;
-      width: 140%;
-      height: 300px;
-      background: radial-gradient(circle at left, #e6cfc3 20%, transparent 70%);
-      opacity: 0.3;
-      transform: rotate(-5deg);
-    }
-
-    body::after {
-      content: "";
-      position: absolute;
-      bottom: -100px;
-      right: -80px;
-      width: 160%;
-      height: 300px;
-      background: radial-gradient(circle at right, #d7ccc8 20%, transparent 70%);
-      opacity: 0.25;
-      transform: rotate(10deg);
     }
 
     .login-container {
       display: flex;
-      flex-wrap: wrap;
+      max-width: 900px;
+      width: 100%;
       background: white;
       box-shadow: 0 20px 45px rgba(0,0,0,0.1);
       border-radius: 20px;
       overflow: hidden;
-      max-width: 1000px;
-      width: 100%;
     }
 
     .image-side {
       flex: 1;
-      background-image: url('https://images.unsplash.com/photo-1609334762589-c5f2f96a3d89'); /* Ganti dengan gambar makanan Nusantara */
+      background-image: url('/images/resto.jpg');
       background-size: cover;
       background-position: center;
-      min-height: 450px;
+      min-height: 400px;
     }
 
     .form-side {
       flex: 1;
       padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .card-header {
@@ -117,12 +97,16 @@
     }
 
     @media (max-width: 768px) {
+      .login-container {
+        flex-direction: column;
+        max-width: 95%;
+      }
+
       .image-side {
         display: none;
       }
 
       .form-side {
-        width: 100%;
         padding: 40px 25px;
       }
     }
@@ -140,6 +124,7 @@
       @if ($errors->any())
         <div class="alert alert-danger">{{ $errors->first() }}</div>
       @endif
+
       @if (session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
       @endif

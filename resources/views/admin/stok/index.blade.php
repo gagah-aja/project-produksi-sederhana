@@ -3,7 +3,9 @@
 @section('content')
 <div class="container-fluid">
     <h1 class="mb-4 fw-semibold">Data Stok Barang</h1>
-    <a href="{{ route('stok.create') }}" class="btn btn-primary mb-3">+ Tambah Relasi</a>
+
+     {{-- Tombol tambah relasi dihapus --}}
+     {{-- <a href="{{ route('stok.create') }}" class="btn btn-primary mb-3">+ Tambah Relasi</a> --}}
 
         <div class="card border-0 shadow-sm">
             <div class="card-body p-0">

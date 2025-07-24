@@ -8,40 +8,55 @@ use App\Models\BahanBaku;
 use App\Models\ProsesProduksi;
 use App\Models\DetailProduksi;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ProsesProduksiController extends Controller
 {
+    /**
+     * Menampilkan daftar proses produksi.
+     */
     public function index()
     {
         $produksi = ProsesProduksi::with('menu')->latest()->get();
         return view('admin.produksi.index', compact('produksi'));
     }
 
+    /**
+     * Menampilkan form input produksi.
+     */
     public function create()
     {
         $menuList = Menu::with('bahanBaku')->get();
         return view('admin.produksi.create', compact('menuList'));
     }
 
+    /**
+     * Menyimpan data produksi & mengurangi stok bahan baku.
+     */
     public function store(Request $request)
     {
+        // Validasi input
         $request->validate([
             'menu_id' => 'required|exists:menus,id',
-            'jumlah_produksi' => 'required|integer|min:1',
+            'jumlah_produksi' => 'required|numeric|min:0.1',
         ]);
 
         DB::beginTransaction();
         try {
             $menu = Menu::with('bahanBaku')->findOrFail($request->menu_id);
 
-            // Kurangi stok bahan baku
+            // Cek apakah stok mencukupi
             foreach ($menu->bahanBaku as $bahan) {
                 $total = $bahan->pivot->jumlah * $request->jumlah_produksi;
                 if ($bahan->stok < $total) {
-                    return back()->with('error', "Stok {$bahan->nama} tidak cukup.");
+                    return back()->with('error', "Stok {$bahan->nama} tidak cukup. Sisa: {$bahan->stok}");
                 }
-                $bahan->stok -= $total;
-                $bahan->save();
+            }
+
+            // Kurangi stok bahan baku
+            foreach ($menu->bahanBaku as $bahan) {
+                $total = $bahan->pivot->jumlah * $request->jumlah_produksi;
+                $bahan->decrement('stok', $total);
             }
 
             // Simpan proses produksi
@@ -64,7 +79,8 @@ class ProsesProduksiController extends Controller
             return redirect()->route('produksi.index')->with('success', 'Produksi berhasil disimpan.');
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->with('error', 'Terjadi kesalahan saat produksi: ' . $e->getMessage());
+            Log::error('Gagal menyimpan produksi: ' . $e->getMessage());
+            return back()->with('error', 'Terjadi kesalahan saat produksi: ' . $e->getMessage())->withInput();
         }
     }
 }

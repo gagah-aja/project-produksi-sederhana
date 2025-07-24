@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('proses_produksi', function (Blueprint $table) {
-        $table->id();
-        $table->foreignId('menu_id')->constrained('menus')->onDelete('cascade');
-        $table->integer('jumlah_produksi');
-        $table->date('tanggal');
-        $table->timestamps();
+      Schema::create('produksis', function (Blueprint $table) {
+    $table->id();
+    $table->string('nama_produk');
+    $table->date('tanggal');
+    $table->timestamps();
 });
 
     }

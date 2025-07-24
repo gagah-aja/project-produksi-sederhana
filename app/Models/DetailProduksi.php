@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ProsesProduksi;
+use App\Models\BahanBaku;
 
 class DetailProduksi extends Model
 {
@@ -15,11 +17,17 @@ class DetailProduksi extends Model
         'jumlah_digunakan',
     ];
 
+    /**
+     * Relasi: Detail produksi milik satu proses produksi.
+     */
     public function prosesProduksi()
     {
         return $this->belongsTo(ProsesProduksi::class);
     }
 
+    /**
+     * Relasi: Detail produksi berisi satu bahan baku yang digunakan.
+     */
     public function bahanBaku()
     {
         return $this->belongsTo(BahanBaku::class);

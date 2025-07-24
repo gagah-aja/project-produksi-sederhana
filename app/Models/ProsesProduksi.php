@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Menu;
+use App\Models\DetailProduksi;
 
 class ProsesProduksi extends Model
 {
@@ -17,11 +19,17 @@ class ProsesProduksi extends Model
         'tanggal',
     ];
 
+    /**
+     * Relasi: Proses produksi milik satu menu.
+     */
     public function menu()
     {
         return $this->belongsTo(Menu::class);
     }
 
+    /**
+     * Relasi: Proses produksi memiliki banyak detail produksi.
+     */
     public function detail()
     {
         return $this->hasMany(DetailProduksi::class);

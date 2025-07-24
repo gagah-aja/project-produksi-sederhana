@@ -39,20 +39,21 @@
 
 <!-- Header -->
 <header style="background-color: #a1887f; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-  <!-- Logo dan Judul -->
   <div style="display: flex; align-items: center;">
-    <img src="logo.jpg" alt="Logo Restoran" style="height: 60px; margin-right: 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-    <h1 style="margin: 0; color: white; font-weight: 700; font-size: 1.8rem; letter-spacing: 1px;">
-      Restoran Nusantara
+    <img src="{{ asset('storage/' . $pengaturan['logo'] ?? 'images/logoresto.png') }}"
+         alt="Logo Restoran"
+         style="height: 60px; margin-right: 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+    <h1 class="text-4xl font-bold text-white drop-shadow-lg">
+      {{ $pengaturan['nama_toko'] ?? 'GAGAH' }}
     </h1>
   </div>
 
   <!-- Navigasi -->
   <nav>
-    <a href="#menu" class="nav-link" style="color: #fff; margin-right: 25px; text-decoration: none; font-weight: 600; font-size: 1rem; position: relative; padding-bottom: 3px;">
+    <a href="#menu" class="nav-link" style="color: #fff; margin-right: 25px; text-decoration: none; font-weight: 600; font-size: 1.25rem; position: relative; padding-bottom: 3px;">
       <i class="fas fa-utensils" style="margin-right: 6px;"></i>Menu
     </a>
-    <a href="#reservasi" class="nav-link" style="color: #fff; text-decoration: none; font-weight: 600; font-size: 1rem; position: relative; padding-bottom: 3px;">
+    <a href="#reservasi" class="nav-link" style="color: #fff; text-decoration: none; font-weight: 600; font-size: 1.25rem; position: relative; padding-bottom: 3px;">
       <i class="fas fa-calendar-check" style="margin-right: 6px;"></i>Reservasi
     </a>
   </nav>
@@ -116,6 +117,12 @@
 
     
     <style>
+      body {
+        background-image: url('{{ asset('storage/' . $pengaturan['background']) }}');
+        background-size: cover;
+        background-position: center;
+    }
+
       .slide {
         min-width: 100%;
         box-sizing: border-box;
@@ -205,8 +212,7 @@
       <p style="font-weight: bold; color: #6d4c41;">Rp 25.000</p>
       <p style="color: #888; font-size: 0.9rem;">Stok: 15 porsi</p>
       <div style="display: flex; justify-content: center; gap: 8px; margin-top: 12px;">
-        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Nasi%20Goreng%20Spesial" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
-        <a href="mailto:resto@example.com?subject=Pesan%20Nasi%20Goreng%20Spesial&body=Halo%2C%20saya%20ingin%20memesan%20Nasi%20Goreng%20Spesial" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">Email</a>
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Nasi%20Goreng%20Spesial" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 6px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
       </div>
     </div>
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
@@ -215,8 +221,7 @@
       <p>Rp 30.000</p>
       <p style="color: #888; font-size: 0.9rem;">Stok: 10 porsi</p>
       <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
-        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Sate%20Ayam%20Madura" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
-        <a href="mailto:resto@example.com?subject=Pesan%20Sate%20Ayam%20Madura&body=Halo%2C%20saya%20ingin%20memesan%20Sate%20Ayam%20Madura" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Sate%20Ayam%20Madura" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
       </div>
     </div>
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
@@ -225,8 +230,7 @@
       <p>Rp 30.000</p>
       <p style="color: #888; font-size: 0.9rem;">Stok: 10 mangkuk</p>
       <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
-        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Empal%20Gentong" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
-        <a href="mailto:resto@example.com?subject=Pesan%20Empal%20Gentong&body=Halo%2C%20saya%20ingin%20memesan%20Empal%20Gentong" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Empal%20Gentong" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
       </div>
     </div>
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
@@ -235,8 +239,7 @@
       <p>Rp 25.000</p>
       <p style="color: #888; font-size: 0.9rem;">Stok: 23 porsi</p>
       <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
-        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Nasi%20Jamblang" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
-        <a href="mailto:resto@example.com?subject=Pesan%20Nasi%20Jamblang&body=Halo%2C%20saya%20ingin%20memesan%20Nasi%20Jamblang" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Nasi%20Jamblang" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
       </div>
     </div>
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
@@ -245,8 +248,7 @@
       <p>Rp 33.000</p>
       <p style="color: #888; font-size: 0.9rem;">Stok: 6 porsi</p>
       <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
-        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Bebek%20Goreng%20Kremes" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
-        <a href="mailto:resto@example.com?subject=Pesan%20Bebek%20Goreng%20Kremes&body=Halo%2C%20saya%20ingin%20memesan%20Bebek%20Goreng%20Kremes" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Bebek%20Goreng%20Kremes" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
       </div>
     </div>
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
@@ -255,8 +257,7 @@
       <p>Rp 15.000</p>
       <p style="color: #888; font-size: 0.9rem;">Stok: 16 mangkuk</p>
       <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
-        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Soto%20Ayam" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
-        <a href="mailto:resto@example.com?subject=Pesan%20Soto%20Ayam&body=Halo%2C%20saya%20ingin%20memesan%20Soto%20Ayam" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Soto%20Ayam" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
       </div>
     </div>
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
@@ -265,8 +266,7 @@
       <p>Rp 25.000</p>
       <p style="color: #888; font-size: 0.9rem;">Stok: 16 mangkuk</p>
       <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
-        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Mie%20Ayam%20Ceker" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
-        <a href="mailto:resto@example.com?subject=Pesan%20Mie%20Ayam%20Ceker&body=Halo%2C%20saya%20ingin%20memesan%20Mie%20Ayam%20Ceker" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Mie%20Ayam%20Ceker" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
       </div>
     </div>
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
@@ -275,8 +275,7 @@
       <p>Rp 40.000</p>
       <p style="color: #888; font-size: 0.9rem;">Stok: 27 porsi</p>
       <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
-        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Ikan%20Bakar" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
-        <a href="mailto:resto@example.com?subject=Pesan%20Ikan%20Bakar&body=Halo%2C%20saya%20ingin%20memesan%20Ikan%20Bakar" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Ikan%20Bakar" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
       </div>
     </div>
     <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
@@ -285,15 +284,112 @@
       <p>Rp 30.000</p>
       <p style="color: #888; font-size: 0.9rem;">Stok: 20 porsi</p>
       <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
-        <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20memesan%20Pizza" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
-        <a href="mailto:resto@example.com?subject=Pesan%20Pizza&body=Halo%2C%20saya%20ingin%20memesan%20Pizza" style="flex: 1; padding: 8px 10px; background-color: #4285F4; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">Email</a>
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Rawon" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
+      </div>
+    </div>
+    <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
+      <img src="rendang.jpg" alt="Rendang" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <h3>Rendang</h3>
+      <p>Rp 50.000</p>
+      <p style="color: #888; font-size: 0.9rem;">Stok: 27 porsi</p>
+      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Rendang" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
+      </div>
+    </div>
+    <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
+      <img src="gudeg.jpg" alt="Gudeg" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <h3>Gudeg</h3>
+      <p>Rp 35.000</p>
+      <p style="color: #888; font-size: 0.9rem;">Stok: 27 porsi</p>
+      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Gudeg" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
+      </div>
+    </div>
+    <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
+      <img src="gado.jpg" alt="Gado Ga" sdotyle="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <h3>Gado Gado</h3>
+      <p>Rp 25.000</p>
+      <p style="color: #888; font-size: 0.9rem;">Stok: 27 porsi</p>
+      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Gado%20Gado" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
+      </div>
+    </div>
+        <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
+      <img src="nasgor.jpg" alt="Nasi Goreng" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <h3>Nasi Goreng</h3>
+      <p>Rp 20.000</p>
+      <p style="color: #888; font-size: 0.9rem;">Stok: 27 porsi</p>
+      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Gudeg" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
+      </div>
+    </div>
+        <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
+      <img src="keraktelor.jpg" alt="Kerak Telor" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <h3>Kerak Telor</h3>
+      <p>Rp 15.000</p>
+      <p style="color: #888; font-size: 0.9rem;">Stok: 27 porsi</p>
+      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Gudeg" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
+      </div>
+    </div>
+        <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
+      <img src="betutu.jpg" alt="Ayam Betutu" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <h3>Ayam Betutu</h3>
+      <p>Rp 50.000</p>
+      <p style="color: #888; font-size: 0.9rem;">Stok: 27 porsi</p>
+      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Gudeg" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
+      </div>
+    </div>
+        <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
+      <img src="madura.jpg" alt="Bebek Madura" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <h3>Bebek Madura</h3>
+      <p>Rp 100.000</p>
+      <p style="color: #888; font-size: 0.9rem;">Stok: 27 porsi</p>
+      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Gudeg" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
+      </div>
+    </div>
+        <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
+      <img src="pempek.jpg" alt="Pempek" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <h3>Pempek</h3>
+      <p>Rp 30.000</p>
+      <p style="color: #888; font-size: 0.9rem;">Stok: 27 porsi</p>
+      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Gudeg" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
+      </div>
+    </div>
+        <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
+      <img src="lobal.jpg" alt="Lontong Balap" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <h3>Lontong Balap</h3>
+      <p>Rp 30.000</p>
+      <p style="color: #888; font-size: 0.9rem;">Stok: 27 porsi</p>
+      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Gudeg" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
+      </div>
+    </div>
+        <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
+      <img src="naskun.jpg" alt="Nasi Kuning" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <h3>Nasi Kuning</h3>
+      <p>Rp 25.000</p>
+      <p style="color: #888; font-size: 0.9rem;">Stok: 27 porsi</p>
+      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Gudeg" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
+      </div>
+    </div>
+        <div style="background: white; padding: 20px; border-radius: 10px; width: 250px; box-shadow: 0 5px 12px rgba(0,0,0,0.1); text-align: center;">
+      <img src="lugai.jpg" alt="Gulai Ikan" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+      <h3>Gulai Ikan</h3>
+      <p>Rp 24.000</p>
+      <p style="color: #888; font-size: 0.9rem;">Stok: 27 porsi</p>
+      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+        <a href="https://wa.me/6283172177445?text=Halo%2C%20saya%20ingin%20memesan%20Gudeg" target="_blank" style="flex: 1; padding: 8px 10px; background-color: #25D366; color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem;">WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
 
      
-
 <!-- Reservasi -->
 <section id="reservasi" style="padding: 80px 20px; background: linear-gradient(135deg, #fff4e6, #ffe8d1); font-family: 'Segoe UI', sans-serif; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); margin: 40px 20px;">
   <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap-reverse; gap: 40px; max-width: 1100px; margin: auto;">
@@ -344,64 +440,93 @@
 
 
 <!-- Footer -->
-<footer style="background-color: #a1887f; padding: 30px 20px; color: white;">
-  <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; gap: 20px;">
-    
-    <!-- Kolom Kontak di Kiri -->
-    <div style="text-align: left; max-width: 300px; flex: 1; margin-top: 60px; padding: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 8px;">
-      <h3 style="margin-bottom: 15px; font-size: 20px; color: #fff;">Hubungi Kami</h3>
-      
-      <p style="margin: 10px 0;">
-        <span style="color: #ffe082;">📍</span> Jl. Kuliner No. 88, Jakarta
-      </p>
-      
-      <p style="margin: 10px 0;">
-        <span style="color: #81d4fa;">📞</span> (021) 1234 5678
-      </p>
-      
-      <p style="margin: 10px 0;">
-        <span style="color: #ffab91;">📧</span>
-        <a href="mailto:info@rasanusantara.id" style="color: #fff; text-decoration: underline;">info@rasanusantara.id</a>
-      </p>
-    </div>    
+<footer style="background-color: #a1887f; padding: 40px 20px; color: white; font-family: 'Segoe UI', sans-serif;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; max-width: 1200px; margin: 0 auto; align-items: flex-start;">
 
-    <!-- Sosial Media -->
-<div style="text-align: left; max-width: 300px; flex: 1; margin-top: 60px; padding: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 8px;">
-  <h4 style="margin-bottom: 10px; font-size: 18px; color: #fff;">Ikuti Kami:</h4>
-  <div style="display: flex; flex-direction: column; gap: 10px; font-size: 16px;">
-    
-    <a href="https://instagram.com/rasanusantara" target="_blank"
-       style="color: #fce4ec; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-      <i class="fab fa-instagram"></i> Instagram
-    </a>
-    
-    <a href="https://facebook.com/rasanusantara" target="_blank"
-       style="color: #e3f2fd; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-      <i class="fab fa-facebook"></i> Facebook
-    </a>
-    
-    <a href="https://twitter.com/rasanusantara" target="_blank" style="color: #bbdefb; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-      <i class="fab fa-twitter"></i> Twitter
-    </a>
+    <!-- Kolom Kontak -->
+    <div style="flex: 1 1 240px; background-color: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+      <h3 style="margin-bottom: 16px; font-weight: bold; color: #fff; font-size: 18px;">Hubungi Kami</h3>
+      <p style="margin: 10px 0; font-size: 15px;">
+        <span style="color: #ffe082; font-size: 18px; margin-right: 8px;">📍</span>
+        {{ $pengaturan['alamat'] ?? 'Jl. Kuliner No. 88, Jakarta' }}
+      </p>
+      <p style="margin: 10px 0; font-size: 15px;">
+        <span style="color: #81d4fa; font-size: 18px; margin-right: 8px;">📞</span>
+        {{ $pengaturan['telepon'] ?? '(021) 1234 5678'}}
+      </p>
+      <p style="margin: 10px 0; font-size: 15px;">
+        <span style="color: #ffab91; font-size: 18px; margin-right: 8px;">📧</span>
+        <a href="mailto:info@rasanusantara.id" style="color: #fff; text-decoration: underline;"></a>
+        {{ $pengaturan['email'] ?? 'info@rasanusantara.id'}}
+      </p>
+    </div>
 
-  </div>
+    <!-- Kolom Sosial Media -->
+<div style="flex: 1 1 240px; background-color: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
+  <h3 style="margin-bottom: 16px; font-weight: bold; color: #fff; font-size: 18px;">Ikuti Kami</h3>
+
+  <style>
+    .social-link {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      font-size: 15px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-link:hover {
+      transform: scale(1.05);
+      color: #ffd54f;
+    }
+
+    .social-icon {
+      margin-right: 8px;
+      font-size: 20px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-link:hover .social-icon {
+      transform: rotate(5deg) scale(1.2);
+    }
+  </style>
+
+  <p>
+    <a href="{{ $pengaturan['facebook'] ?? 'https://www.facebook.com/rasanusantara' }}" target="_blank" class="social-link">
+      <i class="fab fa-facebook-square social-icon" style="color: #3b5998;"></i>Facebook
+    </a>
+  <p>
+    <a href="{{ $pengaturan['instagram'] ?? 'https://www.instagram.com/rasanusantara' }}" target="_blank" class="social-link">
+      <i class="fab fa-instagram social-icon" style="color: #fd0e3e;"></i>Instagram
+    </a>
+  </p>
+  <p>
+    <a href="{{ $pengaturan['twitter'] ?? 'https://twitter.com/rasanusantara' }}" target="_blank" class="social-link">
+      <i class="fab fa-twitter social-icon" style="color: #1da1f2;"></i>Twitter
+    </a>
+  </p>
 </div>
-    
 
-    <!-- Kolom Peta dan Copyright -->
-    <div style="text-align: center; flex: 2;">
+
+    <!-- Kolom Peta -->
+    <div style="flex: 1 1 320px; background-color: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px;">
       <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d507172.04253533715!2d107.89996127343751!3d-6.735462399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f1f386029826f%3A0x7cc773d692e955d3!2sPasta%20Nusantara!5e0!3m2!1sid!2sid!4v1752459800446!5m2!1sid!2sid"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31698.579835982735!2d108.5209602419651!3d-6.7304530689887105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f1df5cbef4f75%3A0x144faa02ff1faad8!2sKec.%20Kesambi%2C%20Kota%20Cirebon%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1753277351552!5m2!1sid!2sid"
         width="100%" 
-        height="250" 
-        style="border:0; max-width: 650px;" 
+        height="200" 
+        style="border: 0; border-radius: 10px;" 
         allowfullscreen="" 
         loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade"
         title="Peta Restoran Rasa Nusantara">
       </iframe>
-      <p style="margin-top: 30px;">&copy; 2025 Restoran Rasa Nusantara</p>
+
+    {{-- {!! $pengaturan['google_maps'] !!} --}}
+
+      <p style="margin-top: 12px; font-size: 14px; text-align: center;">&copy; 2025 Restoran Rasa Nusantara</p>
     </div>
+
   </div>
 </footer>
 

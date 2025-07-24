@@ -9,13 +9,12 @@ use App\Http\Controllers\ProsesProduksiController;
 use App\Http\Controllers\StokController;
 use App\Http\Controllers\Admin\FinanceController;
 use App\Http\Controllers\Admin\PengaturanController;
+use App\Http\Controllers\Admin\LandingPageController;
 
 // ========================
 // 🔓 ROUTE PUBLIK (tanpa login)
 // ========================
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LandingPageController::class, 'index']);
 
 Route::get('/reservasi', [ReservationController::class, 'create']);
 Route::post('/reservasi', [ReservationController::class, 'store']);
