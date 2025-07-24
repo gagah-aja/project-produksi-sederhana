@@ -12,6 +12,7 @@
         body {
             background-color: #f8f9fa;
         }
+
         .sidebar {
             position: fixed;
             top: 0;
@@ -20,12 +21,15 @@
             width: 220px;
             background-color: #343a40;
             padding-top: 20px;
+            overflow-y: auto;
         }
+
         .sidebar h4 {
             color: #fff;
             text-align: center;
             margin-bottom: 30px;
         }
+
         .sidebar a {
             display: block;
             padding: 12px 30px;
@@ -33,28 +37,34 @@
             text-decoration: none;
             transition: 0.3s;
         }
+
         .sidebar a:hover {
             background-color: #495057;
             color: #fff;
         }
+
         .sidebar .collapse a {
             font-size: 0.9rem;
             padding-left: 40px;
             color: #ccc;
         }
+
         .sidebar .collapse a:hover {
             color: #fff;
         }
+
         .dropdown-toggle {
             color: #ccc;
             text-decoration: none;
             padding: 12px 30px;
             display: block;
         }
+
         .dropdown-toggle:hover {
             color: #fff;
             background-color: #495057;
         }
+
         .main-content {
             margin-left: 220px;
             padding: 30px;
@@ -62,9 +72,6 @@
     </style>
 </head>
 <body>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <div class="sidebar">
     <h4>🧑‍💼 Admin Panel</h4>
@@ -77,12 +84,13 @@
         🍞 Menu
     </a>
     <div class="collapse ps-2" id="menuCollapse">
-        <a href="{{ route('menubahan.index') }}" class="d-block text-decoration-none text-light">📥 Input Bahan Baku</a>
-        <a href="{{ route('produksi.index') }}" class="d-block text-decoration-none text-light">⚙️ Proses Produksi</a>
-        <a href="{{ route('stok.index') }}" class="d-block text-decoration-none text-light">📦 Stok Bahan Baku</a>
+        <a href="{{ route('bahanbaku.index') }}">📥 Input Bahan Baku</a>
+        <a href="{{ route('produksi.index') }}">⚙️ Proses Produksi</a>
+        <a href="{{ route('stok.index') }}">📦 Stok Bahan Baku</a>
     </div>
 
-    <!-- Logout Button -->
+    <a href="{{ route('pengaturan.index') }}">⚙️ Pengaturan Web</a>
+
     <form action="{{ route('logout') }}" method="POST" class="d-grid mt-3 px-3">
         @csrf
         <button type="submit" class="btn btn-danger btn-sm">Logout</button>
@@ -94,5 +102,7 @@
     @yield('content')
 </div>
 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

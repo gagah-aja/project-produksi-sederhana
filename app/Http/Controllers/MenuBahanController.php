@@ -24,37 +24,35 @@ class MenuBahanController extends Controller
         return view('admin.menubahan.index', compact('data'));
     }
 
-   public function create()
-{
-    $menus = Menu::all(); // Ambil semua menu dari DB
-    $bahanBaku = BahanBaku::all(); // Ambil semua bahan baku
-    return view('admin.menubahan.create', compact('menus', 'bahanBaku'));
-}
-
-public function store(Request $request)
-{
-    $request->validate([
-        'menu_id' => 'required|numeric', // hilangkan "exists"
-        'bahan_baku_id' => 'required|array',
-        'jumlah' => 'required|array',
-        'satuan' => 'required|array',
-    ]);
-
-    // Hapus relasi lama jika ada
-    DB::table('menu_bahan_bakus')->where('menu_id', $request->menu_id)->delete();
-
-    foreach ($request->bahan_baku_id as $index => $bahanId) {
-        DB::table('menu_bahan_bakus')->insert([
-            'menu_id' => $request->menu_id,
-            'bahan_baku_id' => $bahanId,
-            'jumlah' => $request->jumlah[$index],
-            'satuan' => $request->satuan[$index],
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+    public function create()
+    {
+        $menus = Menu::all();
+        $bahanBaku = BahanBaku::all();
+        return view('admin.menubahan.create', compact('menus', 'bahanBaku'));
     }
 
-    return redirect()->route('menubahan.index')->with('success', 'Relasi berhasil disimpan.');
-}
+    public function store(Request $request)
+    {
+        $request->validate([
+            'menu_id' => 'required|numeric',
+            'bahan_baku_id' => 'required|array',
+            'jumlah' => 'required|array',
+            'satuan' => 'required|array',
+        ]);
 
+        DB::table('menu_bahan_bakus')->where('menu_id', $request->menu_id)->delete();
+
+        foreach ($request->bahan_baku_id as $index => $bahanId) {
+            DB::table('menu_bahan_bakus')->insert([
+                'menu_id' => $request->menu_id,
+                'bahan_baku_id' => $bahanId,
+                'jumlah' => $request->jumlah[$index],
+                'satuan' => $request->satuan[$index],
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+
+        return redirect()->route('menubahan.index')->with('success', 'Relasi berhasil disimpan.');
+    }
 }
