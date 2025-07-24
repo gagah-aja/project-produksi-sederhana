@@ -13,12 +13,6 @@ return new class extends Migration
     {
         Schema::create('detail_produksi', function (Blueprint $table) {
             $table->id();
-            Schema::create('produksi_details', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('produksi_id')->constrained();
-            $table->foreignId('bahan_baku_id')->constrained();
-            $table->integer('jumlah_dipakai');
-            $table->timestamps();
 
             // Relasi ke tabel proses_produksi
             $table->foreignId('proses_produksi_id')
